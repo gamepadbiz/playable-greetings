@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gloria's Birthday Scratch Casino</title>
+<style>
+:root{--bg:#170919;--bg2:#2b0f2f;--card:#3a1740;--gold:#ffd36b;--gold2:#ffefad;--pink:#ff8ed8;--green:#67e28f;--blue:#8ed7ff;--ink:#fff8e7;--muted:#e7cde7;--line:rgba(255,255,255,.18);--silver:#cfd3df;--silver2:#9aa1b4}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);padding:16px;background:radial-gradient(circle at 15% 0%,rgba(255,211,107,.25),transparent 34%),radial-gradient(circle at 85% 10%,rgba(255,142,216,.2),transparent 35%),linear-gradient(180deg,var(--bg2),var(--bg))}.app{width:min(980px,100%);margin:0 auto 36px}.hero,.scratch-machine,.panel{background:rgba(58,23,64,.94);border:1px solid var(--line);border-radius:26px;box-shadow:0 22px 70px rgba(0,0,0,.45)}.hero{padding:18px;text-align:center;overflow:hidden}h1{font-size:clamp(2.15rem,8vw,5rem);line-height:.92;margin:4px 0 0;color:var(--gold2);text-shadow:0 4px 0 rgba(0,0,0,.25),0 0 28px rgba(255,211,107,.35)}.subtitle{font-size:clamp(1rem,2.8vw,1.25rem);color:var(--muted);line-height:1.45;max-width:820px;margin:12px auto 0}.bigline{font-weight:950;margin-top:10px;font-size:1.08rem}.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}.badge{border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:999px;padding:8px 11px;font-weight:800;font-size:.88rem}.grid{display:grid;grid-template-columns:1.18fr .82fr;gap:16px;margin-top:16px}@media(max-width:850px){.grid{grid-template-columns:1fr}}.scratch-machine{padding:18px;text-align:center}.marquee{border:2px solid rgba(255,211,107,.55);border-radius:20px;padding:10px;background:linear-gradient(135deg,rgba(255,211,107,.16),rgba(255,255,255,.06));color:var(--gold2);font-weight:950;letter-spacing:.04em;margin-bottom:16px}.ticket-wrap{width:min(520px,100%);margin:0 auto}.ticket{position:relative;min-height:300px;border-radius:24px;overflow:hidden;border:5px solid #8a4a14;background:linear-gradient(180deg,#fff8db,#f5dca0);box-shadow:inset 0 8px 24px rgba(0,0,0,.16),0 8px 0 rgba(0,0,0,.25)}.ticket-prize{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#22140a;padding:24px}.prize-card{width:100%;display:grid;gap:8px;align-content:center}.prize-emoji{font-size:clamp(3.2rem,13vw,5.8rem);line-height:1}.prize-title{font-size:clamp(1.35rem,5vw,2.1rem);font-weight:1000;color:#2b0f2f}.prize-msg{font-size:clamp(.98rem,3vw,1.18rem);line-height:1.35;color:#422106}.prize-cash{font-size:clamp(1.8rem,8vw,3.1rem);font-weight:1000;color:#0b7f35;text-shadow:0 2px 0 rgba(255,255,255,.5)}canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none}.scratch-hint{margin-top:10px;color:var(--muted);font-size:.92rem}.message{margin-top:16px;background:rgba(0,0,0,.18);border:1px solid var(--line);border-radius:20px;padding:15px;min-height:128px;text-align:left}.message h2{margin:0 0 7px;color:var(--gold2);font-size:1.35rem}.message p{margin:7px 0;color:#fff4e2;line-height:1.45}.win{color:var(--green);font-weight:950}.laugh{color:var(--blue);font-weight:950}.ralph{color:var(--pink);font-weight:950}button{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.09);border-radius:18px;padding:13px 15px;font-weight:950;font-size:1rem;cursor:pointer;transition:.15s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.38)}button:disabled{opacity:.55;cursor:not-allowed}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.actions button{flex:1;min-width:160px;text-align:center}.primary{background:rgba(255,211,107,.18);border-color:rgba(255,211,107,.45)}.scratch-btn{width:100%;max-width:420px;font-size:1.18rem;background:linear-gradient(135deg,#ffcb55,#ff6b8f);color:#2b0f2f;border:0;box-shadow:0 8px 0 rgba(0,0,0,.25),0 0 28px rgba(255,211,107,.25)}.panel{padding:16px}.panel+.panel{margin-top:16px}.panel h3{margin:0 0 10px;color:var(--gold2)}.statrow{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:16px;padding:11px;text-align:center}.stat b{display:block;color:var(--gold2);font-size:1.45rem}.stat span{font-size:.8rem;color:var(--muted)}.log{display:grid;gap:8px;max-height:330px;overflow:auto;padding-right:4px}.logitem{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:14px;padding:9px;color:#fff4e2;font-size:.92rem;line-height:1.35}.note{color:var(--muted);font-size:.88rem;line-height:1.45;margin:8px 0 0}.finale{display:none;margin-top:16px;padding:16px;border-radius:22px;border:2px solid rgba(255,211,107,.55);background:linear-gradient(135deg,rgba(255,211,107,.18),rgba(255,142,216,.12));text-align:left}.finale.show{display:block}.finale h2{margin:0 0 8px;color:var(--gold2)}.claim{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:12px;padding:10px;word-break:break-word;color:#fff}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);background:rgba(20,8,24,.97);border:1px solid var(--line);border-radius:999px;padding:10px 14px;opacity:0;transition:.2s;font-weight:900;z-index:50}.toast.show{opacity:1;transform:translateX(-50%)}.confetti{pointer-events:none;position:fixed;inset:0;overflow:hidden;z-index:40}.confetti span{position:absolute;top:-20px;font-size:24px;animation:fall 2.8s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}.footer{text-align:center;color:var(--muted);font-size:.82rem;margin:14px}@media(max-width:520px){body{padding:10px}.scratch-machine,.panel,.hero{border-radius:20px;padding:13px}.ticket{min-height:270px}.actions button{min-width:100%}}
+
+.vegas-hero{padding:10px 10px 16px;text-align:center;overflow:hidden}.vegas-sign-wrap{width:100%;max-width:960px;margin:0 auto}.vegas-sign{width:100%;height:auto;display:block;overflow:visible}.vegas-copy{margin:6px auto 0;max-width:820px}.vegas-copy .subtitle{margin-top:6px}.vegas-badges{margin-top:10px}@keyframes vbPulse{from{opacity:.62;transform:scale(.93)}to{opacity:1;transform:scale(1.08)}}@keyframes vegasStarGlow{from{opacity:.86;filter:drop-shadow(0 0 4px #ff3b12)}to{opacity:1;filter:drop-shadow(0 0 17px #ffd53b)}}@media(max-width:520px){.vegas-hero{padding:7px 5px 12px}.vegas-sign-wrap{margin-top:-4px}.vegas-copy .subtitle{font-size:.94rem}.vegas-copy .bigline{font-size:.95rem}}
+
+
+
+/* =========================
+   PREMIUM ETSY-STYLE CASINO POLISH PASS
+   Visual-only changes: no gameplay logic changed.
+   ========================= */
+:root{
+  --casino-red:#f52316;
+  --casino-red-dark:#740900;
+  --neon-purple:#7b1bff;
+  --deep-purple:#12051d;
+  --vegas-blue:#1261bb;
+  --cream:#fff3c9;
+  --hot-pink:#ff4fc3;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 6%,rgba(255,214,107,.30),transparent 28%),
+    radial-gradient(circle at 88% 8%,rgba(255,79,195,.22),transparent 30%),
+    radial-gradient(circle at 50% 38%,rgba(245,35,22,.16),transparent 34%),
+    repeating-conic-gradient(from 8deg at 50% -10%,rgba(255,255,255,.045) 0 8deg,transparent 8deg 17deg),
+    linear-gradient(180deg,#2c0c3a 0%,#13051d 42%,#09020d 100%);
+  background-attachment:fixed;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,246,174,.9) 0 1.5px,transparent 2.5px),
+    radial-gradient(circle,rgba(255,79,195,.7) 0 1.5px,transparent 2.5px),
+    radial-gradient(circle,rgba(142,215,255,.7) 0 1.5px,transparent 2.5px);
+  background-size:84px 84px,119px 119px,151px 151px;
+  background-position:0 0,28px 42px,55px 18px;
+  opacity:.20;
+  z-index:-1;
+}
+.app{filter:drop-shadow(0 18px 45px rgba(0,0,0,.35))}
+.hero,.scratch-machine,.panel{
+  background:
+    linear-gradient(180deg,rgba(56,16,76,.97),rgba(25,7,35,.98));
+  border:1px solid rgba(255,214,107,.22);
+  box-shadow:
+    0 22px 70px rgba(0,0,0,.50),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 0 0 1px rgba(255,79,195,.08),
+    0 0 34px rgba(255,214,107,.10);
+  position:relative;
+  overflow:hidden;
+}
+.hero:after,.scratch-machine:after,.panel:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),transparent 24%,transparent 72%,rgba(255,214,107,.10));
+  opacity:.55;
+}
+.vegas-hero{background:linear-gradient(180deg,rgba(15,3,26,.96),rgba(37,9,55,.95))}
+.vegas-copy{position:relative;z-index:2}
+.subtitle,.bigline{color:#fff0d6;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.badge{
+  color:#fff7c9;
+  border-color:rgba(255,214,107,.45);
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.16),transparent 35%),
+    linear-gradient(180deg,rgba(126,31,145,.82),rgba(56,12,75,.82));
+  box-shadow:inset 0 0 12px rgba(0,0,0,.25),0 0 18px rgba(255,214,107,.12);
+}
+.grid{align-items:start}
+.marquee{
+  border:2px solid rgba(255,214,107,.75);
+  background:
+    linear-gradient(90deg,rgba(107,9,17,.84),rgba(93,22,120,.92),rgba(107,9,17,.84));
+  color:#fff4b2;
+  text-shadow:0 0 10px rgba(255,214,107,.95),0 2px 0 rgba(0,0,0,.45);
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,.30),
+    0 0 25px rgba(255,214,107,.20),
+    0 6px 0 rgba(0,0,0,.20);
+  position:relative;
+  overflow:hidden;
+}
+.marquee:before,.marquee:after{
+  content:"✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:#ffd36b;
+  opacity:.25;
+  font-size:.8rem;
+  letter-spacing:.35em;
+  white-space:nowrap;
+}
+.marquee:before{left:10px}.marquee:after{right:10px}
+.ticket-wrap{
+  position:relative;
+  padding:12px;
+  border-radius:32px;
+  background:
+    linear-gradient(135deg,rgba(255,214,107,.38),rgba(255,79,195,.16),rgba(142,215,255,.10));
+  box-shadow:0 20px 40px rgba(0,0,0,.35),0 0 35px rgba(255,214,107,.13);
+}
+.ticket-wrap:before{
+  content:"SCRATCH & WIN GLORIA STYLE";
+  display:block;
+  margin:0 0 8px;
+  padding:9px 12px;
+  border-radius:18px;
+  color:#fff3bc;
+  font-weight:1000;
+  font-size:.85rem;
+  letter-spacing:.08em;
+  text-shadow:0 0 10px rgba(255,214,107,.8);
+  background:linear-gradient(90deg,#641018,#361157,#641018);
+  border:1px solid rgba(255,214,107,.48);
+}
+.ticket{
+  border:0;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 30%,#fffbe8,#f6d88c 70%,#d58a20 100%);
+  box-shadow:
+    inset 0 0 0 5px #7b3105,
+    inset 0 0 0 10px #ffcb45,
+    inset 0 0 35px rgba(0,0,0,.16),
+    0 12px 0 rgba(0,0,0,.25),
+    0 0 30px rgba(255,203,69,.25);
+}
+.ticket:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border-radius:20px;
+  border:2px dashed rgba(107,49,6,.34);
+  pointer-events:none;
+  z-index:3;
+}
+.ticket:after{
+  content:"★ ★ ★";
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  transform:translateX(-50%);
+  color:rgba(123,49,5,.35);
+  font-weight:1000;
+  letter-spacing:.35em;
+  pointer-events:none;
+  z-index:3;
+}
+.ticket-prize{z-index:1;padding:30px 26px;color:#1e0d05}
+canvas{z-index:2;border-radius:28px}
+.prize-card{
+  background:
+    radial-gradient(circle at 50% 5%,rgba(255,255,255,.9),rgba(255,246,209,.75) 40%,rgba(255,218,141,.65));
+  border:2px solid rgba(111,49,0,.28);
+  border-radius:22px;
+  padding:14px;
+  box-shadow:inset 0 0 18px rgba(255,255,255,.45),0 10px 24px rgba(0,0,0,.14);
+}
+.prize-emoji{text-shadow:0 4px 12px rgba(0,0,0,.22)}
+.prize-title{
+  color:#951308;
+  text-shadow:0 1px 0 rgba(255,255,255,.75),0 0 12px rgba(255,195,43,.42);
+  letter-spacing:-.02em;
+}
+.prize-msg{color:#2a1407;font-weight:750}
+.scratch-hint{
+  color:#fff2bd;
+  font-weight:800;
+  text-shadow:0 0 10px rgba(255,214,107,.35);
+}
+.actions{position:relative;z-index:2}
+button{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.05)),
+    linear-gradient(135deg,#5f156e,#2b0f3e);
+  border-color:rgba(255,214,107,.25);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 7px 0 rgba(0,0,0,.22),0 0 20px rgba(255,79,195,.12);
+}
+button:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 8px 0 rgba(0,0,0,.22),0 0 25px rgba(255,214,107,.18)}
+button:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 3px 0 rgba(0,0,0,.22)}
+.scratch-btn,.primary{
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.65),transparent 18%),
+    linear-gradient(135deg,#ffe071,#ff7d21 45%,#f52316 100%) !important;
+  color:#250407;
+  border:2px solid rgba(255,239,173,.88);
+  text-shadow:0 1px 0 rgba(255,255,255,.45);
+  box-shadow:0 8px 0 rgba(72,9,5,.82),0 0 30px rgba(255,123,33,.45),inset 0 0 18px rgba(255,255,255,.18);
+}
+.message,.finale{
+  background:
+    radial-gradient(circle at 20% 0%,rgba(255,214,107,.16),transparent 34%),
+    linear-gradient(180deg,rgba(24,5,33,.9),rgba(11,3,18,.88));
+  border:2px solid rgba(255,214,107,.34);
+  box-shadow:inset 0 0 18px rgba(0,0,0,.28),0 0 24px rgba(255,214,107,.10);
+  position:relative;
+  z-index:2;
+}
+.message:before,.finale:before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,214,107,.42),transparent 26%,transparent 70%,rgba(255,79,195,.26));
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  padding:2px;
+  mask-composite:exclude;
+  -webkit-mask-composite:xor;
+}
+.message h2,.finale h2,.panel h3{
+  color:#fff2b8;
+  text-shadow:0 0 12px rgba(255,214,107,.45),0 2px 0 rgba(0,0,0,.4);
+}
+.panel h3:before{content:"★ ";color:#ffd36b}.panel h3:after{content:" ★";color:#ffd36b}
+.statrow{gap:12px}
+.stat{
+  border-radius:999px;
+  aspect-ratio:1.08/1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 35% 25%,rgba(255,255,255,.20),transparent 26%),
+    radial-gradient(circle,#69217d 0 45%,#35104c 46% 64%,#ffd36b 65% 70%,#65171d 71% 100%);
+  border:2px dashed rgba(255,239,173,.75);
+  box-shadow:0 10px 20px rgba(0,0,0,.28),0 0 18px rgba(255,214,107,.14),inset 0 0 16px rgba(0,0,0,.25);
+}
+.stat b{color:#fff2b8;font-size:clamp(1.45rem,5vw,2.1rem);text-shadow:0 0 12px rgba(255,214,107,.75),0 3px 0 rgba(0,0,0,.42)}
+.stat span{color:#fff0d0;font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:.72rem}
+.logitem{
+  position:relative;
+  color:#2a1004;
+  background:
+    linear-gradient(90deg,transparent 0 12px,#fff3c9 12px calc(100% - 12px),transparent calc(100% - 12px)),
+    radial-gradient(circle at left center,transparent 0 9px,#fff3c9 10px),
+    radial-gradient(circle at right center,transparent 0 9px,#fff3c9 10px);
+  border:1px solid rgba(255,214,107,.55);
+  box-shadow:0 8px 18px rgba(0,0,0,.20);
+  font-weight:800;
+  padding:11px 16px;
+}
+.logitem:before{
+  content:"🎟️";
+  margin-right:6px;
+}
+.claim{
+  background:rgba(0,0,0,.36);
+  border-color:rgba(255,214,107,.32);
+  box-shadow:inset 0 0 18px rgba(0,0,0,.25);
+}
+.footer{color:#dbc5df;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.toast{border-color:rgba(255,214,107,.35);box-shadow:0 0 25px rgba(255,214,107,.18)}
+@media(max-width:520px){
+  body{padding:8px}
+  .ticket-wrap{padding:8px;border-radius:24px}
+  .ticket-wrap:before{font-size:.72rem;padding:8px}
+  .ticket{min-height:282px;border-radius:22px;box-shadow:inset 0 0 0 4px #7b3105,inset 0 0 0 8px #ffcb45,inset 0 0 26px rgba(0,0,0,.16),0 9px 0 rgba(0,0,0,.25)}
+  .ticket-prize{padding:23px 18px}.prize-card{padding:10px}.prize-msg{font-size:.95rem}
+  .stat{aspect-ratio:auto;border-radius:18px;min-height:96px}
+  .marquee:before,.marquee:after{display:none}
+}
+
+
+/* Gloria scratch-specific premium polish */
+.ticket-wrap:before{content:"SCRATCH & WIN GLORIA STYLE";}
+.claim{border-color:rgba(255,211,107,.32);box-shadow:inset 0 0 18px rgba(255,214,107,.07);}
+.prize-cash{color:#0a8c3b;text-shadow:0 2px 0 rgba(255,255,255,.55),0 0 16px rgba(103,226,143,.38);}
+
+.ticket-wrap:before{content:attr(data-ticket-label) !important;}
+</style>
+</head>
+
+<body>
+<div class="app">
+<section class="hero vegas-hero">
+<div class="vegas-sign-wrap">
+<svg class="vegas-sign" id="dynamicVegasSign" viewBox="0 0 1200 460" role="img" aria-label="Personalized birthday scratch-off sign">
+<defs>
+  <radialGradient id="pgCreamGlow" cx="50%" cy="46%" r="78%"><stop offset="0%" stop-color="#fffef4"/><stop offset="70%" stop-color="#fff0c4"/><stop offset="100%" stop-color="#e6c06e"/></radialGradient>
+  <linearGradient id="pgGoldEdge" x1="0" x2="1"><stop offset="0%" stop-color="#6f3c00"/><stop offset="18%" stop-color="#f3a313"/><stop offset="42%" stop-color="#ffe783"/><stop offset="62%" stop-color="#ffbd2b"/><stop offset="100%" stop-color="#5b2a00"/></linearGradient>
+  <linearGradient id="pgRedFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ff912a"/><stop offset="42%" stop-color="#ee3a10"/><stop offset="100%" stop-color="#850a02"/></linearGradient>
+  <filter id="pgSoftShadow" x="-20%" y="-25%" width="140%" height="170%"><feDropShadow dx="0" dy="11" stdDeviation="7" flood-color="#000" flood-opacity=".66"/></filter>
+  <filter id="pgBulbGlow" x="-130%" y="-130%" width="360%" height="360%"><feGaussianBlur stdDeviation="4" result="blur"/><feColorMatrix in="blur" type="matrix" values="1 0 0 0 1  0 .72 0 0 .45  0 0 .18 0 0  0 0 0 1 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="pgTextShadow" x="-20%" y="-35%" width="140%" height="180%"><feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#000" flood-opacity=".45"/></filter>
+  <filter id="pgStarNeon" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g transform="translate(0,-2)" style="animation:vegasStarGlow 1.35s infinite alternate">
+  <polygon points="600,10 621,94 696,46 656,124 741,145 650,157 694,235 615,184 600,276 585,184 506,235 550,157 459,145 544,124 504,46 579,94" fill="#f82216" stroke="#ffe66b" stroke-width="8" filter="url(#pgStarNeon)"/>
+  <polygon points="600,30 612,103 666,69 636,132 701,148 632,155 663,215 607,174 600,246 593,174 537,215 568,155 499,148 564,132 534,69 588,103" fill="none" stroke="#fff15f" stroke-width="4" opacity=".95"/>
+  <line x1="600" y1="10" x2="600" y2="276" stroke="#ffe65a" stroke-width="3" opacity=".75"/><line x1="459" y1="145" x2="741" y2="145" stroke="#ff3b16" stroke-width="3" opacity=".7"/>
+</g>
+<g filter="url(#pgSoftShadow)">
+  <path id="pgSignShape" d="M 92 250 L 190 155 L 510 102 L 600 90 L 690 102 L 1010 155 L 1108 250 L 1010 345 L 690 398 L 600 410 L 510 398 L 190 345 Z" fill="url(#pgCreamGlow)" stroke="url(#pgGoldEdge)" stroke-width="28" stroke-linejoin="round"/>
+  <path d="M 145 250 L 225 182 L 518 136 L 600 126 L 682 136 L 975 182 L 1055 250 L 975 318 L 682 364 L 600 374 L 518 364 L 225 318 Z" fill="none" stroke="#865a31" stroke-width="4" opacity=".8" stroke-linejoin="round"/>
+</g>
+<g id="pgBorderBulbs"></g><g id="pgHappyMedallions"></g>
+<text id="pgOccasionText" x="600" y="214" text-anchor="middle" font-family="Brush Script MT, Segoe Script, cursive" font-size="78" fill="#1261bb" filter="url(#pgTextShadow)">birthday</text>
+<text id="pgNameText" x="600" y="324" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="108" font-weight="900" fill="#f52316" filter="url(#pgTextShadow)" letter-spacing="4">GLORIA</text>
+</svg>
+</div>
+<div class="vegas-copy">
+<p class="subtitle" id="subtitle"></p>
+<p class="bigline" id="bigline"></p>
+<div class="badges vegas-badges" id="badges"></div>
+</div>
+</section>
+<main class="grid">
+<section class="scratch-machine">
+<div class="marquee" id="marquee"></div>
+<div class="ticket-wrap" id="ticketWrap">
+  <div class="ticket" id="ticket">
+    <div class="ticket-prize" id="prizeArea"></div>
+    <canvas id="scratchCanvas" width="520" height="300" aria-label="Scratch ticket"></canvas>
+  </div>
+  <div class="scratch-hint" id="scratchHint"></div>
+</div>
+<div class="actions"><button id="nextBtn" class="scratch-btn" disabled>🎟️ Scratch This Ticket First</button></div>
+<div class="message" id="message"></div>
+<div class="finale" id="finale">
+<h2 id="finaleTitle"></h2>
+<p id="finalText"></p>
+<div class="claim" id="claimText"></div>
+<div class="actions"><button class="primary" id="shareBtn"></button><button id="copyBtn"></button><button id="restartBtn"></button></div>
+<p class="note" id="finaleNote"></p>
+</div>
+</section>
+<aside>
+<section class="panel"><h3 id="scoreboardTitle"></h3><div class="statrow"><div class="stat"><b id="ticketsLeft">0</b><span id="ticketsLeftLabel"></span></div><div class="stat"><b id="bestWin">$0</b><span id="bestWinLabel"></span></div></div><p class="note" id="scoreboardNote"></p></section>
+<section class="panel"><h3 id="historyTitle"></h3><div class="log" id="log"></div></section>
+<section class="panel"><h3 id="rulesTitle"></h3><div id="rulesList"></div></section>
+</aside>
+</main>
+<p class="footer" id="footer"></p>
+</div>
+<div class="confetti" id="confetti"></div><div class="toast" id="toast"></div>
+
+<script id="defaultGameConfig" type="application/json">
+{
+  "version": 1,
+  "gameType": "scratch",
+  "theme": "premiumVegas",
+  "recipientName": "Gloria",
+  "occasionText": "birthday",
+  "gameTitle": "Birthday Scratch-Off",
+  "fromName": "Mike",
+  "overridePerson": "Ralph",
+  "ticketCount": 5,
+  "cashMode": true,
+  "minimumCashWin": 10,
+  "ticketLabel": "SCRATCH & WIN GLORIA STYLE",
+  "subtitle": "Like the birthday slots, but now Gloria scratches the ticket and the prize appears underneath.",
+  "bigline": "Five official tickets. Best cash win counts. Ralph’s audit department is once again respectfully ignored.",
+  "badges": [
+    "5 Official Tickets",
+    "Best Cash Win Counts",
+    "Scratch to Reveal",
+    "Ralph May Object"
+  ],
+  "marqueeStart": "✨ BIRTHDAY SCRATCH LUCK LOADING FOR GLORIA ✨",
+  "marqueeTemplate": "✨ TICKET {ticketNumber} OF {ticketCount} — SCRATCH FOR {recipientUpper} ✨",
+  "scratchHint": "Scratch the silver coating to reveal the prize underneath.",
+  "scratchLayerText": {
+    "line1": "SCRATCH HERE!",
+    "line2": "Reveal Gloria’s prize",
+    "icons": "🎟️ ✨ 👑"
+  },
+  "welcome": {
+    "title": "Welcome, Gloria!",
+    "paragraphs": [
+      "This is your official birthday scratch-off casino from Mike.",
+      "You get 5 official tickets. Some tickets win cash. Some tickets win laughs. All tickets are rigged in favor of the birthday girl."
+    ],
+    "overrideLine": "Important casino rule: Ralph may inspect the ticket, but he may not reduce the payout."
+  },
+  "scoreboard": {
+    "title": "Birthday Scoreboard",
+    "leftLabel": "Tickets Left",
+    "rightLabel": "Best Cash Win",
+    "note": "Guaranteed minimum birthday love: unlimited. Guaranteed minimum Ralph commentary: also unlimited."
+  },
+  "historyTitle": "Scratch History",
+  "rulesTitle": "Casino Rules",
+  "rules": [
+    "Gloria is the birthday girl.",
+    "Scratch until the prize is revealed.",
+    "Ralph’s objections are decorative.",
+    "Text Mike the final result to claim the birthday prize."
+  ],
+  "finale": {
+    "title": "🎉 Official Scratch Result",
+    "note": "Official game: best cash win from the 5 birthday scratch tickets counts. Replay resets the casino because Gloria deserves another round.",
+    "shareButton": "Text / Share My Win With Mike",
+    "copyButton": "Copy Claim Text",
+    "restartButton": "🔄 Play Again — Ralph Demands a Rescratch"
+  },
+  "footer": "Made with love for Gloria. No coins required. No actual lottery harmed. Ralph’s spreadsheet may be emotionally affected.",
+  "customerInputs": {
+    "relationship": "Mom",
+    "interests": [
+      "Bingo",
+      "McDonald's cheeseburgers",
+      "family"
+    ],
+    "people": [
+      "Ralph",
+      "Mike"
+    ],
+    "oneThingEveryoneKnows": "Gloria deserves the win and Ralph's audit never stands."
+  },
+  "claim": {
+    "template": "🎟️ {recipientName} scratched her way to ${bestWin} at {recipientName}’s Birthday Scratch Casino!\\n\\nClaim Code: {recipientUpper}-SCRATCH-${bestWin}\\n\\n{overridePerson}’s audit has been overruled.\\n{fromName}, please honor the birthday surprise at your discretion.\\n\\nHappy Birthday, {recipientName}!"
+  },
+  "prizes": [
+    {
+      "amount": 5,
+      "emoji": "🍔",
+      "title": "Birthday Cheeseburger Cash",
+      "msg": "Gloria wins $5 toward a McDonald’s double cheeseburger or Big Mac. Ralph may not audit the pickles, onions, or special sauce.",
+      "type": "cash",
+      "weight": 18
+    },
+    {
+      "amount": 10,
+      "emoji": "💐",
+      "title": "Flower Bonus",
+      "msg": "Gloria wins $10. Flowers for Gloria. Ralph may admire them, but may not calculate their resale value.",
+      "type": "cash",
+      "weight": 13
+    },
+    {
+      "amount": 15,
+      "emoji": "👑",
+      "title": "Queen Gloria Bonus",
+      "msg": "Gloria wins $15 because Scratch Casino recognizes her as the rightful ruler of the day.",
+      "type": "cash",
+      "weight": 10
+    },
+    {
+      "amount": 20,
+      "emoji": "🧾",
+      "title": "Ralph Audit Override",
+      "msg": "Gloria wins $20. Ralph attempted to pause the payout for review. Request denied by Birthday Scratch Casino.",
+      "type": "cash",
+      "weight": 8
+    },
+    {
+      "amount": 25,
+      "emoji": "🎂",
+      "title": "Birthday Cake Bonus",
+      "msg": "Gloria wins $25 because birthday rules override household budget committee rules.",
+      "type": "cash",
+      "weight": 6
+    },
+    {
+      "amount": 50,
+      "emoji": "💸",
+      "title": "Zelle Zone",
+      "msg": "Gloria wins $50! Text Mike before Ralph moves the money to a safer location.",
+      "type": "cash",
+      "weight": 3
+    },
+    {
+      "amount": 100,
+      "emoji": "7️⃣",
+      "title": "Scratch-Off Jackpot",
+      "msg": "JACKPOT! Gloria wins $100. Ralph is advised to remain calm and not ask where this money came from.",
+      "type": "cash",
+      "weight": 1
+    },
+    {
+      "amount": 0,
+      "emoji": "🧾",
+      "title": "Ralph Receipt Check",
+      "msg": "No cash this ticket, but Ralph is currently reviewing the payout. Estimated approval time: 3–5 business years.",
+      "type": "laugh",
+      "weight": 14
+    },
+    {
+      "amount": 0,
+      "emoji": "🚨",
+      "title": "Correction Alert",
+      "msg": "Gloria’s version of the story has been officially accepted as the correct version. Ralph may file an appeal after cake.",
+      "type": "laugh",
+      "weight": 12
+    },
+    {
+      "amount": 0,
+      "emoji": "😂",
+      "title": "Laughter Jackpot",
+      "msg": "No cash this ticket, but Gloria wins the right to laugh while Ralph explains something no one asked about.",
+      "type": "laugh",
+      "weight": 12
+    },
+    {
+      "amount": 0,
+      "emoji": "🍒",
+      "title": "Almost Jackpot",
+      "msg": "Two cherries and one Ralph receipt. Close enough for a laugh, not close enough for Ralph to open a ledger.",
+      "type": "laugh",
+      "weight": 10
+    },
+    {
+      "amount": 0,
+      "emoji": "🍔",
+      "title": "Cheeseburger Break",
+      "msg": "Gloria wins one double cheeseburger break. Ralph buys. Mike approves.",
+      "type": "laugh",
+      "weight": 10
+    },
+    {
+      "amount": 0,
+      "emoji": "📜",
+      "title": "Official Ruling",
+      "msg": "All disputed memories shall be settled in favor of the birthday girl. This ruling is final unless Gloria changes the story later.",
+      "type": "laugh",
+      "weight": 9
+    },
+    {
+      "amount": 0,
+      "emoji": "💖",
+      "title": "Real Jackpot",
+      "msg": "No cash on this ticket, but Gloria is loved more than any casino could pay.",
+      "type": "laugh",
+      "weight": 10
+    },
+    {
+      "amount": 0,
+      "emoji": "💐",
+      "title": "Birthday Smile",
+      "msg": "No cash this ticket. But Gloria wins a birthday smile and Ralph wins a gentle reminder to say, ‘Yes dear.’",
+      "type": "laugh",
+      "weight": 8
+    },
+    {
+      "amount": 0,
+      "emoji": "🎟️",
+      "title": "Suspiciously Lucky Ticket",
+      "msg": "This ticket was scratched so beautifully that the casino briefly considered giving Gloria the building.",
+      "type": "laugh",
+      "weight": 6
+    },
+    {
+      "amount": 0,
+      "emoji": "👑",
+      "title": "Queen’s Decree",
+      "msg": "Gloria decrees that calories do not count on birthdays. Ralph’s nutrition spreadsheet has been sealed until tomorrow.",
+      "type": "laugh",
+      "weight": 8
+    }
+  ]
+}
+</script>
+
+<script>
+let GAME_CONFIG = null;
+let ticketsLeft=5,bestWin=0,bestTitle="",revealed=false,finished=false,currentPrize=null,logItems=[];
+const $=id=>document.getElementById(id);
+const canvas=$("scratchCanvas");
+const ctx=canvas.getContext("2d",{willReadFrequently:true});
+
+function esc(s){return String(s ?? "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
+function fmt(t,extra={}){
+  const c = GAME_CONFIG || {};
+  const data = Object.assign({}, c, {
+    recipientUpper: String(c.recipientName||"").toUpperCase(),
+    overrideUpper: String(c.overridePerson||"").toUpperCase(),
+    ticketCount: c.ticketCount || 5,
+    bestWin: bestWin
+  }, extra);
+  return String(t ?? "").replace(/\{(\w+)\}/g,(_,k)=>data[k] ?? "");
+}
+function readEmbeddedConfig(){
+  try{return JSON.parse($("defaultGameConfig").textContent)}catch(e){console.error(e); return null}
+}
+async function loadConfig(){
+  const params = new URLSearchParams(location.search);
+  const key = params.get("config") || params.get("id");
+  const file = params.get("file");
+  let config = readEmbeddedConfig();
+
+  // Hosted mode: scratch.html?config=abc loads configs/abc.json
+  // Direct file mode often blocks fetch, so embedded config remains the fallback.
+  if(key){
+    const safe = key.replace(/[^a-zA-Z0-9_-]/g,"");
+    try{
+      const res = await fetch(`configs/${safe}.json`, {cache:"no-store"});
+      if(res.ok) config = await res.json();
+    }catch(e){ console.warn("External config not loaded; using embedded fallback.", e); }
+  } else if(file){
+    try{
+      const res = await fetch(file, {cache:"no-store"});
+      if(res.ok) config = await res.json();
+    }catch(e){ console.warn("External config file not loaded; using embedded fallback.", e); }
+  }
+  return normalizeConfig(config);
+}
+function normalizeConfig(c){
+  c = c || {};
+  c.recipientName = c.recipientName || "Gloria";
+  c.occasionText = c.occasionText || "birthday";
+  c.gameTitle = c.gameTitle || "Birthday Scratch-Off";
+  c.fromName = c.fromName || "Mike";
+  c.overridePerson = c.overridePerson || "Ralph";
+  c.ticketCount = Number(c.ticketCount || 5);
+  c.cashMode = c.cashMode !== false;
+  c.minimumCashWin = Number(c.minimumCashWin || 0);
+  c.prizes = Array.isArray(c.prizes) && c.prizes.length ? c.prizes : readEmbeddedConfig().prizes;
+  c.badges = Array.isArray(c.badges) ? c.badges : [];
+  c.rules = Array.isArray(c.rules) ? c.rules : [];
+  return c;
+}
+function applyConfigToPage(){
+  const c=GAME_CONFIG;
+  document.title = `${c.recipientName}'s ${c.gameTitle}`;
+  $("subtitle").textContent = c.subtitle || "";
+  $("bigline").textContent = c.bigline || "";
+  $("badges").innerHTML = (c.badges||[]).map(b=>`<span class="badge">${esc(b)}</span>`).join("");
+  $("marquee").textContent = c.marqueeStart || fmt("✨ BIRTHDAY SCRATCH LUCK LOADING FOR {recipientUpper} ✨");
+  $("scratchHint").textContent = c.scratchHint || "Scratch the silver coating to reveal the prize underneath.";
+  $("ticketWrap").dataset.ticketLabel = c.ticketLabel || `SCRATCH & WIN ${String(c.recipientName).toUpperCase()} STYLE`;
+
+  $("message").innerHTML = `<h2>${esc(c.welcome?.title || `Welcome, ${c.recipientName}!`)}</h2>` +
+    (c.welcome?.paragraphs||[]).map(p=>`<p>${esc(fmt(p))}</p>`).join("") +
+    `<p class="ralph">${esc(fmt(c.welcome?.overrideLine || `Important rule: ${c.overridePerson} may inspect the ticket, but the birthday person still wins.`))}</p>`;
+
+  $("finaleTitle").textContent = c.finale?.title || "🎉 Official Scratch Result";
+  $("finaleNote").textContent = fmt(c.finale?.note || "");
+  $("shareBtn").textContent = c.finale?.shareButton || "Text / Share My Win";
+  $("copyBtn").textContent = c.finale?.copyButton || "Copy Claim Text";
+  $("restartBtn").textContent = c.finale?.restartButton || `🔄 Play Again — ${c.overridePerson} Demands a Rescratch`;
+
+  $("scoreboardTitle").textContent = c.scoreboard?.title || "Birthday Scoreboard";
+  $("ticketsLeftLabel").textContent = c.scoreboard?.leftLabel || "Tickets Left";
+  $("bestWinLabel").textContent = c.scoreboard?.rightLabel || (c.cashMode ? "Best Cash Win" : "Prizes Collected");
+  $("scoreboardNote").textContent = fmt(c.scoreboard?.note || "");
+  $("historyTitle").textContent = c.historyTitle || "Scratch History";
+  $("rulesTitle").textContent = c.rulesTitle || "Casino Rules";
+  $("rulesList").innerHTML = (c.rules||[]).map((r,i)=>`<p class="note">${i+1}. ${esc(fmt(r))}</p>`).join("");
+  $("footer").textContent = fmt(c.footer || "");
+
+  updateVegasSign();
+}
+function updateVegasSign(){
+  const c=GAME_CONFIG;
+  $("pgOccasionText").textContent = c.occasionText || "birthday";
+  $("pgNameText").textContent = String(c.recipientName||"GLORIA").toUpperCase();
+  initVegasHeader();
+}
+function fitSvgText(el,maxWidth,minSize){
+  if(!el)return;
+  let size=parseFloat(el.getAttribute('font-size')) || 80;
+  el.setAttribute('font-size',size);
+  requestAnimationFrame(()=>{
+    let box=el.getBBox();
+    while(box.width>maxWidth && size>minSize){
+      size-=2;
+      el.setAttribute('font-size',size);
+      box=el.getBBox();
+    }
+  });
+}
+function initVegasHeader(){
+  const svg=$('dynamicVegasSign'); if(!svg)return;
+  const NS='http://www.w3.org/2000/svg';
+  function circle(parent,x,y,r,fill,stroke,sw){const c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',r);if(fill)c.setAttribute('fill',fill);if(stroke)c.setAttribute('stroke',stroke);if(sw)c.setAttribute('stroke-width',sw);parent.appendChild(c);return c;}
+  function bulb(parent,x,y,r=8,delay=0){const g=document.createElementNS(NS,'g');g.style.animation=`vbPulse ${1.0+Math.random()*.55}s infinite alternate`;g.style.animationDelay=delay+'s';g.style.transformOrigin=`${x}px ${y}px`;circle(g,x,y,r+4,'#ff9b10').setAttribute('opacity','.33');const b=circle(g,x,y,r,'#fff8b8','#ffba1e',3.5);b.setAttribute('filter','url(#pgBulbGlow)');circle(g,x-r*.27,y-r*.35,r*.28,'#fff').setAttribute('opacity','.9');parent.appendChild(g);}
+  function samplePath(path,count){const len=path.getTotalLength(),pts=[];for(let i=0;i<count;i++){const p=path.getPointAtLength((len*i)/count);pts.push([p.x,p.y]);}return pts;}
+  const border=$('pgBorderBulbs');border.innerHTML='';samplePath($('pgSignShape'),84).forEach((p,i)=>bulb(border,p[0],p[1],8,(i%10)*.04));
+  const happy=$('pgHappyMedallions');happy.innerHTML='';['H','A','P','P','Y'].forEach((letter,i)=>{const x=372+i*114,y=102,g=document.createElementNS(NS,'g');g.setAttribute('filter','url(#pgSoftShadow)');circle(g,x,y,43,'url(#pgRedFill)','#ffd65a',6);circle(g,x,y,34,'none','#8a1204',4);for(let a=0;a<12;a++){const ang=Math.PI*2*a/12;bulb(g,x+35*Math.cos(ang),y+35*Math.sin(ang),5.5,(a%4)*.08);}const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y+15);t.setAttribute('text-anchor','middle');t.setAttribute('font-family','Arial Black, Impact, sans-serif');t.setAttribute('font-size','54');t.setAttribute('font-weight','900');t.setAttribute('fill','#ffe87d');t.setAttribute('stroke','#7b1306');t.setAttribute('stroke-width','3');t.setAttribute('paint-order','stroke fill');t.textContent=letter;g.appendChild(t);happy.appendChild(g);});
+  fitSvgText($('pgOccasionText'),560,42);fitSvgText($('pgNameText'),760,44);
+}
+function weightedPick(items){
+  const total = items.reduce((s,p)=>s+Number(p.weight||1),0);
+  let r=Math.random()*total;
+  for(const p of items){r-=Number(p.weight||1); if(r<=0)return p;}
+  return items[items.length-1];
+}
+function pickPrize(){
+  const c=GAME_CONFIG;
+  const prizes=c.prizes||[];
+  if(c.cashMode && ticketsLeft===1 && bestWin < (c.minimumCashWin||0)){
+    const cash = prizes.filter(p=>Number(p.amount||0)>=c.minimumCashWin);
+    if(cash.length) return cash[0];
+  }
+  return weightedPick(prizes);
+}
+function renderPrize(p){
+  const amount=Number(p.amount||0);
+  $("prizeArea").innerHTML=`<div class="prize-card"><div class="prize-emoji">${esc(p.emoji||"🎟️")}</div><div class="prize-title">${esc(p.title)}</div>${amount?`<div class="prize-cash">$${amount}</div>`:""}<div class="prize-msg">${esc(fmt(p.msg||p.description||""))}</div></div>`;
+}
+function drawScratchLayer(){
+ ctx.globalCompositeOperation="source-over";
+ const g=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+ g.addColorStop(0,"#f3f4f8");g.addColorStop(.5,"#aeb5c8");g.addColorStop(1,"#eef0f5");
+ ctx.fillStyle=g;ctx.fillRect(0,0,canvas.width,canvas.height);
+ ctx.fillStyle="rgba(255,255,255,.22)";
+ for(let i=0;i<canvas.width;i+=32){ctx.fillRect(i,-30,14,canvas.height+60)}
+ ctx.strokeStyle="rgba(0,0,0,.16)";ctx.lineWidth=2;
+ for(let i=0;i<26;i++){ctx.beginPath();ctx.moveTo(Math.random()*canvas.width,Math.random()*canvas.height);ctx.lineTo(Math.random()*canvas.width,Math.random()*canvas.height);ctx.stroke()}
+ const txt=GAME_CONFIG.scratchLayerText||{};
+ ctx.textAlign="center";ctx.fillStyle="#2b0f2f";ctx.font="900 34px system-ui, Arial";ctx.fillText(txt.line1||"SCRATCH HERE!",canvas.width/2,110);
+ ctx.font="800 22px system-ui, Arial";ctx.fillText(txt.line2||`Reveal ${GAME_CONFIG.recipientName}’s prize`,canvas.width/2,148);
+ ctx.font="700 46px system-ui, Arial";ctx.fillText(txt.icons||"🎟️ ✨ 👑",canvas.width/2,210);
+}
+function newTicket(){
+ if(ticketsLeft<=0){showFinale();return}
+ currentPrize=pickPrize();revealed=false;renderPrize(currentPrize);drawScratchLayer();
+ $("nextBtn").disabled=true;$("nextBtn").textContent="🎟️ Scratch This Ticket First";
+ $("scratchHint").textContent=GAME_CONFIG.scratchHint || "Scratch the silver coating to reveal the prize underneath.";
+ $("marquee").textContent=fmt(GAME_CONFIG.marqueeTemplate || "✨ TICKET {ticketNumber} OF {ticketCount} — SCRATCH FOR {recipientUpper} ✨", {ticketNumber: (GAME_CONFIG.ticketCount+1-ticketsLeft)});
+}
+function getPos(e){const rect=canvas.getBoundingClientRect();const t=e.touches&&e.touches.length?e.touches[0]:e;return {x:(t.clientX-rect.left)*(canvas.width/rect.width),y:(t.clientY-rect.top)*(canvas.height/rect.height)}}
+let scratching=false,last=null,checkCounter=0;
+function scratchAt(x,y){ctx.save();ctx.globalCompositeOperation="destination-out";ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=54;if(last){ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(x,y);ctx.stroke()}else{ctx.beginPath();ctx.arc(x,y,28,0,Math.PI*2);ctx.fill()}ctx.restore();last={x,y};if(++checkCounter%5===0)checkReveal();}
+function start(e){if(revealed||finished)return;e.preventDefault();scratching=true;last=null;const p=getPos(e);scratchAt(p.x,p.y);scratchSound()}
+function move(e){if(!scratching||revealed||finished)return;e.preventDefault();const p=getPos(e);scratchAt(p.x,p.y)}
+function end(){if(!scratching)return;scratching=false;last=null;checkReveal(true)}
+function scratchedPercent(){const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0;for(let i=3;i<data.length;i+=16){if(data[i]<40)clear++}return clear/(data.length/16)}
+function checkReveal(force=false){if(revealed)return;const pct=scratchedPercent();$("scratchHint").textContent=`${Math.min(99,Math.round(pct*100))}% scratched — keep going!`;if(pct>.52 || (force && pct>.42))revealTicket();}
+function revealTicket(){
+ revealed=true;ctx.clearRect(0,0,canvas.width,canvas.height);
+ ticketsLeft--;let p=currentPrize;const amount=Number(p.amount||0);if(amount>bestWin){bestWin=amount;bestTitle=p.title}
+ update();addLog(`Ticket ${GAME_CONFIG.ticketCount-ticketsLeft}: ${p.title}${amount?" — $"+amount:" — laughter win"}`);
+ $("message").innerHTML=`<h2>${esc(p.emoji||"🎟️")} ${esc(p.title)}</h2><p class="${amount?'win':'laugh'}">${esc(fmt(p.msg||p.description||""))}</p>${amount?`<p class="win">Cash win this ticket: $${amount}</p>`:`<p class="laugh">Loving/laughter win this ticket. Cash remains at best official win.</p>`}<p class="ralph">${esc(fmt(p.overrideNote || `${GAME_CONFIG.overridePerson} note: scratching technique has been reviewed and declared legal.`))}</p>`;
+ winSound(amount);if(amount>=25||String(p.title).includes(GAME_CONFIG.overridePerson)||String(p.title).includes("Jackpot"))burst();
+ if(ticketsLeft>0){$("nextBtn").disabled=false;$("nextBtn").textContent="🎟️ Get Next Official Ticket";$("scratchHint").textContent="Prize revealed. Tap for the next official ticket."}
+ else{finished=true;$("nextBtn").disabled=true;$("nextBtn").textContent="✅ Official Tickets Complete";showFinale()}
+}
+function update(){$("ticketsLeft").textContent=ticketsLeft;$("bestWin").textContent=GAME_CONFIG.cashMode?"$"+bestWin:String(GAME_CONFIG.ticketCount-ticketsLeft)}
+function addLog(t){logItems.unshift(t);$("log").innerHTML=logItems.map(x=>`<div class="logitem">${esc(x)}</div>`).join("")}
+function claimMessage(){
+ const tpl=GAME_CONFIG.claim?.template || "🎟️ {recipientName} completed {gameTitle}!\n\nHappy Birthday, {recipientName}!";
+ return fmt(tpl);
+}
+function showFinale(){
+ if(GAME_CONFIG.cashMode && bestWin < (GAME_CONFIG.minimumCashWin||0)){bestWin=GAME_CONFIG.minimumCashWin;bestTitle="Guaranteed Birthday Hope Bonus";update()}
+ $("finale").classList.add("show");
+ if(GAME_CONFIG.cashMode) $("finalText").innerHTML=`${esc(GAME_CONFIG.recipientName)}’s best official scratch win is <b>$${bestWin}</b>. The house did not win today. ${esc(GAME_CONFIG.recipientName)} did.`;
+ else $("finalText").innerHTML=`${esc(GAME_CONFIG.recipientName)} completed all <b>${GAME_CONFIG.ticketCount}</b> official tickets and collected the full birthday experience.`;
+ $("claimText").textContent=claimMessage();burst();$("finale").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+async function copyClaim(){try{await navigator.clipboard.writeText(claimMessage());toast("Claim text copied.")}catch(e){prompt("Copy this claim text:",claimMessage())}}
+function shareClaim(){if(navigator.share){navigator.share({title:`${GAME_CONFIG.recipientName}’s ${GAME_CONFIG.gameTitle}`,text:claimMessage()}).catch(()=>{})}else copyClaim()}
+function resetGame(){
+ ticketsLeft=GAME_CONFIG.ticketCount;bestWin=0;bestTitle="";revealed=false;finished=false;logItems=[];$("finale").classList.remove("show");
+ const c=GAME_CONFIG;
+ $("message").innerHTML=`<h2>Welcome back, ${esc(c.recipientName)}!</h2><p>${esc(c.overridePerson)} requested a rescratch, so the casino has officially reset.</p><p>You get <b>${c.ticketCount} official tickets</b> again. ${esc(c.recipientName)}’s scratch luck has been reloaded.</p><p class="ralph">Important casino rule: if ${esc(c.recipientName)} wins again, ${esc(c.overridePerson)} still may not object successfully.</p>`;
+ update();addLog(`${c.gameTitle} restarted. ${c.overridePerson} demanded a rescratch.`);newTicket();$("ticket").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function burst(){let box=$("confetti"),bits=GAME_CONFIG.confetti||["🎂","💐","✨","👑","💸","❤️","🎟️","🍔"];for(let i=0;i<38;i++){let s=document.createElement("span");s.textContent=bits[Math.floor(Math.random()*bits.length)];s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*.35+"s";s.style.fontSize=18+Math.random()*18+"px";box.appendChild(s);setTimeout(()=>s.remove(),3300)}}
+function toast(m){$("toast").textContent=m;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1700)}
+let audioCtx=null;function getAudio(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==="suspended")audioCtx.resume();return audioCtx}
+function tone(freq,dur=.08,type="sine",vol=.08,delay=0){try{const c=getAudio(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(freq,c.currentTime+delay);g.gain.setValueAtTime(.0001,c.currentTime+delay);g.gain.exponentialRampToValueAtTime(vol,c.currentTime+delay+.01);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+delay+dur);o.connect(g);g.connect(c.destination);o.start(c.currentTime+delay);o.stop(c.currentTime+delay+dur+.02)}catch(e){}}
+function scratchSound(){tone(150,.035,"sawtooth",.018,0);tone(170,.03,"sawtooth",.014,.035)}
+function winSound(amount=0){if(amount>=50){[523,659,784,1046].forEach((f,i)=>tone(f,.13,"sine",.09,i*.11));tone(1318,.22,"sine",.08,.48)}else if(amount>0){[523,659,784].forEach((f,i)=>tone(f,.11,"sine",.075,i*.1))}else{tone(330,.09,"sawtooth",.045,0);tone(260,.10,"sawtooth",.045,.10);tone(390,.08,"triangle",.04,.23)}}
+canvas.addEventListener("mousedown",start);canvas.addEventListener("mousemove",move);window.addEventListener("mouseup",end);
+canvas.addEventListener("touchstart",start,{passive:false});canvas.addEventListener("touchmove",move,{passive:false});window.addEventListener("touchend",end);
+$("nextBtn").onclick=newTicket;$("shareBtn").onclick=shareClaim;$("copyBtn").onclick=copyClaim;$("restartBtn").onclick=resetGame;
+
+(async function init(){
+ GAME_CONFIG = await loadConfig();
+ ticketsLeft=GAME_CONFIG.ticketCount;
+ applyConfigToPage();
+ update();addLog(`${GAME_CONFIG.gameTitle} opened. ${GAME_CONFIG.recipientName} has ${GAME_CONFIG.ticketCount} official tickets.`);newTicket();
+})();
+</script>
+</body>
+</html>
