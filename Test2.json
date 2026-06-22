@@ -1,0 +1,280 @@
+{
+  "version": 2,
+  "gameType": "universal",
+  "theme": "premiumVegas",
+  "recipientName": "Sarah",
+  "occasionText": "40th Birthday",
+  "gameTitle": "40th Birthday Scratch-Off",
+  "fromName": "Her sister Jen",
+  "overridePerson": "Husband Dave",
+  "ticketCount": 5,
+  "cashMode": false,
+  "minimumCashWin": 0,
+  "ticketLabel": "SCRATCH & WIN SARAH STYLE",
+  "subtitle": "A personalized scratch-off full of tacos, plants, candles, and birthday nonsense.",
+  "bigline": "Five official tickets. Zero cash. Maximum Sarah energy. Dave’s audit department has limited authority.",
+  "badges": [
+    "5 Official Tickets",
+    "Funny Prizes Only",
+    "Scratch to Reveal",
+    "Dave May Object"
+  ],
+  "marqueeStart": "✨ 40TH BIRTHDAY SCRATCH LUCK LOADING FOR SARAH ✨",
+  "marqueeTemplate": "✨ TICKET {ticketNumber} OF {ticketCount} — SCRATCH FOR {recipientUpper} ✨",
+  "scratchHint": "Scratch the silver coating to reveal the prize underneath.",
+  "scratchLayerText": {
+    "line1": "SCRATCH HERE!",
+    "line2": "Reveal Sarah’s prize",
+    "icons": "🎟️ 🌮 🪴"
+  },
+  "welcome": {
+    "title": "Welcome, Sarah!",
+    "paragraphs": [
+      "This is your official 40th birthday scratch-off from Jen.",
+      "You get 5 official tickets. No cash prizes. Just tacos, gardening glory, candle-related concerns, and family-approved laughter."
+    ],
+    "overrideLine": "Important birthday rule: Dave may inspect the ticket, but Sarah still gets one more plant."
+  },
+  "scoreboard": {
+    "title": "Birthday Scoreboard",
+    "leftLabel": "Tickets Left",
+    "rightLabel": "Prizes Collected",
+    "note": "Guaranteed minimum birthday love: unlimited. Guaranteed minimum candles: probably also unlimited."
+  },
+  "historyTitle": "Scratch History",
+  "rulesTitle": "Casino Rules",
+  "rules": [
+    "Sarah is the birthday star.",
+    "Scratch until the ridiculous prize is revealed.",
+    "Dave’s objections are decorative.",
+    "Anyone who says Sarah has enough plants must leave immediately."
+  ],
+  "finale": {
+    "title": "🎉 Official Birthday Loot Bag",
+    "note": "Official game: Sarah keeps every funny prize she scratches. No cash prizes, just family jokes and 40th birthday glory.",
+    "shareButton": "Text / Share Sarah’s Loot",
+    "copyButton": "Copy Loot Text",
+    "restartButton": "🔄 Play Again — Dave Demands a Recount"
+  },
+  "footer": "Made with love for Sarah. No coins required. No actual lottery harmed. One more plant may have been purchased during gameplay.",
+  "customerInputs": {
+    "relationship": "Sister",
+    "interests": [
+      "tacos",
+      "gardening",
+      "candles"
+    ],
+    "people": [
+      "Jen",
+      "Dave",
+      "Emma",
+      "Jack"
+    ],
+    "oneThingEveryoneKnows": "Sarah says, \"I just need one more plant.\""
+  },
+  "claim": {
+    "template": "🎟️ {recipientName} completed her {gameTitle}!\\n\\nOfficial Birthday Loot: {lootSummary}\\n\\nNo cash prizes were awarded. Tacos, candles, plants, and family laughter reached jackpot levels.\\n\\n{overridePerson} reviewed the results and was overruled by birthday law.\\n\\nHappy 40th Birthday, {recipientName}!"
+  },
+  "prizes": [
+    {
+      "amount": 0,
+      "emoji": "🪴",
+      "title": "One More Plant Permit",
+      "msg": "Sarah officially wins permission to say, \"I just need one more plant,\" even if everyone knows there are already several plants quietly taking over the house.",
+      "type": "laugh",
+      "weight": 14,
+      "category": "personalized",
+      "reels": [
+        "🪴",
+        "🪴",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🌮",
+      "title": "Emergency Taco Authorization",
+      "msg": "This ticket authorizes Sarah to declare that tacos are not a meal choice, but a birthday lifestyle. Dave may ask questions, but tacos have already won.",
+      "type": "laugh",
+      "weight": 13,
+      "category": "personalized",
+      "reels": [
+        "🌮",
+        "🌮",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🕯️",
+      "title": "Candle Acquisition Review",
+      "msg": "Sarah wins the right to buy another candle because this one has a completely different scent, mood, season, vibe, and emotional purpose.",
+      "type": "laugh",
+      "weight": 13,
+      "category": "personalized",
+      "reels": [
+        "🕯️",
+        "🕯️",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🌱",
+      "title": "Garden Center Detour",
+      "msg": "Sarah may casually stop at the garden center for \"just a minute.\" Emma and Jack are advised that this phrase has never meant one minute.",
+      "type": "laugh",
+      "weight": 12,
+      "category": "personalized",
+      "reels": [
+        "🌱",
+        "🌱",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "👑",
+      "title": "40th Birthday Queen",
+      "msg": "Sarah is officially crowned Queen of Turning 40. Her royal duties include accepting compliments, eating tacos, and ignoring anyone who counts her candles.",
+      "type": "laugh",
+      "weight": 11,
+      "category": "universal",
+      "reels": [
+        "👑",
+        "👑",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🧾",
+      "title": "Dave’s Budget Audit",
+      "msg": "Dave reviewed the ticket and questioned the plant-and-candle department. The birthday committee has overruled him with love.",
+      "type": "laugh",
+      "weight": 10,
+      "category": "override",
+      "reels": [
+        "🧾",
+        "🧾",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🛒",
+      "title": "Cart Full of Totally Necessary Things",
+      "msg": "Sarah wins one imaginary shopping cart containing tacos, a new plant, and a candle that smells like \"fresh start with a hint of I deserve this.\"",
+      "type": "laugh",
+      "weight": 10,
+      "category": "personalized",
+      "reels": [
+        "🛒",
+        "🛒",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🌸",
+      "title": "Plant Whisperer Bonus",
+      "msg": "Sarah has been certified as a Plant Whisperer. Any plant looking dramatic is simply requesting more love, better light, and possibly a friend.",
+      "type": "laugh",
+      "weight": 9,
+      "category": "personalized",
+      "reels": [
+        "🌸",
+        "🌸",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "😂",
+      "title": "Jen’s Sisterly Approval",
+      "msg": "Jen officially confirms that Sarah is loved, celebrated, and absolutely not allowed to pretend turning 40 is not a big deal.",
+      "type": "laugh",
+      "weight": 9,
+      "category": "universal",
+      "reels": [
+        "😂",
+        "😂",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🏡",
+      "title": "Home Decor Expansion Pack",
+      "msg": "Sarah unlocks one imaginary home decor expansion pack. Warning: may contain candles, plants, cute pots, and one item Dave swears was not there yesterday.",
+      "type": "laugh",
+      "weight": 8,
+      "category": "override",
+      "reels": [
+        "🏡",
+        "🏡",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🎂",
+      "title": "Forty and Fabulous Clause",
+      "msg": "Sarah wins the official right to be forty, fabulous, and slightly overstocked in the candle department. This clause cannot be appealed.",
+      "type": "laugh",
+      "weight": 8,
+      "category": "universal",
+      "reels": [
+        "🎂",
+        "🎂",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "❤️",
+      "title": "Real Jackpot",
+      "msg": "No cash on this ticket. Sarah wins something better: love from Jen, Dave, Emma, Jack, and everyone who knows life is brighter with her in it.",
+      "type": "laugh",
+      "weight": 10,
+      "category": "heartfelt",
+      "reels": [
+        "❤️",
+        "❤️",
+        "✨"
+      ]
+    }
+  ],
+  "supportedGames": [
+    "slots",
+    "scratch"
+  ],
+  "spinCount": 5,
+  "slotsTitle": "40th Birthday Slots",
+  "scratchTitle": "40th Birthday Scratch-Off",
+  "prizeFormula": {
+    "universal": 5,
+    "personalized": 4,
+    "override": 2,
+    "heartfelt": 1
+  },
+  "slots": {
+    "marqueeStart": "✨ 40TH BIRTHDAY SLOT LUCK LOADING FOR SARAH ✨",
+    "marqueeTemplate": "✨ SPIN {spinNumber} OF {spinCount} — SPIN FOR {recipientUpper} ✨",
+    "spinButtonMain": "🎰 PRESS TO SPIN",
+    "spinButtonSmallTemplate": "{recipientName}'s {occasionText}",
+    "scoreboardTitle": "Birthday Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "historyTitle": "Spin History",
+    "rulesTitle": "Casino Rules",
+    "rules": [
+      "Sarah is the birthday star.",
+      "Scratch until the ridiculous prize is revealed.",
+      "Dave’s objections are decorative.",
+      "Anyone who says Sarah has enough plants must leave immediately."
+    ],
+    "finaleTitle": "🎉 Official Birthday Slot Result",
+    "finaleNote": "Official game: best cash win from the birthday spins counts. Funny prizes count as family-approved birthday glory."
+  }
+}
