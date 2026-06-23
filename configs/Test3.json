@@ -1,0 +1,285 @@
+{
+"version": 2,
+"gameType": "universal",
+"supportedGames": [
+"slots",
+"scratch"
+],
+"theme": "premiumVegas",
+"recipientName": "Sarah",
+"occasionText": "40th Birthday",
+"gameTitle": "Sarah's 40th Birthday Playable Greeting",
+"slotsTitle": "40th Birthday Slots",
+"scratchTitle": "40th Birthday Scratch-Off",
+"fromName": "Jen",
+"overridePerson": "Dave",
+"spinCount": 5,
+"ticketCount": 5,
+"cashMode": true,
+"minimumCashWin": 5,
+"payment": {
+"method": "Zelle",
+"note": "Payment method requested: Zelle. Final gift fulfillment is up to Jen."
+},
+"subtitle": "A personalized birthday casino packed with tacos, plants, candles, sisterly love, and Dave's extremely limited audit powers.",
+"bigline": "Sarah gets 5 official chances to win laughs, love, and promised cash prizes from Jen.",
+"badges": [
+"5 Official Plays",
+"Best Promised Cash Counts",
+"Tacos & Plants Approved",
+"Dave May Object"
+],
+"marqueeStart": "✨ 40TH BIRTHDAY LUCK LOADING FOR SARAH ✨",
+"marqueeTemplate": "✨ PLAY {ticketNumber} OF {ticketCount} — GOOD LUCK, SARAH ✨",
+"welcome": {
+"title": "Welcome, Sarah!",
+"paragraphs": [
+"This is your official 40th Birthday Playable Greeting from Jen.",
+"You get 5 official plays. Some prizes win promised cash from Jen. Some prizes win laughs. Every prize is powered by tacos, plants, candles, and birthday law."
+],
+"overrideLine": "Important rule: Dave may inspect the results, but his authority ends where Sarah's birthday begins."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Plays Left",
+"rightLabel": "Best Cash Win",
+"note": "Guaranteed minimum birthday love: unlimited. Guaranteed minimum Dave commentary: probably also unlimited."
+},
+"historyTitle": "Prize History",
+"rulesTitle": "Birthday Rules",
+"rules": [
+"Sarah is the 40th birthday star.",
+"Play until the prize is revealed.",
+"Cash prizes are promised gifts from Jen only.",
+"Dave's objections are decorative.",
+"Anyone who says Sarah has enough plants must leave the casino immediately."
+],
+"finale": {
+"title": "🎉 Official 40th Birthday Result",
+"note": "Official game: Sarah keeps the laughs and the best promised cash win. Final gift fulfillment is up to Jen.",
+"shareButton": "Text / Share Sarah's Win",
+"copyButton": "Copy Claim Text",
+"restartButton": "🔄 Play Again — Dave Demands a Recount"
+},
+"footer": "",
+"customerInputs": {
+"relationship": "Sister",
+"interests": [
+"tacos",
+"gardening",
+"candles",
+"Internet Skater Brandon"
+],
+"people": [
+"Jen",
+"Dave",
+"Emma",
+"Jack"
+],
+"oneThingEveryoneKnows": "Sarah says, "I just need one more plant.""
+},
+"claim": {
+"template": "🎰 {recipientName} completed {gameTitle}!\n\nBest Promised Cash Win: ${bestWin}\nPrize Summary: {lootSummary}\n\nPayment method requested: {paymentMethod}. Final gift fulfillment is up to {fromName}.\n{paymentNote}\n\n{overridePerson} reviewed the results and was overruled by birthday law.\n\nHappy {occasionText}, {recipientName}!"
+},
+"slots": {
+"marqueeStart": "✨ 40TH BIRTHDAY SLOT LUCK LOADING FOR SARAH ✨",
+"marqueeTemplate": "✨ SPIN {spinNumber} OF {spinCount} — SPIN FOR {recipientUpper} ✨",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Sarah's 40th Birthday",
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Sarah is the birthday star.",
+"Press spin until the prize is revealed.",
+"Cash prizes are promised gifts from Jen only.",
+"Dave's objections are decorative.",
+"Anyone who says Sarah has enough plants must leave immediately."
+],
+"finaleTitle": "🎉 Official Birthday Slot Result",
+"finaleNote": "Official game: best promised cash win from the birthday spins counts. Funny prizes count as family-approved birthday glory."
+},
+"scratchLayerText": {
+"line1": "SCRATCH HERE!",
+"line2": "Reveal Sarah's prize",
+"icons": "🎟️ 🌮 🪴"
+},
+"prizeFormula": {
+"universal": 5,
+"personalized": 4,
+"override": 2,
+"heartfelt": 1
+},
+"prizes": [
+{
+"amount": 5,
+"emoji": "🎂",
+"title": "🎂 40th Birthday Starter Win",
+"msg": "Sarah wins $5 because turning 40 deserves an opening cash celebration before Dave can locate a calculator.",
+"type": "cash",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🎂",
+"💸",
+"✨"
+]
+},
+{
+"amount": 10,
+"emoji": "👑",
+"title": "👑 Birthday Queen Bonus",
+"msg": "Sarah wins $10 because the Birthday Queen's ruling is final, fabulous, and not subject to Dave's committee review.",
+"type": "cash",
+"category": "universal",
+"weight": 10,
+"reels": [
+"👑",
+"💸",
+"🎂"
+]
+},
+{
+"amount": 0,
+"emoji": "😂",
+"title": "😂 Laughter Jackpot",
+"msg": "No cash this time, but Sarah wins one official family laugh and the right to retell the story with extra dramatic details.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"😂",
+"😂",
+"✨"
+]
+},
+{
+"amount": 0,
+"emoji": "🎉",
+"title": "🎉 Forty and Fantastic Clause",
+"msg": "Sarah is officially declared forty and fantastic. This clause cannot be appealed, amended, or questioned by anyone holding a receipt.",
+"type": "laugh",
+"category": "universal",
+"weight": 10,
+"reels": [
+"🎉",
+"👑",
+"✨"
+]
+},
+{
+"amount": 15,
+"emoji": "💸",
+"title": "💸 Sister-Sponsored Cash Drop",
+"msg": "Sarah wins $15 from Jen's birthday fund. Playable Greetings pays in confetti only; Jen handles the real-world celebration.",
+"type": "cash",
+"category": "universal",
+"weight": 8,
+"reels": [
+"💸",
+"💸",
+"👑"
+]
+},
+{
+"amount": 5,
+"emoji": "🌮",
+"title": "🌮 Taco Emergency Fund",
+"msg": "Sarah wins $5 toward tacos, because tacos are not a meal choice. They are a 40th birthday strategy.",
+"type": "cash",
+"category": "personalized",
+"weight": 12,
+"reels": [
+"🌮",
+"💸",
+"🌮"
+]
+},
+{
+"amount": 0,
+"emoji": "🪴",
+"title": "🪴 One More Plant Permit",
+"msg": "Sarah officially wins permission to say, "I just need one more plant," even if several plants are already forming a quiet indoor government.",
+"type": "laugh",
+"category": "personalized",
+"weight": 14,
+"reels": [
+"🪴",
+"🪴",
+"✨"
+]
+},
+{
+"amount": 0,
+"emoji": "🕯️",
+"title": "🕯️ Candle Acquisition Approval",
+"msg": "Sarah wins the right to buy another candle because this one has a completely different scent, mood, season, vibe, and emotional assignment.",
+"type": "laugh",
+"category": "personalized",
+"weight": 13,
+"reels": [
+"🕯️",
+"🛒",
+"✨"
+]
+},
+{
+"amount": 0,
+"emoji": "🎥",
+"title": "🎥 Slot Stream Shout-Out",
+"msg": "Internet Skater Brandon interrupts the broadcast to wish Sarah a Happy 40th Birthday and reminds everyone: "You never know when the bonus is coming... so keep chasing one more spin!"",
+"type": "laugh",
+"category": "personalized",
+"weight": 10,
+"reels": [
+"🎥",
+"7️⃣",
+"✨"
+]
+},
+{
+"amount": 10,
+"emoji": "🧾",
+"title": "🧾 Dave Audit Override",
+"msg": "Sarah wins $10. Dave opened an investigation, reviewed the taco-plant-candle evidence, and was immediately overruled by birthday law.",
+"type": "cash",
+"category": "override",
+"weight": 9,
+"reels": [
+"🧾",
+"💸",
+"🚫"
+]
+},
+{
+"amount": 0,
+"emoji": "📋",
+"title": "📋 Dave's Objection Form",
+"msg": "Dave may file one official objection. Processing time is 3 to 5 business birthdays, and Sarah may buy another plant while waiting.",
+"type": "laugh",
+"category": "override",
+"weight": 10,
+"reels": [
+"📋",
+"🪴",
+"😂"
+]
+},
+{
+"amount": 5,
+"emoji": "❤️",
+"title": "❤️ Real Jackpot",
+"msg": "Sarah wins $5, but the real jackpot is this: Jen, Dave, Emma, Jack, and everyone who loves her are grateful for her, laughing with her, and celebrating the gift she is.",
+"type": "heartfelt",
+"category": "heartfelt",
+"weight": 8,
+"reels": [
+"❤️",
+"👑",
+"💸"
+]
+}
+]
+}
