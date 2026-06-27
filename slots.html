@@ -368,7 +368,7 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
 <section class="panel"><h3>Casino Rules</h3><p class="note">1. Gloria is the birthday girl.</p><p class="note">2. The house does not win today.</p><p class="note">3. Ralph’s fact-checking is permitted, but all disputed memories are settled in favor of Gloria.</p><p class="note">4. Text Mike the final result to claim the birthday prize.</p></section>
 </aside>
 </ma
-<p class="footer">Made with love. No quarters required. No actual casino harmed.</p>
+<p class="footer" id="footer"></p>
 </div>
 <div class="confetti" id="confetti"></div><div class="global-celebration" id="globalCelebration"></div><div class="toast" id="toast"></div>
 
@@ -627,6 +627,7 @@ function cashPaymentNote(){return CONFIG.cash?.paymentNote||CONFIG.payment?.note
 function cashPrizeAllowed(p){const amount=Number(p?.amount||0);if(amount<=0)return true;if(!cashEnabled())return false;const max=cashMaximumPrize();if(max>0&&amount>max)return false;const allowed=cashAllowedValues();if(allowed.length&&!allowed.includes(amount))return false;return true}
 function nonCashOnly(list){return (list||[]).filter(p=>Number(p?.amount||0)<=0)}
 function normalizePrize(p){const emoji=p.emoji||(p.title||'🎉').split(/\s+/)[0]||'🎉';return{amount:Number(p.amount||0),emoji,title:p.title||`${emoji} Birthday Prize`,msg:p.msg||p.message||'A birthday surprise appears.',type:p.type||(Number(p.amount||0)>0?'cash':'laugh'),weight:Number(p.weight||10),category:p.category||'universal',reels:Array.isArray(p.reels)&&p.reels.length>=3?p.reels.slice(0,3):[emoji,emoji,'✨']}}
+function displayPrizeTitle(p){const title=String(p?.title||'Prize').trim();const emoji=String(p?.emoji||'🎉').trim();return title.startsWith(emoji)?title:`${emoji} ${title}`}
 function prizeKey(p){return ((p.title||'')+'|'+(p.category||'')+'|'+(p.type||'')).toLowerCase()}
 function isHeartfeltPrize(p){const t=prizeKey(p)+' '+(p.msg||'').toLowerCase();return p.type==='heartfelt'||p.category==='heartfelt'||t.includes('heartfelt')||t.includes('rosie')||t.includes('real jackpot')||t.includes('loved')||t.includes('love')}
 function isSpecialPrize(p){const t=prizeKey(p)+' '+(p.msg||'').toLowerCase();return isHeartfeltPrize(p)||p.amount>0||p.category==='special'||p.category==='bonus'||p.type==='bonus'||t.includes('bonus')||t.includes('brandon')||t.includes('stream')||t.includes('youtube')||t.includes('ultimate')||t.includes('jackpot')}
@@ -963,13 +964,21 @@ function generatedFooter(){
  return bits.join(' ');
 }
 
-function renderStaticConfig(){document.title=CONFIG.slotsTitle||CONFIG.gameTitle||'Playable Greeting Slots';const occ=$('gvOccasionText'),name=$('gvNameText');if(occ)occ.textContent=(CONFIG.slotsTitle||CONFIG.occasionText||'birthday slots').replace(CONFIG.recipientName||'','').trim()||CONFIG.occasionText;if(name)name.textContent=(CONFIG.recipientName||'PLAYER').toUpperCase();setText('.vegas-copy .subtitle',applyTokens(CONFIG.subtitle));setText('.vegas-copy .bigline',applyTokens(CONFIG.bigline));const badges=document.querySelector('.vegas-badges');if(badges)badges.innerHTML=(CONFIG.badges||[]).map(b=>`<span class="badge">${applyTokens(b)}</span>`).join('');$('marquee').textContent=applyTokens(CONFIG.slots?.marqueeStart||CONFIG.marqueeStart||'✨ SLOT LUCK LOADING ✨');$('spinBtn').innerHTML=spinButtonHTML();const w=CONFIG.welcome||{};$('message').innerHTML=`<h2>${applyTokens(w.title||'Welcome, {recipientName}!')}</h2>`+(w.paragraphs||[]).map(p=>`<p>${applyTokens(p)}</p>`).join('')+(w.overrideLine?`<p class="ralph">${applyTokens(w.overrideLine)}</p>`:'');const titles=document.querySelectorAll('.panel h3');if(titles[0])titles[0].textContent=CONFIG.scoreboard?.title||CONFIG.slots?.scoreboardTitle||'Scoreboard';if(titles[1])titles[1].textContent=CONFIG.historyTitle||CONFIG.slots?.historyTitle||'Spin History';if(titles[2])titles[2].textContent=CONFIG.rulesTitle||CONFIG.slots?.rulesTitle||'Casino Rules';const note=document.querySelector('.panel .note');if(note)note.textContent=applyTokens(CONFIG.scoreboard?.note||'Guaranteed minimum birthday love: unlimited.');const rulesPanel=document.querySelectorAll('.panel')[2];if(rulesPanel){const h=rulesPanel.querySelector('h3')?.outerHTML||'<h3>Rules</h3>';rulesPanel.innerHTML=h+(CONFIG.slots?.rules||CONFIG.rules||[]).map((r,i)=>`<p class="note">${i+1}. ${applyTokens(r).replace(/^\d+\.\s*/,'')}</p>`).join('')}const footer=document.querySelector('.footer');if(footer){
-  const rawFooter = typeof CONFIG.footer === 'string' ? CONFIG.footer.trim() : '';
-  const hasFooterTokens = /\{(recipientName|fromName|overridePerson|occasionText)\}/.test(rawFooter);
-  // For Etsy/customer games, prefer a personalized footer. If a JSON footer is generic
-  // and has no tokens, use the generated footer so names still populate correctly.
-  footer.textContent = applyTokens(hasFooterTokens ? rawFooter : generatedFooter());
-}$('shareBtn').textContent=CONFIG.finale?.shareButton||'Text / Share My Win';$('copyBtn').textContent=CONFIG.finale?.copyButton||'Copy Claim Text';$('restartBtn').textContent=CONFIG.finale?.restartButton||'🔄 Play Again';update();setTimeout(fitVegasSignText,100)}
+
+function updateFooter(){
+ const footers = Array.from(document.querySelectorAll('.footer'));
+ const footerById = document.getElementById('footer');
+ if(footerById && !footers.includes(footerById)) footers.push(footerById);
+ if(!footers.length)return;
+ const rawFooter = typeof CONFIG.footer === 'string' ? CONFIG.footer.trim() : '';
+ const hasUsefulFooter = rawFooter && (/{(recipientName|fromName|overridePerson|occasionText)}/.test(rawFooter) || rawFooter.length > 20 && !/^made with love\.? no quarters required/i.test(rawFooter));
+ const fallback = (CONFIG.fromName)
+   ? "Made especially for {recipientName} by {fromName}. Happy {occasionText}! 🎰 No quarters required — just love, laughs, and a little jackpot magic."
+   : "Made especially for {recipientName}. Happy {occasionText}! 🎰 No quarters required — just love, laughs, and a little jackpot magic.";
+ const finalText = applyTokens(hasUsefulFooter ? rawFooter : fallback);
+ footers.forEach(f=>{ f.textContent = finalText; });
+}
+function renderStaticConfig(){document.title=CONFIG.slotsTitle||CONFIG.gameTitle||'Playable Greeting Slots';const occ=$('gvOccasionText'),name=$('gvNameText');if(occ)occ.textContent=(CONFIG.slotsTitle||CONFIG.occasionText||'birthday slots').replace(CONFIG.recipientName||'','').trim()||CONFIG.occasionText;if(name)name.textContent=(CONFIG.recipientName||'PLAYER').toUpperCase();setText('.vegas-copy .subtitle',applyTokens(CONFIG.subtitle));setText('.vegas-copy .bigline',applyTokens(CONFIG.bigline));const badges=document.querySelector('.vegas-badges');if(badges)badges.innerHTML=(CONFIG.badges||[]).map(b=>`<span class="badge">${applyTokens(b)}</span>`).join('');$('marquee').textContent=applyTokens(CONFIG.slots?.marqueeStart||CONFIG.marqueeStart||'✨ SLOT LUCK LOADING ✨');$('spinBtn').innerHTML=spinButtonHTML();const w=CONFIG.welcome||{};$('message').innerHTML=`<h2>${applyTokens(w.title||'Welcome, {recipientName}!')}</h2>`+(w.paragraphs||[]).map(p=>`<p>${applyTokens(p)}</p>`).join('')+(w.overrideLine?`<p class="ralph">${applyTokens(w.overrideLine)}</p>`:'');const titles=document.querySelectorAll('.panel h3');if(titles[0])titles[0].textContent=CONFIG.scoreboard?.title||CONFIG.slots?.scoreboardTitle||'Scoreboard';if(titles[1])titles[1].textContent=CONFIG.historyTitle||CONFIG.slots?.historyTitle||'Spin History';if(titles[2])titles[2].textContent=CONFIG.rulesTitle||CONFIG.slots?.rulesTitle||'Casino Rules';const note=document.querySelector('.panel .note');if(note)note.textContent=applyTokens(CONFIG.scoreboard?.note||'Guaranteed minimum birthday love: unlimited.');const rulesPanel=document.querySelectorAll('.panel')[2];if(rulesPanel){const h=rulesPanel.querySelector('h3')?.outerHTML||'<h3>Rules</h3>';rulesPanel.innerHTML=h+(CONFIG.slots?.rules||CONFIG.rules||[]).map((r,i)=>`<p class="note">${i+1}. ${applyTokens(r).replace(/^\d+\.\s*/,'')}</p>`).join('')}updateFooter();$('shareBtn').textContent=CONFIG.finale?.shareButton||'Text / Share My Win';$('copyBtn').textContent=CONFIG.finale?.copyButton||'Copy Claim Text';$('restartBtn').textContent=CONFIG.finale?.restartButton||'🔄 Play Again';update();setTimeout(fitVegasSignText,100)}
 function setBonusButton(){
  const btn=$('spinBtn');
  if(!btn)return;
@@ -1042,8 +1051,8 @@ function spin(){
     spinNumber=(CONFIG.spinCount||CONFIG.ticketCount||5)-spinsLeft;
     spinLabel=`Spin ${spinNumber}`;
    }
-   if(p.amount>bestWin){bestWin=p.amount;bestTitle=p.title}
-   if(p.type!=='bonusTrigger')lootTitles.push(p.title);
+   if(p.amount>bestWin){bestWin=p.amount;bestTitle=displayPrizeTitle(p)}
+   if(p.type!=='bonusTrigger')lootTitles.push(displayPrizeTitle(p));
    if(p.type==='bonusTrigger'){
     $('marquee').textContent=`🎰 ${bonusRoundName()} UNLOCKED! 🎰`;
    }else if(wasBonusSpin){
@@ -1052,7 +1061,7 @@ function spin(){
     $('marquee').textContent=applyTokens(CONFIG.slots?.marqueeTemplate||'✨ SPIN {spinNumber} OF {spinCount} — SPIN FOR {recipientUpper} ✨',{spinNumber});
    }
    $('message').innerHTML=`<h2>${p.title}</h2><p>${applyTokens(p.msg)}</p>${p.amount>0?`<p class="win">Cash win this spin: $${p.amount}</p>`:(p.type==='bonusTrigger'?`<p class="win">Bonus round unlocked: ${bonusSpinCount()} extra jackpot spins!</p>`:`<p class="laugh">Prize moment unlocked. ${cashEnabled()?'Cash prize may still be coming.':'The gift keeps building.'}</p>`)}<p class="ralph">${applyTokens(CONFIG.overridePerson||'The audit department')} note: all objections must be submitted in triplicate and ignored politely.</p>`;
-   logItems.unshift(`<div class="logitem"><b>${spinLabel}:</b> ${p.title}${p.amount>0?` — $${p.amount}`:''}</div>`);
+   logItems.unshift(`<div class="logitem"><b>${spinLabel}:</b> ${displayPrizeTitle(p)}${p.amount>0?` — $${p.amount}`:''}</div>`);
    $('log').innerHTML=logItems.join('');
    update();
    if(p.type==='bonusTrigger'){
@@ -1176,7 +1185,7 @@ function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classLis
 function shareClaim(){const text=claimText();if(navigator.share)navigator.share({text}).catch(()=>{});else copyText(text)}function copyText(text){navigator.clipboard?.writeText(text).then(()=>toast('Copied!')).catch(()=>toast('Copy unavailable'))}function copyClaim(){copyText(claimText())}function toast(msg){const t=$('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600)}
 function resetGame(){spinsLeft=CONFIG.spinCount||CONFIG.ticketCount||5;bestWin=0;bestTitle='';done=false;spinning=false;forcedCashUsed=false;logItems=[];lootTitles=[];awardedPrizeKeys=[];bonusMode=false;bonusTriggered=false;bonusSpinsLeft=0;bonusSpinNumber=0;document.querySelector('.machine')?.classList.remove('bonus-mode','bonus-tease-mode','bonus-soak-mode');$('log').innerHTML='';$('finale').classList.remove('show');$('spinBtn').disabled=false;$('spinBtn').classList.remove('is-spinning');$('r1').textContent='👑';$('r2').textContent='🎂';$('r3').textContent='💐';['r1','r2','r3'].forEach(id=>$(id)?.classList.remove('bonus-tease','bonus-locked','bonus-super-lock','bonus-soak'));renderStaticConfig()}
 async function loadConfig(){const params=new URLSearchParams(location.search),name=params.get('config')||params.get('id');if(!name)return DEFAULT_CONFIG;const safe=name.replace(/[^a-zA-Z0-9_-]/g,'');for(const path of [`configs/${safe}.json`,`${safe}.json`]){try{const res=await fetch(path,{cache:'no-store'});if(res.ok)return await res.json()}catch(e){}}console.warn('Could not load config',name);return DEFAULT_CONFIG}
-window.addEventListener('resize',buildPrizeBulbs);window.addEventListener('resize',fitPrizeHeader);window.addEventListener('resize',fitVegasSignText);document.addEventListener('DOMContentLoaded',async()=>{CONFIG=normalizeConfig(deepMerge(DEFAULT_CONFIG,await loadConfig()));CONFIG.spinCount=CONFIG.spinCount||CONFIG.ticketCount||5;spinsLeft=CONFIG.spinCount;renderStaticConfig();$('spinBtn').onclick=spin;$('shareBtn').onclick=shareClaim;$('copyBtn').onclick=copyClaim;$('restartBtn').onclick=resetGame;$('popupNextBtn').onclick=()=>{
+window.addEventListener('resize',buildPrizeBulbs);window.addEventListener('resize',fitPrizeHeader);window.addEventListener('resize',fitVegasSignText);document.addEventListener('DOMContentLoaded',async()=>{CONFIG=normalizeConfig(deepMerge(DEFAULT_CONFIG,await loadConfig()));CONFIG.spinCount=CONFIG.spinCount||CONFIG.ticketCount||5;spinsLeft=CONFIG.spinCount;renderStaticConfig();setTimeout(updateFooter,0);$('spinBtn').onclick=spin;$('shareBtn').onclick=shareClaim;$('copyBtn').onclick=copyClaim;$('restartBtn').onclick=resetGame;$('popupNextBtn').onclick=()=>{
  const btn=$('popupNextBtn');
  const action=btn.dataset.action||'normal';
  if(action==='final-prize'){
