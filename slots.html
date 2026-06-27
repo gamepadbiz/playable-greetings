@@ -364,7 +364,7 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
 </section>
 <aside>
 <section class="panel"><h3>Birthday Scoreboard</h3><div class="statrow"><div class="stat"><b id="spinsLeft">5</b><span>Official Spins Left</span></div><div class="stat"><b id="bestWin">$0</b><span>Best Cash Win</span></div></div><p class="note">Guaranteed minimum birthday love: unlimited. Guaranteed minimum comedy: Ralph.</p></section>
-<section class="panel"><h3>Spin History</h3><div class="log" id="log"></div></section>
+<section class="panel"><h3>Prize Reveal History</h3><div class="log" id="log"></div></section>
 <section class="panel"><h3>Casino Rules</h3><p class="note">1. Gloria is the birthday girl.</p><p class="note">2. The house does not win today.</p><p class="note">3. Ralph’s fact-checking is permitted, but all disputed memories are settled in favor of Gloria.</p><p class="note">4. Text Mike the final result to claim the birthday prize.</p></section>
 </aside>
 </ma
@@ -616,6 +616,19 @@ function numberedPrizeCollection(){
  const list=lootTitles.filter(Boolean).slice(0,8);
  if(!list.length)return '1. 🎁 Personalized prize collection';
  return list.map((x,i)=>`${i+1}. ${x}`).join('\n');
+}
+
+function prizeClarityMessage(){
+ return cashEnabled()
+   ? 'Each spin is a fun prize reveal. The Official Results screen shows the one redeemable prize to claim: the best cash win.'
+   : 'Each spin is a fun prize reveal. The Official Results screen is the final personalized prize summary.';
+}
+function officialPrizeToClaimText(){
+ if(cashEnabled()){
+   const title = bestTitle ? ` — ${bestTitle}` : '';
+   return `Best Cash Win: $${bestWin}${title}`;
+ }
+ return 'Personalized fun, love, laughter, and bragging rights.';
 }
 function normalizeCashConfig(c){
  c=c||{};
@@ -1015,7 +1028,7 @@ function updateFooter(){
  const finalText = applyTokens(hasUsefulFooter ? rawFooter : happyFooterFallback()).trim();
  footer.textContent = finalText || 'Made especially for this birthday star. Happy Birthday! 🎰';
 }
-function renderStaticConfig(){document.title=CONFIG.slotsTitle||CONFIG.gameTitle||'Playable Greeting Slots';const occ=$('gvOccasionText'),name=$('gvNameText');if(occ)occ.textContent=cleanOccasionSlotTitle();if(name)name.textContent=(CONFIG.recipientName||'PLAYER').toUpperCase();setText('.vegas-copy .subtitle',applyTokens(CONFIG.subtitle));setText('.vegas-copy .bigline',applyTokens(CONFIG.bigline));const badges=document.querySelector('.vegas-badges');if(badges)badges.innerHTML=(CONFIG.badges||[]).map(b=>`<span class="badge">${applyTokens(b)}</span>`).join('');$('marquee').textContent=applyTokens(CONFIG.slots?.marqueeStart||CONFIG.marqueeStart||'✨ SLOT LUCK LOADING ✨');$('spinBtn').innerHTML=spinButtonHTML();const w=CONFIG.welcome||{};$('message').innerHTML=`<h2>${applyTokens(w.title||'Welcome, {recipientName}!')}</h2>`+(w.paragraphs||[]).map(p=>`<p>${applyTokens(p)}</p>`).join('')+(w.overrideLine?`<p class="ralph">${applyTokens(w.overrideLine)}</p>`:'');const titles=document.querySelectorAll('.panel h3');if(titles[0])titles[0].textContent=CONFIG.scoreboard?.title||CONFIG.slots?.scoreboardTitle||'Scoreboard';if(titles[1])titles[1].textContent=CONFIG.historyTitle||CONFIG.slots?.historyTitle||'Spin History';if(titles[2])titles[2].textContent=CONFIG.rulesTitle||CONFIG.slots?.rulesTitle||'Casino Rules';const note=document.querySelector('.panel .note');if(note)note.textContent=applyTokens(CONFIG.scoreboard?.note||'Guaranteed minimum birthday love: unlimited.');const rulesPanel=document.querySelectorAll('.panel')[2];if(rulesPanel){const h=rulesPanel.querySelector('h3')?.outerHTML||'<h3>Rules</h3>';rulesPanel.innerHTML=h+(CONFIG.slots?.rules||CONFIG.rules||[]).map((r,i)=>`<p class="note">${i+1}. ${applyTokens(r).replace(/^\d+\.\s*/,'')}</p>`).join('')}updateFooter();$('shareBtn').textContent=CONFIG.finale?.shareButton||'Text / Share My Win';$('copyBtn').textContent=CONFIG.finale?.copyButton||'Copy Claim Text';$('restartBtn').textContent=CONFIG.finale?.restartButton||'🔄 Play Again';update();setTimeout(fitVegasSignText,100)}
+function renderStaticConfig(){document.title=CONFIG.slotsTitle||CONFIG.gameTitle||'Playable Greeting Slots';const occ=$('gvOccasionText'),name=$('gvNameText');if(occ)occ.textContent=cleanOccasionSlotTitle();if(name)name.textContent=(CONFIG.recipientName||'PLAYER').toUpperCase();setText('.vegas-copy .subtitle',applyTokens(CONFIG.subtitle));setText('.vegas-copy .bigline',applyTokens(CONFIG.bigline));const badges=document.querySelector('.vegas-badges');if(badges)badges.innerHTML=(CONFIG.badges||[]).map(b=>`<span class="badge">${applyTokens(b)}</span>`).join('');$('marquee').textContent=applyTokens(CONFIG.slots?.marqueeStart||CONFIG.marqueeStart||'✨ SLOT LUCK LOADING ✨');$('spinBtn').innerHTML=spinButtonHTML();const w=CONFIG.welcome||{};$('message').innerHTML=`<h2>${applyTokens(w.title||'Welcome, {recipientName}!')}</h2>`+(w.paragraphs||[]).map(p=>`<p>${applyTokens(p)}</p>`).join('')+(w.overrideLine?`<p class="ralph">${applyTokens(w.overrideLine)}</p>`:'')+`<p class="note"><b>Prize clarity:</b> ${prizeClarityMessage()}</p>`;const titles=document.querySelectorAll('.panel h3');if(titles[0])titles[0].textContent=CONFIG.scoreboard?.title||CONFIG.slots?.scoreboardTitle||'Scoreboard';if(titles[1]){const ht=CONFIG.historyTitle||CONFIG.slots?.historyTitle||'Prize Reveal History';titles[1].textContent=/^spin history$/i.test(String(ht).trim())?'Prize Reveal History':ht;}if(titles[2])titles[2].textContent=CONFIG.rulesTitle||CONFIG.slots?.rulesTitle||'Casino Rules';const note=document.querySelector('.panel .note');if(note)note.textContent=applyTokens(CONFIG.scoreboard?.note||'Guaranteed minimum birthday love: unlimited.');const rulesPanel=document.querySelectorAll('.panel')[2];if(rulesPanel){const h=rulesPanel.querySelector('h3')?.outerHTML||'<h3>Rules</h3>';{const baseRules=(CONFIG.slots?.rules||CONFIG.rules||[]).slice();baseRules.push(prizeClarityMessage());rulesPanel.innerHTML=h+baseRules.map((r,i)=>`<p class="note">${i+1}. ${applyTokens(r).replace(/^\d+\.\s*/,'')}</p>`).join('')}}updateFooter();$('shareBtn').textContent=CONFIG.finale?.shareButton||'Text / Share My Win';$('copyBtn').textContent=CONFIG.finale?.copyButton||'Copy Claim Text';$('restartBtn').textContent=CONFIG.finale?.restartButton||'🔄 Play Again';update();setTimeout(fitVegasSignText,100)}
 function setBonusButton(){
  const btn=$('spinBtn');
  if(!btn)return;
@@ -1195,12 +1208,12 @@ function generatedClaimText(){
  const lines=[];
  lines.push(`🎰 ${recipient} just completed ${game}!`);
  lines.push('');
- lines.push('Official Prize Collection:');
+ lines.push('Prize Reveal History:');
  lines.push(collection);
  lines.push('');
+ lines.push('Official Prize to Claim:');
+ lines.push(officialPrizeToClaimText());
  if(cashEnabled()){
-   lines.push(`Best Cash Win: $${bestWin}`);
-   if(bestTitle)lines.push(`Top Prize: ${bestTitle}`);
    if(method)lines.push(`Send via ${method}.`);
    if(note)lines.push(note);
  }else{
@@ -1216,7 +1229,7 @@ function claimText(){
  // Use a consistent, clear Scratch-Off-style share message for every Slots game.
  return generatedClaimText();
 }
-function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classList.remove('is-spinning');$('spinBtn').innerHTML='<span class="spin-main">🏆 JACKPOT COMPLETE</span><span class="spin-small">See official results below</span>';$('finale').classList.add('show');$('finale').querySelector('h2').textContent=CONFIG.finale?.title||'🎉 Official Birthday Result';$('finalText').textContent=cashEnabled()?`Jackpot complete! Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle:''}.`:`Jackpot complete! Official loot collected: ${lootTitles.length} prizes.`;$('claimText').textContent=claimText();const note=$('finale').querySelector('.note');if(note)note.textContent=applyTokens(CONFIG.finale?.note||'The birthday jackpot is complete. Share or copy the official result below, or replay for fun.')}
+function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classList.remove('is-spinning');$('spinBtn').innerHTML='<span class="spin-main">🏆 JACKPOT COMPLETE</span><span class="spin-small">See official results below</span>';$('finale').classList.add('show');$('finale').querySelector('h2').textContent=CONFIG.finale?.title||'🎉 Official Birthday Result';$('finalText').textContent=cashEnabled()?`Official Prize to Claim: best cash win $${bestWin}${bestTitle?' — '+bestTitle:''}. Other spin prizes are fun prize reveals.`:`Official Results: ${lootTitles.length} fun prize reveals collected. This screen is the final personalized prize summary.`;$('claimText').textContent=claimText();const note=$('finale').querySelector('.note');if(note)note.textContent=applyTokens(CONFIG.finale?.note||'Prize reveals are for fun during the game. The Official Results message above is the clear result to share or claim.')}
 function shareClaim(){const text=claimText();if(navigator.share)navigator.share({text}).catch(()=>{});else copyText(text)}function copyText(text){navigator.clipboard?.writeText(text).then(()=>toast('Copied!')).catch(()=>toast('Copy unavailable'))}function copyClaim(){copyText(claimText())}function toast(msg){const t=$('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600)}
 function resetGame(){spinsLeft=CONFIG.spinCount||CONFIG.ticketCount||5;bestWin=0;bestTitle='';done=false;spinning=false;forcedCashUsed=false;logItems=[];lootTitles=[];awardedPrizeKeys=[];bonusMode=false;bonusTriggered=false;bonusSpinsLeft=0;bonusSpinNumber=0;document.querySelector('.machine')?.classList.remove('bonus-mode','bonus-tease-mode','bonus-soak-mode');$('log').innerHTML='';$('finale').classList.remove('show');$('spinBtn').disabled=false;$('spinBtn').classList.remove('is-spinning');$('r1').textContent='👑';$('r2').textContent='🎂';$('r3').textContent='💐';['r1','r2','r3'].forEach(id=>$(id)?.classList.remove('bonus-tease','bonus-locked','bonus-super-lock','bonus-soak'));renderStaticConfig()}
 async function loadConfig(){const params=new URLSearchParams(location.search),name=params.get('config')||params.get('id');if(!name)return DEFAULT_CONFIG;const safe=name.replace(/[^a-zA-Z0-9_-]/g,'');for(const path of [`configs/${safe}.json`,`${safe}.json`]){try{const res=await fetch(path,{cache:'no-store'});if(res.ok)return await res.json()}catch(e){}}console.warn('Could not load config',name);return DEFAULT_CONFIG}
