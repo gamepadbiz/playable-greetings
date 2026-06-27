@@ -595,7 +595,37 @@ function playPrizeSound(p,profile){
  playTone(659,.12,'triangle',.028,.1);
 }
 function deepMerge(a,b){const o={...a};for(const k in b||{}){o[k]=(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k]))?deepMerge(o[k]||{},b[k]):b[k]}return o}
-function applyTokens(text,extra={}){if(text==null)return'';const d={recipientName:CONFIG.recipientName||'',recipientUpper:(CONFIG.recipientName||'').toUpperCase(),occasionText:CONFIG.occasionText||'',gameTitle:CONFIG.slotsTitle||CONFIG.gameTitle||'',fromName:CONFIG.fromName||'',overridePerson:CONFIG.overridePerson||'',spinCount:CONFIG.spinCount||CONFIG.ticketCount||5,ticketCount:CONFIG.ticketCount||CONFIG.spinCount||5,bestWin,lootSummary:lootTitles.join(', ')||'birthday laughter',paymentMethod:(CONFIG.payment?.method||CONFIG.cashPrize?.method||''),paymentNote:(CONFIG.payment?.note||CONFIG.cashPrize?.note||''),...extra};return String(text).replace(/\\n/g,'\n').replace(/\{(\w+)\}/g,(_,k)=>d[k]??'')}
+function applyTokens(text,extra={}){if(text==null)return'';const d={recipientName:CONFIG.recipientName||'',recipientUpper:(CONFIG.recipientName||'').toUpperCase(),occasionText:CONFIG.occasionText||'',gameTitle:CONFIG.slotsTitle||CONFIG.gameTitle||'',fromName:CONFIG.fromName||'',overridePerson:CONFIG.overridePerson||'',spinCount:CONFIG.spinCount||CONFIG.ticketCount||5,ticketCount:CONFIG.ticketCount||CONFIG.spinCount||5,bestWin,lootSummary:lootTitles.join(', ')||'birthday laughter',paymentMethod:cashPaymentMethod(),paymentNote:cashPaymentNote(),maximumCashPrize:cashMaximumPrize(),...extra};return String(text).replace(/\\n/g,'\n').replace(/\{(\w+)\}/g,(_,k)=>d[k]??'')}
+function normalizeCashConfig(c){
+ c=c||{};
+ const oldPayment=c.payment||{};
+ const cash=c.cash||{};
+ const legacyEnabled=(c.cashMode===true);
+ const allowed=Array.isArray(cash.allowedValues)?cash.allowedValues.map(Number).filter(v=>Number.isFinite(v)&&v>0):[];
+ const prizeAmounts=Array.isArray(c.prizes)?c.prizes.map(p=>Number(p&&p.amount||0)).filter(v=>Number.isFinite(v)&&v>0):[];
+ const maxFromAllowed=allowed.length?Math.max(...allowed):0;
+ const maxFromPrizes=prizeAmounts.length?Math.max(...prizeAmounts):0;
+ const max=Number(cash.maximumPrize||cash.maxPrize||cash.max||0)||maxFromAllowed||maxFromPrizes||0;
+ const enabled=(cash.enabled===true)||(!cash.enabled && legacyEnabled && max>0);
+ return {enabled:!!enabled,maximumPrize:enabled?max:0,allowedValues:enabled?(allowed.length?allowed:(prizeAmounts.length?[...new Set(prizeAmounts)].sort((a,b)=>a-b):[])):[],paymentMethod:cash.paymentMethod||oldPayment.method||c.cashPrize?.method||'',paymentNote:cash.paymentNote||oldPayment.note||c.cashPrize?.note||''};
+}
+function normalizeConfig(c){
+ c=c||{};
+ c.cash=normalizeCashConfig(c);
+ c.cashMode=!!c.cash.enabled;
+ c.payment={method:c.cash.paymentMethod||'',note:c.cash.paymentNote||''};
+ c.minimumCashWin=Number(c.minimumCashWin||0);
+ if(!c.memoryBonus)c.memoryBonus={enabled:false,title:'',from:'',style:'',message:'',image:''};
+ if(c.memoryBonus.enabled===false){c.memoryBonus={...c.memoryBonus,enabled:false,image:c.memoryBonus.image||'',message:c.memoryBonus.message||''};}
+ return c;
+}
+function cashEnabled(){return !!(CONFIG.cash&&CONFIG.cash.enabled)}
+function cashMaximumPrize(){return Number(CONFIG.cash?.maximumPrize||0)}
+function cashAllowedValues(){return Array.isArray(CONFIG.cash?.allowedValues)?CONFIG.cash.allowedValues.map(Number).filter(v=>Number.isFinite(v)&&v>0):[]}
+function cashPaymentMethod(){return CONFIG.cash?.paymentMethod||CONFIG.payment?.method||CONFIG.cashPrize?.method||''}
+function cashPaymentNote(){return CONFIG.cash?.paymentNote||CONFIG.payment?.note||CONFIG.cashPrize?.note||''}
+function cashPrizeAllowed(p){const amount=Number(p?.amount||0);if(amount<=0)return true;if(!cashEnabled())return false;const max=cashMaximumPrize();if(max>0&&amount>max)return false;const allowed=cashAllowedValues();if(allowed.length&&!allowed.includes(amount))return false;return true}
+function nonCashOnly(list){return (list||[]).filter(p=>Number(p?.amount||0)<=0)}
 function normalizePrize(p){const emoji=p.emoji||(p.title||'🎉').split(/\s+/)[0]||'🎉';return{amount:Number(p.amount||0),emoji,title:p.title||`${emoji} Birthday Prize`,msg:p.msg||p.message||'A birthday surprise appears.',type:p.type||(Number(p.amount||0)>0?'cash':'laugh'),weight:Number(p.weight||10),category:p.category||'universal',reels:Array.isArray(p.reels)&&p.reels.length>=3?p.reels.slice(0,3):[emoji,emoji,'✨']}}
 function prizeKey(p){return ((p.title||'')+'|'+(p.category||'')+'|'+(p.type||'')).toLowerCase()}
 function isHeartfeltPrize(p){const t=prizeKey(p)+' '+(p.msg||'').toLowerCase();return p.type==='heartfelt'||p.category==='heartfelt'||t.includes('heartfelt')||t.includes('rosie')||t.includes('real jackpot')||t.includes('loved')||t.includes('love')}
@@ -618,11 +648,8 @@ function prizeTier(p){
  return 'common';
 }
 function bestCashPrize(cashPrizes){
- if(!cashPrizes.length)return null;
- const min=Number(CONFIG.minimumCashWin||0);
- const eligible=min>0?cashPrizes.filter(p=>p.amount>=min):cashPrizes;
- const list=(eligible.length?eligible:cashPrizes).slice().sort((a,b)=>b.amount-a.amount);
- return list[0];
+ const list=(cashPrizes||[]).filter(cashPrizeAllowed).filter(p=>Number(p.amount||0)>0).slice().sort(sortByAmountDesc);
+ return list[0]||null;
 }
 function bonusSpinCount(){return Number(CONFIG.slots?.bonusSpinCount||CONFIG.bonusSpinCount||3)||3}
 function shortRecipientName(){
@@ -675,11 +702,8 @@ function selectPrize(pool,opts={}){
  return top[Math.floor(Math.random()*top.length)];
 }
 function bestCashPrize(cashPrizes){
- if(!cashPrizes.length)return null;
- const min=Number(CONFIG.minimumCashWin||0);
- const eligible=min>0?cashPrizes.filter(p=>p.amount>=min):cashPrizes;
- const list=(eligible.length?eligible:cashPrizes).slice().sort(sortByAmountDesc);
- return list[0];
+ const list=(cashPrizes||[]).filter(cashPrizeAllowed).filter(p=>Number(p.amount||0)>0).slice().sort(sortByAmountDesc);
+ return list[0]||null;
 }
 function pickFromPool(pool){
  const p=selectPrize(pool);
@@ -700,8 +724,8 @@ function prizeTier(p){
  return 'common';
 }
 function getPrizePools(){
- const all=(Array.isArray(CONFIG.prizes)&&CONFIG.prizes.length?CONFIG.prizes:DEFAULT_CONFIG.prizes).map(normalizePrize).filter(p=>p.type!=='bonusTrigger'&&p.category!=='bonusTrigger');
- const prizes=all.length?all:DEFAULT_CONFIG.prizes.map(normalizePrize);
+ const all=(Array.isArray(CONFIG.prizes)&&CONFIG.prizes.length?CONFIG.prizes:DEFAULT_CONFIG.prizes).map(normalizePrize).filter(p=>p.type!=='bonusTrigger'&&p.category!=='bonusTrigger').filter(cashPrizeAllowed);
+ const prizes=all.length?all:DEFAULT_CONFIG.prizes.map(normalizePrize).filter(cashPrizeAllowed);
  return {
   prizes,
   cash:prizes.filter(p=>p.amount>0).sort(sortByAmountDesc),
@@ -721,16 +745,15 @@ function topTierPrize(prizes){
  const freshHeart=pools.heartfelt.filter(p=>!used(prizeKey(p)));
  const freshBonus=pools.bonus.filter(p=>!used(prizeKey(p)));
  const freshSpecial=pools.special.filter(p=>!used(prizeKey(p)));
- if(bonusSpinNumber===0 && CONFIG.cashMode && freshCash.length)return bestCashPrize(freshCash);
+ if(bonusSpinNumber===0){
+   const pool=freshBonus.concat(freshSpecial).concat(freshCash.slice(1));
+   const picked=selectPrize(pool.length?pool:freshCash,{best:true}); if(picked)return picked;
+ }
  if(bonusSpinNumber===1){
-   const pool=(CONFIG.cashMode?freshCash:[]).concat(freshSpecial).concat(freshBonus);
-   const picked=selectPrize(pool,{best:true}); if(picked)return picked;
+   const pool=freshSpecial.concat(freshBonus).concat(freshHeart).concat(freshCash.slice(1));
+   const picked=selectPrize(pool.length?pool:freshCash,{best:true}); if(picked)return picked;
  }
- if(bonusSpinNumber===2){
-   const pool=freshBonus.concat(freshSpecial).concat(freshHeart).concat(freshCash);
-   const picked=selectPrize(pool,{best:true}); if(picked)return picked;
- }
- if(bonusSpinNumber>=3){
+ if(bonusSpinNumber>=2){
    const pool=freshCash.concat(freshHeart).concat(freshSpecial).concat(freshBonus);
    const picked=selectPrize(pool,{best:true}); if(picked)return picked;
  }
@@ -744,25 +767,25 @@ function weightedPrize(){
  const spinNumber=totalSpins-spinsLeft+1;
  const heartSeen=awardedPrizeKeys.some(k=>pools.heartfelt.some(h=>prizeKey(h)===k));
  if(FORCE_PRIZE){const f=prizes.find(p=>p.title.toLowerCase().includes(FORCE_PRIZE.toLowerCase())||p.category.toLowerCase()===FORCE_PRIZE.toLowerCase());if(f)return f}
- if(CONFIG.cashMode&&pools.cash.length&&FORCE_CASH_TEST&&!forcedCashUsed){forcedCashUsed=true;return pools.cash[pools.cash.length-1]}
+ if(cashEnabled()&&pools.cash.length&&FORCE_CASH_TEST&&!forcedCashUsed){forcedCashUsed=true;return pools.cash[pools.cash.length-1]}
  if(bonusMode)return topTierPrize(prizes);
  // Deterministic gift arc: fun -> laugh -> personal upgrade -> heart -> bonus trigger.
  if(spinNumber===1){
-   const pool=pools.personalized.concat(pools.common).concat(pools.funny);
-   return selectPrize(pool.length?pool:prizes,{low:true})||prizes[0];
+   const pool=nonCashOnly(pools.common).concat(nonCashOnly(pools.funny)).concat(nonCashOnly(pools.personalized));
+   return selectPrize(pool.length?pool:nonCashOnly(prizes),{low:true})||prizes[0];
  }
  if(spinNumber===2){
-   const pool=pools.funny.concat(pools.personalized).concat(pools.common);
-   return selectPrize(pool.length?pool:prizes)||prizes[0];
+   const pool=nonCashOnly(pools.funny).concat(nonCashOnly(pools.personalized)).concat(nonCashOnly(pools.common));
+   return selectPrize(pool.length?pool:nonCashOnly(prizes))||prizes[0];
  }
  if(spinNumber===3){
-   const pool=pools.personalized.concat(pools.bonus).concat(pools.special).filter(p=>!isHeartfeltPrize(p)&&p.amount<=0);
-   return selectPrize(pool.length?pool:pools.personalized.concat(pools.common).concat(prizes),{best:true})||prizes[0];
+   const pool=nonCashOnly(pools.personalized).concat(nonCashOnly(pools.bonus)).filter(p=>!isHeartfeltPrize(p)&&!isMemoryPrize(p)&&!isUltimatePrize(p));
+   return selectPrize(pool.length?pool:nonCashOnly(pools.personalized.concat(pools.common).concat(prizes)),{best:true})||prizes[0];
  }
  if(spinNumber===4){
    if(pools.heartfelt.length&&!heartSeen)return selectPrize(pools.heartfelt,{best:true})||pools.heartfelt[0];
-   const pool=pools.special.concat(pools.bonus).concat(pools.personalized);
-   return selectPrize(pool.length?pool:prizes,{best:true})||prizes[0];
+   const pool=nonCashOnly(pools.special).concat(nonCashOnly(pools.bonus)).concat(nonCashOnly(pools.personalized));
+   return selectPrize(pool.length?pool:nonCashOnly(prizes),{best:true})||prizes[0];
  }
  if(spinNumber>=5&&!bonusTriggered){
    bonusTriggered=true;
@@ -775,10 +798,10 @@ function update(){
  const spinBox=$('spinsLeft');
  if(spinBox)spinBox.textContent=bonusMode?bonusSpinsLeft:spinsLeft;
  const bestBox=$('bestWin');
- if(bestBox)bestBox.textContent=CONFIG.cashMode?'$'+bestWin:String(lootTitles.length);
+ if(bestBox)bestBox.textContent=cashEnabled()?'$'+bestWin:String(lootTitles.length);
  const labs=document.querySelectorAll('.stat span');
  if(labs[0])labs[0].textContent=bonusMode?'Bonus Spins Left':(CONFIG.scoreboard?.leftLabel||CONFIG.slots?.leftLabel||'Official Spins Left');
- if(labs[1])labs[1].textContent=CONFIG.cashMode?(CONFIG.scoreboard?.rightLabel||'Best Cash Win'):'Prizes Collected'
+ if(labs[1])labs[1].textContent=cashEnabled()?(CONFIG.scoreboard?.rightLabel||'Best Cash Win'):'Prizes Collected'
 }
 function setText(sel,text){const el=document.querySelector(sel);if(el)el.textContent=text}
 function fitPrizeHeader(){const h=$('prizePopupHeader');if(!h)return;h.style.fontSize='';let size=parseFloat(getComputedStyle(h).fontSize),safety=40;h.style.whiteSpace='nowrap';while(h.scrollWidth>h.clientWidth&&size>13&&safety--){size-=1;h.style.fontSize=size+'px'}}
@@ -882,7 +905,7 @@ function openPrizePopup(p,opts={}){
  const mainPrizeHTML=memoryActive
    ? `<div class="rosie-card">${memoryImg?`<img class="rosie-photo" src="${escapeHTML(memoryImg)}" alt="${escapeHTML(memoryAlt)}">`:''}<div><b>${escapeHTML(memoryFrom)}</b><br>${escapeHTML(memoryMsg).replace(/\n/g,'<br>')}</div></div>`
    : `<p>${escapeHTML(memoryMsg).replace(/\n/g,'<br>')}</p>`;
- body.innerHTML=`${mainPrizeHTML}${p.amount>0?`<p class="win">Cash win this spin: $${p.amount}</p>`:`<p class="laugh">Prize moment unlocked. ${CONFIG.cashMode?'Cash prize may still be coming.':'The gift keeps building.'}</p>`}<p class="ralph">${escapeHTML(applyTokens(CONFIG.overridePerson||'The audit department'))} note: all objections must be submitted in triplicate and ignored politely.</p>`;
+ body.innerHTML=`${mainPrizeHTML}${p.amount>0?`<p class="win">Cash win this spin: $${p.amount}</p>`:`<p class="laugh">Prize moment unlocked. ${cashEnabled()?'Cash prize may still be coming.':'The gift keeps building.'}</p>`}<p class="ralph">${escapeHTML(applyTokens(CONFIG.overridePerson||'The audit department'))} note: all objections must be submitted in triplicate and ignored politely.</p>`;
  const h=$('prizePopupHeader');
  if(h){h.textContent=headerForPrize(p,body.textContent);setTimeout(fitPrizeHeader,20)}
  launchGlobalCelebration(p,profile);
@@ -1015,7 +1038,7 @@ function spin(){
    }else{
     $('marquee').textContent=applyTokens(CONFIG.slots?.marqueeTemplate||'✨ SPIN {spinNumber} OF {spinCount} — SPIN FOR {recipientUpper} ✨',{spinNumber});
    }
-   $('message').innerHTML=`<h2>${p.title}</h2><p>${applyTokens(p.msg)}</p>${p.amount>0?`<p class="win">Cash win this spin: $${p.amount}</p>`:(p.type==='bonusTrigger'?`<p class="win">Bonus round unlocked: ${bonusSpinCount()} extra jackpot spins!</p>`:`<p class="laugh">Prize moment unlocked. ${CONFIG.cashMode?'Cash prize may still be coming.':'The gift keeps building.'}</p>`)}<p class="ralph">${applyTokens(CONFIG.overridePerson||'The audit department')} note: all objections must be submitted in triplicate and ignored politely.</p>`;
+   $('message').innerHTML=`<h2>${p.title}</h2><p>${applyTokens(p.msg)}</p>${p.amount>0?`<p class="win">Cash win this spin: $${p.amount}</p>`:(p.type==='bonusTrigger'?`<p class="win">Bonus round unlocked: ${bonusSpinCount()} extra jackpot spins!</p>`:`<p class="laugh">Prize moment unlocked. ${cashEnabled()?'Cash prize may still be coming.':'The gift keeps building.'}</p>`)}<p class="ralph">${applyTokens(CONFIG.overridePerson||'The audit department')} note: all objections must be submitted in triplicate and ignored politely.</p>`;
    logItems.unshift(`<div class="logitem"><b>${spinLabel}:</b> ${p.title}${p.amount>0?` — $${p.amount}`:''}</div>`);
    $('log').innerHTML=logItems.join('');
    update();
@@ -1068,7 +1091,7 @@ function openFinalResultsPopup(){
  const o=$('prizeOverlay'),body=$('prizePopupBody'),nextBtn=$('popupNextBtn');
  if(!o||!body)return;
  const name=shortRecipientName();
- const cashLine=CONFIG.cashMode?`<p class="win">Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle.replace(/^(\S+)\s*/,''):''}</p>`:`<p class="win">Official prizes collected: ${lootTitles.length}</p>`;
+ const cashLine=cashEnabled()?`<p class="win">Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle.replace(/^(\S+)\s*/,''):''}</p>`:`<p class="win">Official prizes collected: ${lootTitles.length}</p>`;
  $('prizePopupHeader').textContent='🏆 JACKPOT COMPLETE!';
  $('prizePopupEmoji').textContent='🏆';
  $('prizePopupTitle').textContent=`${name}'s Official Results`;
@@ -1100,11 +1123,11 @@ function openFinalResultsPopup(){
 }
 
 function claimText(){return applyTokens(CONFIG.claim?.template||DEFAULT_CONFIG.claim.template)}
-function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classList.remove('is-spinning');$('spinBtn').innerHTML='<span class="spin-main">🏆 JACKPOT COMPLETE</span><span class="spin-small">See official results below</span>';$('finale').classList.add('show');$('finale').querySelector('h2').textContent=CONFIG.finale?.title||'🎉 Official Birthday Result';$('finalText').textContent=CONFIG.cashMode?`Jackpot complete! Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle.replace(/^(\S+)\s*/,''):''}.`:`Jackpot complete! Official loot collected: ${lootTitles.length} prizes.`;$('claimText').textContent=claimText();const note=$('finale').querySelector('.note');if(note)note.textContent=applyTokens(CONFIG.finale?.note||'The birthday jackpot is complete. Share or copy the official result below, or replay for fun.')}
+function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classList.remove('is-spinning');$('spinBtn').innerHTML='<span class="spin-main">🏆 JACKPOT COMPLETE</span><span class="spin-small">See official results below</span>';$('finale').classList.add('show');$('finale').querySelector('h2').textContent=CONFIG.finale?.title||'🎉 Official Birthday Result';$('finalText').textContent=cashEnabled()?`Jackpot complete! Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle.replace(/^(\S+)\s*/,''):''}.`:`Jackpot complete! Official loot collected: ${lootTitles.length} prizes.`;$('claimText').textContent=claimText();const note=$('finale').querySelector('.note');if(note)note.textContent=applyTokens(CONFIG.finale?.note||'The birthday jackpot is complete. Share or copy the official result below, or replay for fun.')}
 function shareClaim(){const text=claimText();if(navigator.share)navigator.share({text}).catch(()=>{});else copyText(text)}function copyText(text){navigator.clipboard?.writeText(text).then(()=>toast('Copied!')).catch(()=>toast('Copy unavailable'))}function copyClaim(){copyText(claimText())}function toast(msg){const t=$('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600)}
 function resetGame(){spinsLeft=CONFIG.spinCount||CONFIG.ticketCount||5;bestWin=0;bestTitle='';done=false;spinning=false;forcedCashUsed=false;logItems=[];lootTitles=[];awardedPrizeKeys=[];bonusMode=false;bonusTriggered=false;bonusSpinsLeft=0;bonusSpinNumber=0;document.querySelector('.machine')?.classList.remove('bonus-mode','bonus-tease-mode','bonus-soak-mode');$('log').innerHTML='';$('finale').classList.remove('show');$('spinBtn').disabled=false;$('spinBtn').classList.remove('is-spinning');$('r1').textContent='👑';$('r2').textContent='🎂';$('r3').textContent='💐';['r1','r2','r3'].forEach(id=>$(id)?.classList.remove('bonus-tease','bonus-locked','bonus-super-lock','bonus-soak'));renderStaticConfig()}
 async function loadConfig(){const params=new URLSearchParams(location.search),name=params.get('config')||params.get('id');if(!name)return DEFAULT_CONFIG;const safe=name.replace(/[^a-zA-Z0-9_-]/g,'');for(const path of [`configs/${safe}.json`,`${safe}.json`]){try{const res=await fetch(path,{cache:'no-store'});if(res.ok)return await res.json()}catch(e){}}console.warn('Could not load config',name);return DEFAULT_CONFIG}
-window.addEventListener('resize',buildPrizeBulbs);window.addEventListener('resize',fitPrizeHeader);window.addEventListener('resize',fitVegasSignText);document.addEventListener('DOMContentLoaded',async()=>{CONFIG=deepMerge(DEFAULT_CONFIG,await loadConfig());CONFIG.spinCount=CONFIG.spinCount||CONFIG.ticketCount||5;spinsLeft=CONFIG.spinCount;renderStaticConfig();$('spinBtn').onclick=spin;$('shareBtn').onclick=shareClaim;$('copyBtn').onclick=copyClaim;$('restartBtn').onclick=resetGame;$('popupNextBtn').onclick=()=>{const action=$('popupNextBtn').dataset.action||'normal';closePrizePopup();if(action==='final-prize'){setTimeout(openFinalResultsPopup,260);return;}if(action==='final-results'){$('finale')?.scrollIntoView({behavior:'smooth',block:'center'});return;}if(!done&&!$('spinBtn').disabled)$('spinBtn').focus({preventScroll:true})};$('prizeOverlay').addEventListener('click',e=>{if(e.target===$('prizeOverlay'))closePrizePopup()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePrizePopup()})});
+window.addEventListener('resize',buildPrizeBulbs);window.addEventListener('resize',fitPrizeHeader);window.addEventListener('resize',fitVegasSignText);document.addEventListener('DOMContentLoaded',async()=>{CONFIG=normalizeConfig(deepMerge(DEFAULT_CONFIG,await loadConfig()));CONFIG.spinCount=CONFIG.spinCount||CONFIG.ticketCount||5;spinsLeft=CONFIG.spinCount;renderStaticConfig();$('spinBtn').onclick=spin;$('shareBtn').onclick=shareClaim;$('copyBtn').onclick=copyClaim;$('restartBtn').onclick=resetGame;$('popupNextBtn').onclick=()=>{const action=$('popupNextBtn').dataset.action||'normal';closePrizePopup();if(action==='final-prize'){setTimeout(openFinalResultsPopup,260);return;}if(action==='final-results'){$('finale')?.scrollIntoView({behavior:'smooth',block:'center'});return;}if(!done&&!$('spinBtn').disabled)$('spinBtn').focus({preventScroll:true})};$('prizeOverlay').addEventListener('click',e=>{if(e.target===$('prizeOverlay'))closePrizePopup()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePrizePopup()})});
 
 </script>
 </body>
