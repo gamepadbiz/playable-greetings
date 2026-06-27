@@ -1,0 +1,279 @@
+{
+"version": 3,
+"gameType": "universal",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Mike",
+"occasionText": "Father's Day",
+"gameTitle": "Mike's Father's Day Slots",
+"slotsTitle": "Father's Day Slots",
+"fromName": "Your Kids",
+"overridePerson": "Mom",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": false,
+"currency": "USD",
+"maximumPrize": 0,
+"allowedValues": [],
+"paymentMethod": "",
+"paymentNote": ""
+},
+"cashMode": false,
+"minimumCashWin": 0,
+"payment": {
+"method": "",
+"note": ""
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A funny and appreciative Father's Day slot machine for Mike from Your Kids.",
+"bigline": "Spin for BBQ ribs, woodworking glory, Home Improvement laughs, and Dad-level appreciation.",
+"badges": [
+"Father's Day Dad",
+"Kid Approved",
+"Mom Audited"
+],
+"marqueeStart": "🎰 Mike's Father's Day Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Mike's official Father's Day result.",
+"welcome": {
+"title": "Welcome to Mike's Father's Day Casino",
+"paragraphs": [
+"Your Kids built this Father's Day slot machine for Mike, the dad who is always willing to help.",
+"Expect BBQ ribs, woodworking confidence, Home Improvement energy, and projects that somehow start with only one hour.",
+"Mom is serving as the funny audit person, so all suspicious dad wins may be lovingly reviewed."
+],
+"overrideLine": "Mom may object, but Ben and Luke already approved the Father's Day fun."
+},
+"scoreboard": {
+"title": "Father's Day Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "No cash prizes today, only dad bragging rights and family appreciation."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Dad Casino Rules",
+"rules": [
+"Mike gets 5 official Father's Day spins.",
+"Every prize is family-friendly, funny, appreciative, and made with love.",
+"Mom may audit the results, but she cannot cancel Dad's official win.",
+"No cash prizes are included in this game.",
+"Dad jokes, BBQ ribs, and helpful project energy are always worth celebrating."
+],
+"finale": {
+"title": "🎉 Official Father's Day Result",
+"note": "Mike's official Father's Day result is certified by Your Kids and lovingly inspected by Mom.",
+"shareButton": "Share Mike's Father's Day Win",
+"copyButton": "Copy Father's Day Result",
+"restartButton": "Play Again for Mike"
+},
+"footer": "Made with love for Mike from Your Kids.",
+"customerInputs": {
+"relationship": "Dad",
+"interests": [
+"BBQ Ribs",
+"Woodworking",
+"Home Improvement",
+"Helping others",
+"One hour projects"
+],
+"people": [
+"Ben",
+"Luke"
+],
+"oneThingEveryoneKnows": "Always willing to help."
+},
+"claim": {
+"template": "This Father's Day prize is a fun family greeting from Your Kids. No cash prize is included."
+},
+"slots": {
+"marqueeStart": "🎰 Mike's Father's Day Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Mike's official Father's Day result.",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {{spinNumber}} for Mike",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Father's Day Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Dad Casino Rules"
+},
+"prizes": [
+{
+"amount": 0,
+"emoji": "👔",
+"title": "Father's Day Warmup Win",
+"msg": "Mike wins the official first round of dad appreciation from Your Kids.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"👔",
+"👏",
+"👔"
+]
+},
+{
+"amount": 0,
+"emoji": "🛠️",
+"title": "Helpful Dad Medal",
+"msg": "Mike wins recognition for always being willing to help, even when the job gets bigger.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🛠️",
+"🏆",
+"🛠️"
+]
+},
+{
+"amount": 0,
+"emoji": "⏰",
+"title": "Only Takes an Hour Prize",
+"msg": "Mike wins a project estimate that starts at one hour and becomes a full dad adventure.",
+"type": "laugh",
+"category": "universal",
+"weight": 11,
+"reels": [
+"⏰",
+"😂",
+"🔧"
+]
+},
+{
+"amount": 0,
+"emoji": "🎉",
+"title": "Dad Celebration Spin",
+"msg": "Mike wins a full Father's Day cheer from everyone who knows he deserves it.",
+"type": "laugh",
+"category": "universal",
+"weight": 10,
+"reels": [
+"🎉",
+"❤️",
+"🎉"
+]
+},
+{
+"amount": 0,
+"emoji": "🍖",
+"title": "BBQ Ribs Victory Plate",
+"msg": "Mike wins BBQ ribs level respect and the right to judge the sauce like a professional.",
+"type": "laugh",
+"category": "personalized",
+"weight": 10,
+"reels": [
+"🍖",
+"🔥",
+"🍖"
+]
+},
+{
+"amount": 0,
+"emoji": "🪵",
+"title": "Woodworking Legend Bonus",
+"msg": "Mike wins premium sawdust glory and a project that definitely only needs one more board.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"🪵",
+"🪚",
+"🪵"
+]
+},
+{
+"amount": 0,
+"emoji": "📺",
+"title": "Home Improvement Power Grunt",
+"msg": "Mike wins a Home Improvement style power grunt and full control of the dad project zone.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"📺",
+"🛠️",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "🧾",
+"title": "Mom Audit Slip",
+"msg": "Mom reviews the spin and confirms Mike is probably allowed to enjoy this Father's Day win.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"🧾",
+"😂",
+"🧾"
+]
+},
+{
+"amount": 0,
+"emoji": "📋",
+"title": "Mom Objection Overruled",
+"msg": "Mom raises a playful objection, but Ben and Luke vote that Dad wins anyway.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"📋",
+"❤️",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "❤️",
+"title": "Ben and Luke Appreciation Prize",
+"msg": "Mike wins a heartfelt reminder that Ben and Luke appreciate his help, humor, and love.",
+"type": "heartfelt",
+"category": "heartfelt",
+"weight": 7,
+"reels": [
+"❤️",
+"👨",
+"❤️"
+]
+},
+{
+"amount": 0,
+"emoji": "🏆",
+"title": "Premium Dad Bonus Round",
+"msg": "Mike wins premium Dad status for being helpful, funny, dependable, and impossible to replace.",
+"type": "bonus",
+"category": "bonus",
+"weight": 5,
+"reels": [
+"🏆",
+"🛠️",
+"❤️"
+]
+},
+{
+"amount": 0,
+"emoji": "7️⃣",
+"title": "777 Mike Father's Day Jackpot",
+"msg": "Mike wins the top Father's Day jackpot of appreciation from Your Kids, Ben, and Luke.",
+"type": "bonus",
+"category": "special",
+"weight": 2,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+}
