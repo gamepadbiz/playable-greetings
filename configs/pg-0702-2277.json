@@ -24,7 +24,8 @@
     "title": "❤️ A Moment to Remember",
     "from": "Mom / Grandma Rosie",
     "message": "My little baby Gloria,\n\nI loved you from the moment I held you, and that love never left. Every birthday, every smile, every laugh — I am still close in your heart. When you hear the slot bells ring, think of me smiling and cheering for you. Happy Birthday, my Gloria. You are loved forever.\n\nLove, Mom / Grandma Rosie",
-    "image": "assets/pg-0702-2277/memory.png"
+    "image": "assets/pg-0702-2277/memory.png",
+    "style": "miss you / remembrance"
   },
   "subtitle": "Where hope spins, Gloria wins, and Ralph's audit department is respectfully ignored.",
   "bigline": "Happy Birthday, Mom. Press SPIN for laughs, love, and maybe a prize from Mike.",
@@ -83,7 +84,7 @@
     "oneThingEveryoneKnows": "Gloria deserves the win and Ralph's audit never stands."
   },
   "claim": {
-    "template": "🎰 Gloria completed Gloria's Birthday Casino!\n\nBest Cash Win: ${bestWin}\nPrize Summary: {lootSummary}\n\nPayment method requested: {paymentMethod}.\n{paymentNote}\n\nRalph reviewed the results and was overruled by birthday law.\n\nHappy Birthday, Gloria!"
+    "template": "🎰 {recipientName} completed {gameTitle}!\n\nBest Cash Win: ${bestWin}\nPrize Summary: {lootSummary}\n\nPayment method requested: {paymentMethod}.\n{paymentNote}\n\n{overridePerson} reviewed the results and was overruled by birthday law.\n\nHappy {occasionText}, {recipientName}!"
   },
   "slots": {
     "marqueeStart": "✨ BIRTHDAY LUCK LOADING FOR {recipientUpper} ✨",
@@ -266,5 +267,19 @@
         "🧾"
       ]
     }
-  ]
+  ],
+  "cash": {
+    "enabled": true,
+    "maximumPrize": 100,
+    "allowedValues": [
+      5,
+      15,
+      20,
+      25,
+      50,
+      100
+    ],
+    "paymentMethod": "Zelle",
+    "paymentNote": "Text Mike the final result. Cash prizes are a birthday gift from Mike, not from Playable Greetings."
+  }
 }
