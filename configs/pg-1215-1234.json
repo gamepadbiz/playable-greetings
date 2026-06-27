@@ -42,7 +42,7 @@
 "rules": [
 "Play all official turns.",
 "Celebrate every prize.",
-"Husband objections are for entertainment purposes only.",
+"Mike's objections are for entertainment purposes only.",
 "Cash gifts are fulfilled by Mike."
 ],
 "finale": {
@@ -52,7 +52,7 @@
 "copyButton": "Copy Results",
 "restartButton": "Play Again"
 },
-"footer": "Made with love for Norma Jean. Nutty Bars, garden luck, Chris, Brett, and plant-shopping energy may have influenced the results. Husband's objections have been respectfully overruled.",
+"footer": "Made with love for Norma Jean. Nutty Bars, garden luck, Chris, Brett, and plant-shopping energy may have influenced the results. Mike's objections have been respectfully overruled.",
 "customerInputs": {
 "relationship": "",
 "interests": ["Nutty Bars", "Gardening", "Lora from Garden Answer", "Buying plants"],
@@ -75,7 +75,7 @@
 "rules": [
 "Press to spin.",
 "Celebrate each result.",
-"Husband objections do not change the outcome."
+"Mike's objections do not change the outcome."
 ],
 "finaleTitle": "Final Spin Complete!",
 "finaleNote": "Norma Jean's birthday luck has officially bloomed."
@@ -186,7 +186,7 @@
 "amount": 0,
 "emoji": "📋",
 "title": "Husband Objection Denied",
-"msg": "Husband filed a birthday objection, but it was rejected due to overwhelming evidence of Norma Jean being wonderful.",
+"msg": "Mike filed a birthday objection, but it was rejected due to overwhelming evidence of Norma Jean being wonderful.",
 "type": "fun",
 "category": "override",
 "weight": 8,
@@ -196,7 +196,7 @@
 "amount": 5,
 "emoji": "⚖️",
 "title": "Official Husband Overrule",
-"msg": "The judges have reviewed the case and awarded Norma Jean a birthday win over all Husband objections.",
+"msg": "The judges have reviewed the case and awarded Norma Jean a birthday win over all Mike's objections.",
 "type": "cash",
 "category": "override",
 "weight": 7,
