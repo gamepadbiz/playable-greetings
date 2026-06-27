@@ -255,6 +255,33 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
   .popup-actions{flex-direction:column;width:calc(100% - 48px)}
 }
 
+
+/* Mobile popup title safety: keep long prize titles below the jackpot tab */
+@media(max-width:520px){
+  .prize-modal{
+    padding-top:104px!important;
+  }
+  .prize-jackpot{
+    min-height:58px!important;
+    max-height:74px!important;
+    padding-top:8px!important;
+    padding-bottom:8px!important;
+    font-size:clamp(.9rem,4.2vw,1.18rem)!important;
+  }
+  .prize-title-row{
+    margin-top:4px!important;
+    gap:8px!important;
+  }
+  .prize-emoji-big{
+    font-size:clamp(2rem,10vw,3.4rem)!important;
+  }
+  #prizePopupTitle{
+    font-size:clamp(1.35rem,6vw,2.15rem)!important;
+    line-height:1.08!important;
+    overflow-wrap:anywhere!important;
+  }
+}
+
 /* Long-message modal safety fix */
 .prize-modal{
   max-height:94vh!important;
@@ -280,11 +307,11 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
   .prize-overlay{align-items:flex-start!important;overflow-y:auto!important;padding-top:8px!important;padding-bottom:8px!important}
   .prize-modal{
     max-height:96vh!important;
-    padding-top:62px!important;
+    padding-top:104px!important;
     padding-bottom:64px!important;
   }
   #prizePopupBody{
-    max-height:calc(96vh - 250px);
+    max-height:calc(96vh - 292px);
     padding-left:22px!important;
     padding-right:22px!important;
     padding-bottom:22px!important;
@@ -368,7 +395,7 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
 <section class="panel"><h3>Casino Rules</h3><p class="note">1. Gloria is the birthday girl.</p><p class="note">2. The house does not win today.</p><p class="note">3. Ralph’s fact-checking is permitted, but all disputed memories are settled in favor of Gloria.</p><p class="note">4. Text Mike the final result to claim the birthday prize.</p></section>
 </aside>
 </ma
-<p class="footer" id="footer">Made especially for this birthday star. Happy Birthday! 🎰</p>
+<p class="footer" id="footer">Made especially for this celebration. 🎰</p>
 </div>
 <div class="confetti" id="confetti"></div><div class="global-celebration" id="globalCelebration"></div><div class="toast" id="toast"></div>
 
@@ -694,7 +721,8 @@ function shortRecipientName(){
 }
 function bonusRoundName(){
  const name=shortRecipientName().toUpperCase();
- return `${name}'S BIRTHDAY JACKPOT`;
+ const occasion=String(CONFIG.occasionText||'Celebration').trim().toUpperCase()||'CELEBRATION';
+ return `${name}'S ${occasion} JACKPOT`;
 }
 function bonusTriggerPrize(){
  return normalizePrize({amount:0,emoji:'🎰',title:`🎰 ${bonusRoundName()}!`,msg:`The final official spin hits the bonus symbols! ${shortRecipientName()} just unlocked ${bonusSpinCount()} extra jackpot spins with the best prizes saved for last.`,type:'bonusTrigger',category:'bonusTrigger',weight:1,reels:['🎰','🎰','🎰']});
@@ -1015,8 +1043,8 @@ function ensureFooterElement(){
 function happyFooterFallback(){
  const hasFrom=String(CONFIG.fromName||'').trim();
  return hasFrom
-   ? "Made especially for {recipientName} by {fromName}. Happy {occasionText}! 🎰 Wishing you laughs, love, and jackpot-level birthday joy."
-   : "Made especially for {recipientName}. Happy {occasionText}! 🎰 Wishing you laughs, love, and jackpot-level birthday joy.";
+   ? "Made especially for {recipientName} by {fromName}. Happy {occasionText}! 🎰 Wishing you laughs, love, and jackpot-level joy."
+   : "Made especially for {recipientName}. Happy {occasionText}! 🎰 Wishing you laughs, love, and jackpot-level joy.";
 }
 
 function updateFooter(){
@@ -1026,7 +1054,7 @@ function updateFooter(){
  const genericFooter = /^(made with love\.?\s*)?(no quarters required\.?\s*)?(no actual casino harmed\.?)?$/i.test(rawFooter.replace(/\s+/g,' ').trim());
  const hasUsefulFooter = rawFooter && !genericFooter;
  const finalText = applyTokens(hasUsefulFooter ? rawFooter : happyFooterFallback()).trim();
- footer.textContent = finalText || 'Made especially for this birthday star. Happy Birthday! 🎰';
+ footer.textContent = finalText || applyTokens('Made especially for {recipientName}. Happy {occasionText}! 🎰');
 }
 function renderStaticConfig(){document.title=CONFIG.slotsTitle||CONFIG.gameTitle||'Playable Greeting Slots';const occ=$('gvOccasionText'),name=$('gvNameText');if(occ)occ.textContent=cleanOccasionSlotTitle();if(name)name.textContent=(CONFIG.recipientName||'PLAYER').toUpperCase();setText('.vegas-copy .subtitle',applyTokens(CONFIG.subtitle));setText('.vegas-copy .bigline',applyTokens(CONFIG.bigline));const badges=document.querySelector('.vegas-badges');if(badges)badges.innerHTML=(CONFIG.badges||[]).map(b=>`<span class="badge">${applyTokens(b)}</span>`).join('');$('marquee').textContent=applyTokens(CONFIG.slots?.marqueeStart||CONFIG.marqueeStart||'✨ SLOT LUCK LOADING ✨');$('spinBtn').innerHTML=spinButtonHTML();const w=CONFIG.welcome||{};$('message').innerHTML=`<h2>${applyTokens(w.title||'Welcome, {recipientName}!')}</h2>`+(w.paragraphs||[]).map(p=>`<p>${applyTokens(p)}</p>`).join('')+(w.overrideLine?`<p class="ralph">${applyTokens(w.overrideLine)}</p>`:'')+`<p class="note"><b>Prize clarity:</b> ${prizeClarityMessage()}</p>`;const titles=document.querySelectorAll('.panel h3');if(titles[0])titles[0].textContent=CONFIG.scoreboard?.title||CONFIG.slots?.scoreboardTitle||'Scoreboard';if(titles[1]){const ht=CONFIG.historyTitle||CONFIG.slots?.historyTitle||'Prize Reveal History';titles[1].textContent=/^spin history$/i.test(String(ht).trim())?'Prize Reveal History':ht;}if(titles[2])titles[2].textContent=CONFIG.rulesTitle||CONFIG.slots?.rulesTitle||'Casino Rules';const note=document.querySelector('.panel .note');if(note)note.textContent=applyTokens(CONFIG.scoreboard?.note||'Guaranteed minimum birthday love: unlimited.');const rulesPanel=document.querySelectorAll('.panel')[2];if(rulesPanel){const h=rulesPanel.querySelector('h3')?.outerHTML||'<h3>Rules</h3>';{const baseRules=(CONFIG.slots?.rules||CONFIG.rules||[]).slice();baseRules.push(prizeClarityMessage());rulesPanel.innerHTML=h+baseRules.map((r,i)=>`<p class="note">${i+1}. ${applyTokens(r).replace(/^\d+\.\s*/,'')}</p>`).join('')}}updateFooter();$('shareBtn').textContent=CONFIG.finale?.shareButton||'Text / Share My Win';$('copyBtn').textContent=CONFIG.finale?.copyButton||'Copy Claim Text';$('restartBtn').textContent=CONFIG.finale?.restartButton||'🔄 Play Again';update();setTimeout(fitVegasSignText,100)}
 function setBonusButton(){
