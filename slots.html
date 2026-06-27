@@ -852,7 +852,7 @@ function celebrationLadderProfile(stage,p){
   bonus1:{tier:'bonus1',count:76,localCount:36,durationMs:6200,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫'],localBits:['★','✦','◆','✨']},
   bonus2:{tier:'bonus2',count:92,localCount:44,durationMs:7200,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫','💥'],localBits:['★','✦','◆','✨','🏆']},
   bonus3:{tier:'bonus3',count:112,localCount:54,durationMs:8400,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫','💥','👑'],localBits:['★','✦','◆','✨','🏆','👑']},
-  officialresults:{tier:'officialResults',count:150,localCount:72,durationMs:10500,sound:'finale',bits:['🏆','👑','🎉','✨','⭐','💫','💥','🎰','🎂'],localBits:['🏆','👑','★','✦','✨','🎉']}
+  officialresults:{tier:'officialResults',count:126,localCount:52,durationMs:9200,sound:'finale',bits:['🏆','👑','🎉','✨','⭐','💫','💥','🎰','🎂'],localBits:['🏆','👑','★','✦','✨','🎉']}
  };
  const profile=ladder[stageKey];
  if(!profile)return base;
@@ -871,16 +871,24 @@ function launchGlobalCelebration(p,profile){
  const bits=profile.bits&&profile.bits.length?profile.bits:['🎉','✨','⭐'];
  const count=Math.max(24,Number(profile.count||30));
  const durationMs=Math.max(2600,Number(profile.durationMs||3600));
+ const frag=document.createDocumentFragment();
  for(let i=0;i<count;i++){
   const s=document.createElement('span');
   s.textContent=bits[Math.floor(Math.random()*bits.length)];
   s.style.left=(Math.random()*100)+'%';
   s.style.animationDelay=(Math.random()*0.55)+'s';
   s.style.animationDuration=((durationMs/1000)*(.78+Math.random()*.42))+'s';
-  s.style.fontSize=(18+Math.random()*(profile.tier==='bonusTrigger'?28:20))+'px';
-  layer.appendChild(s);
+  s.style.fontSize=(18+Math.random()*(profile.tier==='bonusTrigger'||profile.tier==='officialResults'?26:20))+'px';
+  frag.appendChild(s);
  }
+ layer.appendChild(frag);
  setTimeout(()=>{layer.innerHTML=''},durationMs+1200);
+}
+function clearCelebrationLayers(){
+ const g=$('globalCelebration');
+ const c=$('prizeConfetti');
+ if(g)g.innerHTML='';
+ if(c)c.innerHTML='';
 }
 function escapeHTML(v){
  return String(v ?? '').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -893,6 +901,10 @@ function openPrizePopup(p,opts={}){
  if(nextBtn){
   nextBtn.dataset.action=opts.finalPrize?'final-prize':(p.type==='bonusTrigger'?'bonus-start':'normal');
   nextBtn.textContent=opts.finalPrize?'🏆 Show Official Results':(p.type==='bonusTrigger'?'🎰 Start Bonus Round!':'🎰 Next Spin!');
+  nextBtn.disabled=!!opts.finalPrize;
+  if(opts.finalPrize){
+    setTimeout(()=>{ if(nextBtn.dataset.action==='final-prize') nextBtn.disabled=false; },1200);
+  }
  }
  $('prizePopupTitle').textContent=(p.title||'').replace(/^(\S+)\s*/,'').trim()||p.title;
  $('prizePopupEmoji').textContent=p.emoji||'🎉';
@@ -1088,6 +1100,7 @@ function playFinaleSound(){
  playTone(1568,.5,'sine',.04,.65);
 }
 function openFinalResultsPopup(){
+ clearCelebrationLayers();
  const o=$('prizeOverlay'),body=$('prizePopupBody'),nextBtn=$('popupNextBtn');
  if(!o||!body)return;
  const name=shortRecipientName();
@@ -1096,7 +1109,7 @@ function openFinalResultsPopup(){
  $('prizePopupEmoji').textContent='🏆';
  $('prizePopupTitle').textContent=`${name}'s Official Results`;
  body.innerHTML=`<p class="win">The final bonus spin is complete. ${name} beat the birthday casino.</p>${cashLine}<p class="laugh">Prize summary:</p>${prizeSummaryList()}<p class="ralph">${applyTokens(CONFIG.overridePerson||'The audit department')} has completed the audit and has been respectfully overruled.</p>`;
- if(nextBtn){nextBtn.dataset.action='final-results';nextBtn.textContent='📜 View Share / Claim Buttons'}
+ if(nextBtn){nextBtn.dataset.action='final-results';nextBtn.textContent='📜 View Share / Claim Buttons';nextBtn.disabled=false}
  const finalePrize={amount:0,emoji:'🏆',title:'Official Results',msg:'jackpot complete',type:'finale',category:'officialResults',reels:['🏆','🎰','🎂']};
  const finaleProfile=celebrationLadderProfile('officialResults',finalePrize);
  playPrizeSound(finalePrize,finaleProfile);
@@ -1106,15 +1119,17 @@ function openFinalResultsPopup(){
   c.innerHTML='';
   const bits=finaleProfile.localBits&&finaleProfile.localBits.length?finaleProfile.localBits:['🏆','★','✦','✨','🎉'];
   const duration=(Math.max(5000,Number(finaleProfile.durationMs||9000))/1000);
-  for(let i=0;i<Math.max(40,Number(finaleProfile.localCount||60));i++){
+  const frag=document.createDocumentFragment();
+  for(let i=0;i<Math.max(40,Number(finaleProfile.localCount||52));i++){
    const s=document.createElement('span');
    s.textContent=bits[Math.floor(Math.random()*bits.length)];
    s.style.left=(Math.random()*100)+'%';
    s.style.animationDelay=(-Math.random()*duration)+'s';
    s.style.animationDuration=(duration+Math.random()*2.2)+'s';
    s.style.color=['#ffd36b','#ffefad','#fff8e7','#ff8ed8','#8ed7ff'][Math.floor(Math.random()*5)];
-   c.appendChild(s);
+   frag.appendChild(s);
   }
+  c.appendChild(frag);
  }
  o.classList.add('show');
  setTimeout(buildPrizeBulbs,30);
@@ -1127,7 +1142,21 @@ function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classLis
 function shareClaim(){const text=claimText();if(navigator.share)navigator.share({text}).catch(()=>{});else copyText(text)}function copyText(text){navigator.clipboard?.writeText(text).then(()=>toast('Copied!')).catch(()=>toast('Copy unavailable'))}function copyClaim(){copyText(claimText())}function toast(msg){const t=$('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600)}
 function resetGame(){spinsLeft=CONFIG.spinCount||CONFIG.ticketCount||5;bestWin=0;bestTitle='';done=false;spinning=false;forcedCashUsed=false;logItems=[];lootTitles=[];awardedPrizeKeys=[];bonusMode=false;bonusTriggered=false;bonusSpinsLeft=0;bonusSpinNumber=0;document.querySelector('.machine')?.classList.remove('bonus-mode','bonus-tease-mode','bonus-soak-mode');$('log').innerHTML='';$('finale').classList.remove('show');$('spinBtn').disabled=false;$('spinBtn').classList.remove('is-spinning');$('r1').textContent='👑';$('r2').textContent='🎂';$('r3').textContent='💐';['r1','r2','r3'].forEach(id=>$(id)?.classList.remove('bonus-tease','bonus-locked','bonus-super-lock','bonus-soak'));renderStaticConfig()}
 async function loadConfig(){const params=new URLSearchParams(location.search),name=params.get('config')||params.get('id');if(!name)return DEFAULT_CONFIG;const safe=name.replace(/[^a-zA-Z0-9_-]/g,'');for(const path of [`configs/${safe}.json`,`${safe}.json`]){try{const res=await fetch(path,{cache:'no-store'});if(res.ok)return await res.json()}catch(e){}}console.warn('Could not load config',name);return DEFAULT_CONFIG}
-window.addEventListener('resize',buildPrizeBulbs);window.addEventListener('resize',fitPrizeHeader);window.addEventListener('resize',fitVegasSignText);document.addEventListener('DOMContentLoaded',async()=>{CONFIG=normalizeConfig(deepMerge(DEFAULT_CONFIG,await loadConfig()));CONFIG.spinCount=CONFIG.spinCount||CONFIG.ticketCount||5;spinsLeft=CONFIG.spinCount;renderStaticConfig();$('spinBtn').onclick=spin;$('shareBtn').onclick=shareClaim;$('copyBtn').onclick=copyClaim;$('restartBtn').onclick=resetGame;$('popupNextBtn').onclick=()=>{const action=$('popupNextBtn').dataset.action||'normal';closePrizePopup();if(action==='final-prize'){setTimeout(openFinalResultsPopup,260);return;}if(action==='final-results'){$('finale')?.scrollIntoView({behavior:'smooth',block:'center'});return;}if(!done&&!$('spinBtn').disabled)$('spinBtn').focus({preventScroll:true})};$('prizeOverlay').addEventListener('click',e=>{if(e.target===$('prizeOverlay'))closePrizePopup()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePrizePopup()})});
+window.addEventListener('resize',buildPrizeBulbs);window.addEventListener('resize',fitPrizeHeader);window.addEventListener('resize',fitVegasSignText);document.addEventListener('DOMContentLoaded',async()=>{CONFIG=normalizeConfig(deepMerge(DEFAULT_CONFIG,await loadConfig()));CONFIG.spinCount=CONFIG.spinCount||CONFIG.ticketCount||5;spinsLeft=CONFIG.spinCount;renderStaticConfig();$('spinBtn').onclick=spin;$('shareBtn').onclick=shareClaim;$('copyBtn').onclick=copyClaim;$('restartBtn').onclick=resetGame;$('popupNextBtn').onclick=()=>{
+ const btn=$('popupNextBtn');
+ const action=btn.dataset.action||'normal';
+ if(action==='final-prize'){
+  btn.disabled=true;
+  btn.textContent='🏆 Preparing Official Results...';
+  clearCelebrationLayers();
+  closePrizePopup();
+  setTimeout(()=>requestAnimationFrame(()=>requestAnimationFrame(openFinalResultsPopup)),520);
+  return;
+ }
+ closePrizePopup();
+ if(action==='final-results'){$('finale')?.scrollIntoView({behavior:'smooth',block:'center'});return;}
+ if(!done&&!$('spinBtn').disabled)$('spinBtn').focus({preventScroll:true})
+};$('prizeOverlay').addEventListener('click',e=>{if(e.target===$('prizeOverlay'))closePrizePopup()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePrizePopup()})});
 
 </script>
 </body>
