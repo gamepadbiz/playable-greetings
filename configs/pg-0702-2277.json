@@ -1,0 +1,270 @@
+{
+  "version": 3,
+  "gameType": "universal",
+  "supportedGames": [
+    "slots"
+  ],
+  "theme": "premiumVegas",
+  "recipientName": "Gloria",
+  "occasionText": "Birthday",
+  "gameTitle": "Gloria's Birthday Casino",
+  "slotsTitle": "Birthday Slots",
+  "fromName": "Mike",
+  "overridePerson": "Ralph",
+  "spinCount": 5,
+  "ticketCount": 5,
+  "cashMode": true,
+  "minimumCashWin": 0,
+  "payment": {
+    "method": "Zelle",
+    "note": "Text Mike the final result. Cash prizes are a birthday gift from Mike, not from Playable Greetings."
+  },
+  "memoryBonus": {
+    "enabled": true,
+    "title": "❤️ A Moment to Remember",
+    "from": "Mom / Grandma Rosie",
+    "message": "My little baby Gloria,\n\nI loved you from the moment I held you, and that love never left. Every birthday, every smile, every laugh — I am still close in your heart. When you hear the slot bells ring, think of me smiling and cheering for you. Happy Birthday, my Gloria. You are loved forever.\n\nLove, Mom / Grandma Rosie",
+    "image": "assets/gloria-birthday/memory.png"
+  },
+  "subtitle": "Where hope spins, Gloria wins, and Ralph's audit department is respectfully ignored.",
+  "bigline": "Happy Birthday, Mom. Press SPIN for laughs, love, and maybe a prize from Mike.",
+  "badges": [
+    "5 Official Spins",
+    "Bonus Round Included",
+    "Best Cash Win Counts",
+    "Ralph May Object"
+  ],
+  "marqueeStart": "✨ BIRTHDAY LUCK LOADING FOR {recipientUpper} ✨",
+  "marqueeTemplate": "✨ SPIN {spinNumber} OF {spinCount} — SPIN FOR {recipientUpper} ✨",
+  "welcome": {
+    "title": "Welcome, Gloria!",
+    "paragraphs": [
+      "This is your official birthday slot machine from Mike.",
+      "You get 5 official spins. Some spins win cash. Some spins win laughs. All spins are rigged in favor of the birthday girl.",
+      "If the bonus round appears, do not panic. The house is simply admitting Gloria deserves more."
+    ],
+    "overrideLine": "Important casino rule: Ralph may review the results, but his approval is not required."
+  },
+  "scoreboard": {
+    "title": "Birthday Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "note": "Guaranteed minimum birthday love: unlimited. Guaranteed minimum comedy: Ralph."
+  },
+  "historyTitle": "Spin History",
+  "rulesTitle": "Casino Rules",
+  "rules": [
+    "Gloria is the birthday girl.",
+    "The house does not win today.",
+    "Ralph's fact-checking is permitted, but all disputed memories are settled in favor of Gloria.",
+    "Text Mike the final result to claim the birthday prize."
+  ],
+  "finale": {
+    "title": "🎉 Official Birthday Result",
+    "note": "Official game: best cash win from the birthday spins counts. Replay resets the casino because Gloria deserves another round.",
+    "shareButton": "Text / Share My Win With Mike",
+    "copyButton": "Copy Claim Text",
+    "restartButton": "🔄 Play Again — Ralph Demands a Recount"
+  },
+  "footer": "Made with love for Gloria. No quarters required. No actual casino harmed. Ralph may have to buy dinner.",
+  "customerInputs": {
+    "relationship": "Mom",
+    "interests": [
+      "Bingo",
+      "McDonald's cheeseburgers",
+      "family"
+    ],
+    "people": [
+      "Ralph",
+      "Mike",
+      "Mom / Grandma Rosie",
+      "Internet Skater Brandon"
+    ],
+    "oneThingEveryoneKnows": "Gloria deserves the win and Ralph's audit never stands."
+  },
+  "claim": {
+    "template": "🎰 Gloria completed Gloria's Birthday Casino!\n\nBest Cash Win: ${bestWin}\nPrize Summary: {lootSummary}\n\nPayment method requested: {paymentMethod}.\n{paymentNote}\n\nRalph reviewed the results and was overruled by birthday law.\n\nHappy Birthday, Gloria!"
+  },
+  "slots": {
+    "marqueeStart": "✨ BIRTHDAY LUCK LOADING FOR {recipientUpper} ✨",
+    "marqueeTemplate": "✨ SPIN {spinNumber} OF {spinCount} — SPIN FOR {recipientUpper} ✨",
+    "spinButtonMain": "🎰 PRESS TO SPIN",
+    "spinButtonSmallTemplate": "Gloria's Birthday",
+    "bonusSpinCount": 3,
+    "scoreboardTitle": "Birthday Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "historyTitle": "Spin History",
+    "rulesTitle": "Casino Rules"
+  },
+  "prizes": [
+    {
+      "amount": 5,
+      "emoji": "🍔",
+      "title": "🍔 Birthday Cheeseburger Cash",
+      "msg": "Gloria wins $5 toward a McDonald's double cheeseburger or Big Mac. Ralph may not audit the pickles, onions, or special sauce.",
+      "type": "cash",
+      "category": "personalized",
+      "weight": 10,
+      "reels": [
+        "🍔",
+        "🍔",
+        "🎂"
+      ]
+    },
+    {
+      "amount": 15,
+      "emoji": "👑",
+      "title": "👑 Queen Gloria Bonus",
+      "msg": "Gloria wins $15 because Birthday Casino recognizes her as the rightful ruler of the day.",
+      "type": "cash",
+      "category": "personalized",
+      "weight": 9,
+      "reels": [
+        "👑",
+        "👑",
+        "❤️"
+      ]
+    },
+    {
+      "amount": 20,
+      "emoji": "🧾",
+      "title": "🧾 Ralph Audit Override",
+      "msg": "Gloria wins $20. Ralph attempted to pause the payout for review. Request denied by Birthday Casino.",
+      "type": "cash",
+      "category": "override",
+      "weight": 8,
+      "reels": [
+        "🧾",
+        "👑",
+        "💸"
+      ]
+    },
+    {
+      "amount": 25,
+      "emoji": "🎂",
+      "title": "🎂 Birthday Bonus",
+      "msg": "Gloria wins $25 because birthday rules override household budget committee rules.",
+      "type": "cash",
+      "category": "universal",
+      "weight": 7,
+      "reels": [
+        "🎂",
+        "🎂",
+        "👑"
+      ]
+    },
+    {
+      "amount": 50,
+      "emoji": "💸",
+      "title": "💸 Zelle Zone",
+      "msg": "Gloria wins $50. Text Mike before Ralph moves the money to a safer location.",
+      "type": "cash",
+      "category": "special",
+      "weight": 4,
+      "reels": [
+        "💸",
+        "💸",
+        "👑"
+      ]
+    },
+    {
+      "amount": 100,
+      "emoji": "7️⃣",
+      "title": "7️⃣ Lucky Seven Jackpot",
+      "msg": "JACKPOT. Gloria wins $100. Ralph is advised to remain calm and not ask where this money came from.",
+      "type": "cash",
+      "category": "special",
+      "weight": 2,
+      "reels": [
+        "7️⃣",
+        "7️⃣",
+        "7️⃣"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🎥",
+      "title": "🎥 Slot Stream Shout-Out",
+      "msg": "Internet Skater Brandon interrupts the broadcast to wish Gloria a Happy Birthday and reminds everyone that you never know when the bonus is coming, so keep chasing one more spin.",
+      "type": "bonus",
+      "category": "bonus",
+      "weight": 8,
+      "reels": [
+        "🎥",
+        "7️⃣",
+        "✨"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🕊️",
+      "title": "🕊️ A Loving Message From Grandma Rosie",
+      "msg": "A loving birthday message from Grandma Rosie appears.",
+      "type": "heartfelt",
+      "category": "memory",
+      "weight": 10,
+      "reels": [
+        "🔢",
+        "❤️",
+        "🕊️"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🧾",
+      "title": "🧾 Ralph Receipt Check",
+      "msg": "No cash this spin, but Ralph is currently reviewing the payout. Estimated approval time is 3 to 5 business years.",
+      "type": "laugh",
+      "category": "override",
+      "weight": 10,
+      "reels": [
+        "🧾",
+        "🧾",
+        "😂"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "😂",
+      "title": "😂 Laughter Jackpot",
+      "msg": "No cash this spin, but Gloria wins the right to laugh while Ralph explains something no one asked about.",
+      "type": "laugh",
+      "category": "universal",
+      "weight": 10,
+      "reels": [
+        "😂",
+        "😂",
+        "🧾"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "🍔",
+      "title": "🍔 Cheeseburger Break",
+      "msg": "Gloria wins one double cheeseburger break. Ralph buys. Mike approves.",
+      "type": "laugh",
+      "category": "personalized",
+      "weight": 9,
+      "reels": [
+        "🍔",
+        "🧾",
+        "🍔"
+      ]
+    },
+    {
+      "amount": 0,
+      "emoji": "📜",
+      "title": "📜 Official Ruling",
+      "msg": "All disputed memories shall be settled in favor of the birthday girl. This ruling is final unless Gloria changes the story later.",
+      "type": "laugh",
+      "category": "universal",
+      "weight": 8,
+      "reels": [
+        "✨",
+        "👑",
+        "🧾"
+      ]
+    }
+  ]
+}
