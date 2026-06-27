@@ -20,16 +20,16 @@
 },
 "subtitle": "A birthday game full of plants, Nutty Bars, garden luck, and loving chaos.",
 "bigline": "Happy Birthday, Norma Jean!",
-"badges": ["Birthday Luck", "Plant Queen", "Mike Approved", "Husband Overruled"],
+"badges": ["Birthday Luck", "Plant Queen", "Mike Approved", "Christopher Overruled"],
 "marqueeStart": "🌿 Norma Jean's Birthday Prize Party is open!",
-"marqueeTemplate": "Spin for birthday surprises, garden joy, and possibly a Husband objection.",
+"marqueeTemplate": "Spin for birthday surprises, garden joy, and possibly a Mike objection.",
 "welcome": {
 "title": "Welcome to Norma Jean's Birthday Prize Party!",
 "paragraphs": [
 "Mike made this birthday game to celebrate Norma Jean with laughs, love, and a little Vegas sparkle.",
 "Expect Nutty Bars, gardening magic, plant-shopping energy, and birthday prizes approved by the official fun committee."
 ],
-"overrideLine": "Husband may object, but the birthday judges have already overruled him."
+"overrideLine": "Mike may object, but the birthday judges have already overruled him."
 },
 "scoreboard": {
 "title": "Official Birthday Scoreboard",
