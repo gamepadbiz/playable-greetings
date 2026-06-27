@@ -368,7 +368,7 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
 <section class="panel"><h3>Casino Rules</h3><p class="note">1. Gloria is the birthday girl.</p><p class="note">2. The house does not win today.</p><p class="note">3. Ralph’s fact-checking is permitted, but all disputed memories are settled in favor of Gloria.</p><p class="note">4. Text Mike the final result to claim the birthday prize.</p></section>
 </aside>
 </ma
-<p class="footer">Made with love for Gloria. No quarters required. No actual casino harmed. Ralph may have to buy dinner.</p>
+<p class="footer">Made with love. No quarters required. No actual casino harmed.</p>
 </div>
 <div class="confetti" id="confetti"></div><div class="global-celebration" id="globalCelebration"></div><div class="toast" id="toast"></div>
 
@@ -818,24 +818,24 @@ function prizeReelBits(p){
 function celebrationProfile(p){
  p=p||{};
  const reelBits=prizeReelBits(p);
- const base={tier:'standard',sound:'standard',count:30,localCount:20,durationMs:3600,bits:['🎉','✨','⭐','◆','✦'],localBits:['✦','◆','★','✨']};
+ const base={tier:'standard',sound:'standard',count:30,localCount:20,durationMs:3000,bits:['🎉','✨','⭐','◆','✦'],localBits:['✦','◆','★','✨']};
  if(p.type==='bonusTrigger'||p.category==='bonusTrigger'){
-  return {...base,tier:'bonusTrigger',sound:'bonus',count:76,localCount:36,durationMs:6200,bits:uniqueCelebrationBits(['🎰','💥','🏆','⭐','✨','🎉'].concat(reelBits)),localBits:uniqueCelebrationBits(['🎰','★','✦','✨','◆'].concat(reelBits))};
+  return {...base,tier:'bonusTrigger',sound:'bonus',count:76,localCount:36,durationMs:4300,bits:uniqueCelebrationBits(['🎰','💥','🏆','⭐','✨','🎉'].concat(reelBits)),localBits:uniqueCelebrationBits(['🎰','★','✦','✨','◆'].concat(reelBits))};
  }
  if(p.amount>0){
-  return {...base,tier:'cash',sound:'cash',count:58,localCount:30,durationMs:5200,bits:uniqueCelebrationBits(['💰','💵','🏆','⭐','✨','🎉'].concat(reelBits)),localBits:uniqueCelebrationBits(['💰','★','✦','✨','◆'].concat(reelBits))};
+  return {...base,tier:'cash',sound:'cash',count:58,localCount:30,durationMs:3800,bits:uniqueCelebrationBits(['💰','💵','🏆','⭐','✨','🎉'].concat(reelBits)),localBits:uniqueCelebrationBits(['💰','★','✦','✨','◆'].concat(reelBits))};
  }
  if(isMemoryPrize(p)||isHeartfeltPrize(p)){
-  return {...base,tier:isMemoryPrize(p)?'memory':'heartfelt',sound:'heartfelt',count:44,localCount:26,durationMs:4700,bits:uniqueCelebrationBits(['❤️','💖','🕊️','✨','⭐'].concat(reelBits)),localBits:uniqueCelebrationBits(['♥','❤️','✨','✦','★'].concat(reelBits))};
+  return {...base,tier:isMemoryPrize(p)?'memory':'heartfelt',sound:'heartfelt',count:44,localCount:26,durationMs:3600,bits:uniqueCelebrationBits(['❤️','💖','🕊️','✨','⭐'].concat(reelBits)),localBits:uniqueCelebrationBits(['♥','❤️','✨','✦','★'].concat(reelBits))};
  }
  if(isBonusPrize(p)||isUltimatePrize(p)||isSpecialPrize(p)){
-  return {...base,tier:'special',sound:'bonus',count:48,localCount:28,durationMs:4900,bits:uniqueCelebrationBits(['🎁','🏆','⭐','✨','🎉'].concat(reelBits)),localBits:uniqueCelebrationBits(['★','✦','◆','✨'].concat(reelBits))};
+  return {...base,tier:'special',sound:'bonus',count:48,localCount:28,durationMs:3700,bits:uniqueCelebrationBits(['🎁','🏆','⭐','✨','🎉'].concat(reelBits)),localBits:uniqueCelebrationBits(['★','✦','◆','✨'].concat(reelBits))};
  }
  if(isFunnyPrize(p)){
-  return {...base,tier:'funny',sound:'funny',count:36,localCount:22,durationMs:3900,bits:uniqueCelebrationBits(['😂','🤣','🎉','✨','⭐'].concat(reelBits)),localBits:uniqueCelebrationBits(['😂','✦','◆','✨'].concat(reelBits))};
+  return {...base,tier:'funny',sound:'funny',count:36,localCount:22,durationMs:3200,bits:uniqueCelebrationBits(['😂','🤣','🎉','✨','⭐'].concat(reelBits)),localBits:uniqueCelebrationBits(['😂','✦','◆','✨'].concat(reelBits))};
  }
  if(isPersonalPrize(p)){
-  return {...base,tier:'personalized',sound:'standard',count:34,localCount:22,durationMs:3900,bits:uniqueCelebrationBits(['🎉','✨','⭐'].concat(reelBits)),localBits:uniqueCelebrationBits(['✦','◆','★','✨'].concat(reelBits))};
+  return {...base,tier:'personalized',sound:'standard',count:34,localCount:22,durationMs:3200,bits:uniqueCelebrationBits(['🎉','✨','⭐'].concat(reelBits)),localBits:uniqueCelebrationBits(['✦','◆','★','✨'].concat(reelBits))};
  }
  return {...base,bits:uniqueCelebrationBits(base.bits.concat(reelBits)),localBits:uniqueCelebrationBits(base.localBits.concat(reelBits))};
 }
@@ -844,15 +844,15 @@ function celebrationLadderProfile(stage,p){
  const reelBits=prizeReelBits(p);
  const stageKey=String(stage||'').toLowerCase();
  const ladder={
-  spin1:{tier:'spin1',count:22,localCount:14,durationMs:2400,sound:'standard',bits:['🎉','✨','⭐'],localBits:['✦','◆','✨']},
-  spin2:{tier:'spin2',count:30,localCount:18,durationMs:3100,sound:'standard',bits:['🎉','✨','⭐','◆'],localBits:['✦','◆','★','✨']},
-  spin3:{tier:'spin3',count:40,localCount:24,durationMs:3900,sound:'standard',bits:['🎉','✨','⭐','🏆','◆'],localBits:['✦','◆','★','✨']},
-  spin4:{tier:'spin4Heartfelt',count:58,localCount:32,durationMs:5400,sound:'heartfelt',bits:['❤️','💖','🕊️','✨','⭐','🎉'],localBits:['♥','❤️','✨','✦','★']},
-  bonustrigger:{tier:'bonusTrigger',count:90,localCount:44,durationMs:7200,sound:'bonus',bits:['🎰','💥','🏆','⭐','✨','🎉','💫'],localBits:['🎰','★','✦','✨','◆']},
-  bonus1:{tier:'bonus1',count:76,localCount:36,durationMs:6200,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫'],localBits:['★','✦','◆','✨']},
-  bonus2:{tier:'bonus2',count:92,localCount:44,durationMs:7200,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫','💥'],localBits:['★','✦','◆','✨','🏆']},
-  bonus3:{tier:'bonus3',count:112,localCount:54,durationMs:8400,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫','💥','👑'],localBits:['★','✦','◆','✨','🏆','👑']},
-  officialresults:{tier:'officialResults',count:126,localCount:52,durationMs:9200,sound:'finale',bits:['🏆','👑','🎉','✨','⭐','💫','💥','🎰','🎂'],localBits:['🏆','👑','★','✦','✨','🎉']}
+  spin1:{tier:'spin1',count:22,localCount:14,durationMs:2000,sound:'standard',bits:['🎉','✨','⭐'],localBits:['✦','◆','✨']},
+  spin2:{tier:'spin2',count:30,localCount:18,durationMs:2400,sound:'standard',bits:['🎉','✨','⭐','◆'],localBits:['✦','◆','★','✨']},
+  spin3:{tier:'spin3',count:40,localCount:24,durationMs:2800,sound:'standard',bits:['🎉','✨','⭐','🏆','◆'],localBits:['✦','◆','★','✨']},
+  spin4:{tier:'spin4Heartfelt',count:58,localCount:32,durationMs:3600,sound:'heartfelt',bits:['❤️','💖','🕊️','✨','⭐','🎉'],localBits:['♥','❤️','✨','✦','★']},
+  bonustrigger:{tier:'bonusTrigger',count:90,localCount:44,durationMs:4300,sound:'bonus',bits:['🎰','💥','🏆','⭐','✨','🎉','💫'],localBits:['🎰','★','✦','✨','◆']},
+  bonus1:{tier:'bonus1',count:76,localCount:36,durationMs:4300,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫'],localBits:['★','✦','◆','✨']},
+  bonus2:{tier:'bonus2',count:92,localCount:44,durationMs:4700,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫','💥'],localBits:['★','✦','◆','✨','🏆']},
+  bonus3:{tier:'bonus3',count:112,localCount:54,durationMs:5400,sound:'bonus',bits:['🎁','🏆','⭐','✨','🎉','💫','💥','👑'],localBits:['★','✦','◆','✨','🏆','👑']},
+  officialresults:{tier:'officialResults',count:126,localCount:52,durationMs:6200,sound:'finale',bits:['🏆','👑','🎉','✨','⭐','💫','💥','🎰','🎂'],localBits:['🏆','👑','★','✦','✨','🎉']}
  };
  const profile=ladder[stageKey];
  if(!profile)return base;
@@ -870,14 +870,14 @@ function launchGlobalCelebration(p,profile){
  layer.innerHTML='';
  const bits=profile.bits&&profile.bits.length?profile.bits:['🎉','✨','⭐'];
  const count=Math.max(24,Number(profile.count||30));
- const durationMs=Math.max(2600,Number(profile.durationMs||3600));
+ const durationMs=Math.max(2000,Number(profile.durationMs||3000));
  const frag=document.createDocumentFragment();
  for(let i=0;i<count;i++){
   const s=document.createElement('span');
   s.textContent=bits[Math.floor(Math.random()*bits.length)];
   s.style.left=(Math.random()*100)+'%';
   s.style.animationDelay=(Math.random()*0.55)+'s';
-  s.style.animationDuration=((durationMs/1000)*(.78+Math.random()*.42))+'s';
+  s.style.animationDuration=((durationMs/1000)*(.62+Math.random()*.28))+'s';
   s.style.fontSize=(18+Math.random()*(profile.tier==='bonusTrigger'||profile.tier==='officialResults'?26:20))+'px';
   frag.appendChild(s);
  }
@@ -926,13 +926,13 @@ function openPrizePopup(p,opts={}){
   c.innerHTML='';
   const bits=profile.localBits&&profile.localBits.length?profile.localBits:['✦','◆','★','✨'];
   const localCount=Math.max(18,Number(profile.localCount||22));
-  const duration=(Math.max(3000,Number(profile.durationMs||3600))/1000);
+  const duration=(Math.max(2200,Number(profile.durationMs||3000))/1000);
   for(let i=0;i<localCount;i++){
    const s=document.createElement('span');
    s.textContent=bits[Math.floor(Math.random()*bits.length)];
    s.style.left=(Math.random()*100)+'%';
    s.style.animationDelay=(-Math.random()*duration)+'s';
-   s.style.animationDuration=(duration+Math.random()*1.8)+'s';
+   s.style.animationDuration=(duration+Math.random()*0.9)+'s';
    s.style.color=['#ffd36b','#ff8ed8','#8ed7ff','#fff8e7','#fff2a8'][Math.floor(Math.random()*5)];
    c.appendChild(s);
   }
@@ -944,12 +944,13 @@ function openPrizePopup(p,opts={}){
 
 function generatedFooter(){
  const name = CONFIG.recipientName || 'the birthday star';
- const override = CONFIG.overridePerson || 'the audit department';
+ const from = CONFIG.fromName || 'Someone Who Loves You';
+ const override = CONFIG.overridePerson || 'the birthday committee';
  const inputs = CONFIG.customerInputs || {};
  const interests = Array.isArray(inputs.interests) ? inputs.interests.filter(Boolean) : [];
  const known = inputs.oneThingEveryoneKnows || '';
  const bits = [];
- bits.push(`Made with love for ${name}.`);
+ bits.push(`Made with love for ${name} from ${from}.`);
  bits.push('No quarters required. No actual casino harmed.');
  if(interests.length){
    const picked = interests.slice(0,3).join(', ');
@@ -963,11 +964,8 @@ function generatedFooter(){
 }
 
 function renderStaticConfig(){document.title=CONFIG.slotsTitle||CONFIG.gameTitle||'Playable Greeting Slots';const occ=$('gvOccasionText'),name=$('gvNameText');if(occ)occ.textContent=(CONFIG.slotsTitle||CONFIG.occasionText||'birthday slots').replace(CONFIG.recipientName||'','').trim()||CONFIG.occasionText;if(name)name.textContent=(CONFIG.recipientName||'PLAYER').toUpperCase();setText('.vegas-copy .subtitle',applyTokens(CONFIG.subtitle));setText('.vegas-copy .bigline',applyTokens(CONFIG.bigline));const badges=document.querySelector('.vegas-badges');if(badges)badges.innerHTML=(CONFIG.badges||[]).map(b=>`<span class="badge">${applyTokens(b)}</span>`).join('');$('marquee').textContent=applyTokens(CONFIG.slots?.marqueeStart||CONFIG.marqueeStart||'✨ SLOT LUCK LOADING ✨');$('spinBtn').innerHTML=spinButtonHTML();const w=CONFIG.welcome||{};$('message').innerHTML=`<h2>${applyTokens(w.title||'Welcome, {recipientName}!')}</h2>`+(w.paragraphs||[]).map(p=>`<p>${applyTokens(p)}</p>`).join('')+(w.overrideLine?`<p class="ralph">${applyTokens(w.overrideLine)}</p>`:'');const titles=document.querySelectorAll('.panel h3');if(titles[0])titles[0].textContent=CONFIG.scoreboard?.title||CONFIG.slots?.scoreboardTitle||'Scoreboard';if(titles[1])titles[1].textContent=CONFIG.historyTitle||CONFIG.slots?.historyTitle||'Spin History';if(titles[2])titles[2].textContent=CONFIG.rulesTitle||CONFIG.slots?.rulesTitle||'Casino Rules';const note=document.querySelector('.panel .note');if(note)note.textContent=applyTokens(CONFIG.scoreboard?.note||'Guaranteed minimum birthday love: unlimited.');const rulesPanel=document.querySelectorAll('.panel')[2];if(rulesPanel){const h=rulesPanel.querySelector('h3')?.outerHTML||'<h3>Rules</h3>';rulesPanel.innerHTML=h+(CONFIG.slots?.rules||CONFIG.rules||[]).map((r,i)=>`<p class="note">${i+1}. ${applyTokens(r).replace(/^\d+\.\s*/,'')}</p>`).join('')}const footer=document.querySelector('.footer');if(footer){
-  const rawFooter = CONFIG.footer || "";
-  const demoNameLeak =
-    /\bGloria\b|\bRalph\b/i.test(rawFooter) &&
-    !new RegExp('\\b' + (CONFIG.recipientName || '').replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b','i').test(rawFooter);
-  footer.textContent = applyTokens((rawFooter && !demoNameLeak) ? rawFooter : generatedFooter());
+  const rawFooter = typeof CONFIG.footer === 'string' ? CONFIG.footer.trim() : '';
+  footer.textContent = applyTokens(rawFooter || generatedFooter());
 }$('shareBtn').textContent=CONFIG.finale?.shareButton||'Text / Share My Win';$('copyBtn').textContent=CONFIG.finale?.copyButton||'Copy Claim Text';$('restartBtn').textContent=CONFIG.finale?.restartButton||'🔄 Play Again';update();setTimeout(fitVegasSignText,100)}
 function setBonusButton(){
  const btn=$('spinBtn');
@@ -1118,14 +1116,14 @@ function openFinalResultsPopup(){
  if(c){
   c.innerHTML='';
   const bits=finaleProfile.localBits&&finaleProfile.localBits.length?finaleProfile.localBits:['🏆','★','✦','✨','🎉'];
-  const duration=(Math.max(5000,Number(finaleProfile.durationMs||9000))/1000);
+  const duration=(Math.max(3800,Number(finaleProfile.durationMs||6200))/1000);
   const frag=document.createDocumentFragment();
   for(let i=0;i<Math.max(40,Number(finaleProfile.localCount||52));i++){
    const s=document.createElement('span');
    s.textContent=bits[Math.floor(Math.random()*bits.length)];
    s.style.left=(Math.random()*100)+'%';
    s.style.animationDelay=(-Math.random()*duration)+'s';
-   s.style.animationDuration=(duration+Math.random()*2.2)+'s';
+   s.style.animationDuration=(duration+Math.random()*1.1)+'s';
    s.style.color=['#ffd36b','#ffefad','#fff8e7','#ff8ed8','#8ed7ff'][Math.floor(Math.random()*5)];
    frag.appendChild(s);
   }
