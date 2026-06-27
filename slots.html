@@ -335,6 +335,70 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
 
 </style>
 
+
+<style id="popup-long-title-final-fix">
+/* Final mobile safety for long generated prize titles.
+   Keep the emoji from covering the title, and reserve enough room below the jackpot ribbon. */
+.prize-title-row{
+  width:min(100%,520px);
+  padding:0 10px;
+}
+#prizePopupTitle{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  hyphens:auto;
+}
+@media(max-width:620px){
+  .prize-modal{
+    padding-top:118px!important;
+  }
+  .prize-title-row{
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:4px!important;
+    margin:0 auto 10px!important;
+    padding:0 20px!important;
+    width:100%!important;
+  }
+  .prize-emoji-big{
+    font-size:clamp(2.0rem,9vw,3.0rem)!important;
+    line-height:1!important;
+    margin:0 auto 2px!important;
+    transform:none!important;
+  }
+  #prizePopupTitle{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    text-align:center!important;
+    font-size:clamp(1.35rem,5.8vw,2.05rem)!important;
+    line-height:1.08!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+    padding:0 4px!important;
+  }
+  .prize-divider{
+    margin-top:10px!important;
+  }
+  #prizePopupBody{
+    max-height:calc(96vh - 315px)!important;
+  }
+}
+@media(max-width:380px){
+  .prize-modal{
+    padding-top:124px!important;
+  }
+  #prizePopupTitle{
+    font-size:clamp(1.2rem,5.4vw,1.75rem)!important;
+  }
+  .prize-emoji-big{
+    font-size:2.2rem!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -432,6 +496,19 @@ function fitPrizeHeader(){
  }
 }
 
+
+function fitPrizePopupTitle(){
+ const t=document.getElementById('prizePopupTitle');
+ if(!t)return;
+ t.style.fontSize='';
+ let size=parseFloat(getComputedStyle(t).fontSize);
+ let safety=30;
+ while((t.scrollWidth > t.clientWidth || t.scrollHeight > (window.innerWidth<=620 ? 120 : 150)) && size > 16 && safety-- > 0){
+   size -= 1;
+   t.style.fontSize=size+'px';
+ }
+}
+
 function buildPrizeBulbs(){
  const modal=document.querySelector('.prize-modal');
  const rail=document.getElementById('prizeBulbs');
@@ -472,6 +549,7 @@ function openPrizePopupFromMessage(){
  if(cloneH)cloneH.remove();
  titleEl.textContent=cleanTitle||rawTitle||'Prize Reveal';
  emojiEl.textContent=emoji;
+ setTimeout(fitPrizePopupTitle,20);
  
 bodyEl.innerHTML=clone.innerHTML;
 const headerEl=document.getElementById('prizePopupHeader');
@@ -504,6 +582,7 @@ if(headerEl){
 }
 window.addEventListener('resize',buildPrizeBulbs);
 window.addEventListener('resize',fitPrizeHeader);
+window.addEventListener('resize',fitPrizePopupTitle);
 function closePrizePopup(){
  const overlay=document.getElementById('prizeOverlay');
  if(overlay){overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');}
