@@ -1,0 +1,216 @@
+{
+"version": 2,
+"gameType": "universal",
+"supportedGames": ["slots", "scratch"],
+"theme": "premiumVegas",
+"recipientName": "Norma Jean",
+"occasionText": "Birthday",
+"gameTitle": "Norma Jean's Birthday Prize Party",
+"slotsTitle": "Norma Jean's Birthday Slots",
+"scratchTitle": "Norma Jean's Birthday Scratch-Off",
+"fromName": "Mike",
+"overridePerson": "Husband",
+"spinCount": 5,
+"ticketCount": 5,
+"cashMode": true,
+"minimumCashWin": 5,
+"payment": {
+"method": "Zelle",
+"note": ""
+},
+"subtitle": "A birthday game full of plants, Nutty Bars, garden luck, and loving chaos.",
+"bigline": "Happy Birthday, Norma Jean!",
+"badges": ["Birthday Luck", "Plant Queen", "Mike Approved", "Husband Overruled"],
+"marqueeStart": "🌿 Norma Jean's Birthday Prize Party is open!",
+"marqueeTemplate": "Spin for birthday surprises, garden joy, and possibly a Husband objection.",
+"welcome": {
+"title": "Welcome to Norma Jean's Birthday Prize Party!",
+"paragraphs": [
+"Mike made this birthday game to celebrate Norma Jean with laughs, love, and a little Vegas sparkle.",
+"Expect Nutty Bars, gardening magic, plant-shopping energy, and birthday prizes approved by the official fun committee."
+],
+"overrideLine": "Husband may object, but the birthday judges have already overruled him."
+},
+"scoreboard": {
+"title": "Official Birthday Scoreboard",
+"leftLabel": "Birthday Luck",
+"rightLabel": "Prize Joy",
+"note": "All results are final unless Norma Jean buys another plant."
+},
+"historyTitle": "Prize History",
+"rulesTitle": "Birthday Rules",
+"rules": [
+"Play all official turns.",
+"Celebrate every prize.",
+"Husband objections are for entertainment purposes only.",
+"Cash gifts are fulfilled by Mike."
+],
+"finale": {
+"title": "Birthday Finale!",
+"note": "Norma Jean has completed the official birthday prize party.",
+"shareButton": "Share Birthday Results",
+"copyButton": "Copy Results",
+"restartButton": "Play Again"
+},
+"footer": "Made with love for Norma Jean. Nutty Bars, garden luck, Chris, Brett, and plant-shopping energy may have influenced the results. Husband's objections have been respectfully overruled.",
+"customerInputs": {
+"relationship": "",
+"interests": ["Nutty Bars", "Gardening", "Lora from Garden Answer", "Buying plants"],
+"people": ["Chris", "Brett", "Rick"],
+"oneThingEveryoneKnows": "She loves to buy plants"
+},
+"claim": {
+"template": "Payment method requested: Zelle. Final gift fulfillment is up to Mike."
+},
+"slots": {
+"marqueeStart": "🌿 Norma Jean's Birthday Slots are live!",
+"marqueeTemplate": "Garden luck is spinning for Norma Jean.",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "{recipientName}'s {occasionText}",
+"scoreboardTitle": "Official Birthday Slots Scoreboard",
+"leftLabel": "Spin Luck",
+"rightLabel": "Prize Joy",
+"historyTitle": "Spin History",
+"rulesTitle": "Slot Rules",
+"rules": [
+"Press to spin.",
+"Celebrate each result.",
+"Husband objections do not change the outcome."
+],
+"finaleTitle": "Final Spin Complete!",
+"finaleNote": "Norma Jean's birthday luck has officially bloomed."
+},
+"scratchLayerText": {
+"line1": "SCRATCH HERE!",
+"line2": "Norma Jean Birthday Luck",
+"icons": "🌿 🎂 ✨"
+},
+"prizeFormula": {
+"universal": 5,
+"personalized": 4,
+"override": 2,
+"heartfelt": 1
+},
+"prizes": [
+{
+"amount": 5,
+"emoji": "🎂",
+"title": "Birthday Cake Bonus",
+"msg": "Birthday authorities have confirmed that Norma Jean deserves an extra sweet celebration today.",
+"type": "cash",
+"category": "universal",
+"weight": 10,
+"reels": ["🎂", "💸", "🎂"]
+},
+{
+"amount": 0,
+"emoji": "🎉",
+"title": "Confetti Approval",
+"msg": "A festive burst of birthday joy has been released in Norma Jean's honor.",
+"type": "fun",
+"category": "universal",
+"weight": 10,
+"reels": ["🎉", "✨", "🎉"]
+},
+{
+"amount": 0,
+"emoji": "👑",
+"title": "Birthday Royalty Status",
+"msg": "Norma Jean has been declared birthday royalty for the day, with full snack and relaxation privileges.",
+"type": "fun",
+"category": "universal",
+"weight": 9,
+"reels": ["👑", "🎂", "👑"]
+},
+{
+"amount": 0,
+"emoji": "🍀",
+"title": "Lucky Day Certificate",
+"msg": "The birthday luck meter is glowing, and Norma Jean is officially cleared for a wonderful day.",
+"type": "fun",
+"category": "universal",
+"weight": 9,
+"reels": ["🍀", "✨", "🍀"]
+},
+{
+"amount": 0,
+"emoji": "💌",
+"title": "Love Note Jackpot",
+"msg": "This prize contains extra love from everyone who is glad Norma Jean is in their life.",
+"type": "heart",
+"category": "universal",
+"weight": 8,
+"reels": ["💌", "🎂", "💌"]
+},
+{
+"amount": 10,
+"emoji": "🌿",
+"title": "Plant Shopping Fund",
+"msg": "Norma Jean has been awarded emergency plant money because one more plant sounds completely reasonable.",
+"type": "cash",
+"category": "personalized",
+"weight": 10,
+"reels": ["🌿", "💸", "🌿"]
+},
+{
+"amount": 0,
+"emoji": "🍫",
+"title": "Nutty Bar Victory",
+"msg": "A Nutty Bar celebration has been authorized for Norma Jean with maximum birthday crunch.",
+"type": "fun",
+"category": "personalized",
+"weight": 10,
+"reels": ["🍫", "🎂", "🍫"]
+},
+{
+"amount": 0,
+"emoji": "🪴",
+"title": "Garden Answer Energy",
+"msg": "Lora from Garden Answer would probably approve of this level of birthday garden enthusiasm.",
+"type": "fun",
+"category": "personalized",
+"weight": 9,
+"reels": ["🪴", "📺", "🪴"]
+},
+{
+"amount": 5,
+"emoji": "🍳",
+"title": "Pre-Dinner Pit Stop Prize",
+"msg": "Before dinner cooking begins, Norma Jean has earned a gentle reminder that the kitchen can wait one tiny minute.",
+"type": "cash",
+"category": "personalized",
+"weight": 8,
+"reels": ["🍳", "💸", "🍳"]
+},
+{
+"amount": 0,
+"emoji": "📋",
+"title": "Husband Objection Denied",
+"msg": "Husband filed a birthday objection, but it was rejected due to overwhelming evidence of Norma Jean being wonderful.",
+"type": "fun",
+"category": "override",
+"weight": 8,
+"reels": ["📋", "❌", "📋"]
+},
+{
+"amount": 5,
+"emoji": "⚖️",
+"title": "Official Husband Overrule",
+"msg": "The judges have reviewed the case and awarded Norma Jean a birthday win over all Husband objections.",
+"type": "cash",
+"category": "override",
+"weight": 7,
+"reels": ["⚖️", "💸", "⚖️"]
+},
+{
+"amount": 0,
+"emoji": "💚",
+"title": "Rick's Loving Laugh",
+"msg": "Rick sends a funny little birthday wink for Norma Jean, with love, laughter, and a reminder that Chris and Brett are lucky to have her.",
+"type": "heart",
+"category": "heartfelt",
+"weight": 6,
+"reels": ["💚", "✨", "💚"]
+}
+]
+}
