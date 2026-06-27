@@ -1,0 +1,280 @@
+{
+"version": 3,
+"gameType": "universal",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Betty",
+"occasionText": "Birthday",
+"gameTitle": "Betty's Birthday Slots",
+"slotsTitle": "Birthday Slots",
+"fromName": "Grandkids",
+"overridePerson": "Grandpa Frank",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": false,
+"currency": "USD",
+"maximumPrize": 0,
+"allowedValues": [],
+"paymentMethod": "",
+"paymentNote": ""
+},
+"cashMode": false,
+"minimumCashWin": 0,
+"payment": {
+"method": "",
+"note": ""
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A sweet and funny birthday slot machine made with love from the grandkids.",
+"bigline": "Spin for pie, cookies, Golden Girls laughs, and a whole lot of Betty love.",
+"badges": [
+"Birthday Star",
+"Grandkid Approved",
+"Grandpa Frank Audited"
+],
+"marqueeStart": "🎰 Betty's Birthday Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Betty's official birthday result.",
+"welcome": {
+"title": "Welcome to Betty's Birthday Casino",
+"paragraphs": [
+"Grandkids built this sweet little slot machine for Betty, the birthday star who always has cookies ready.",
+"Expect homemade apple pie energy, crossword puzzle luck, knitting-level patience, and a few Golden Girls laughs.",
+"Grandpa Frank is here as the official funny audit person, which means every win may be reviewed with love."
+],
+"overrideLine": "Grandpa Frank may object, but the grandkids already approved the birthday fun."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "No cash prizes today, only sweet birthday bragging rights and family love."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Betty gets 5 official birthday spins.",
+"Every prize is family-friendly, funny, warm, and made with love.",
+"Grandpa Frank may audit the results, but he cannot cancel birthday joy.",
+"No cash prizes are included in this game.",
+"Cookies, pie, and hugs are always worth celebrating."
+],
+"finale": {
+"title": "🎉 Official Birthday Result",
+"note": "Betty's official birthday result is certified by the grandkids and lovingly inspected by Grandpa Frank.",
+"shareButton": "Share Betty's Birthday Win",
+"copyButton": "Copy Birthday Result",
+"restartButton": "Play Again for Betty"
+},
+"footer": "Made with love for Betty from Grandkids.",
+"customerInputs": {
+"relationship": "Grandchildren",
+"interests": [
+"Homemade apple pie",
+"Knitting",
+"Crossword puzzles",
+"The Golden Girls",
+"Cookies"
+],
+"people": [
+"Frank",
+"Emma",
+"Noah"
+],
+"oneThingEveryoneKnows": "She always has cookies ready."
+},
+"claim": {
+"template": "This birthday prize is a fun family greeting from Grandkids. No cash prize is included."
+},
+"slots": {
+"marqueeStart": "🎰 Betty's Birthday Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Betty's official birthday result.",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {{spinNumber}} for Betty",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"prizes": [
+{
+"amount": 0,
+"emoji": "🎂",
+"title": "Birthday Candle Champion",
+"msg": "Betty wins a full birthday cheer from everyone who knows she deserves the sweetest day.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🎂",
+"✨",
+"🎂"
+]
+},
+{
+"amount": 0,
+"emoji": "🍪",
+"title": "Cookie Jar Legend",
+"msg": "Betty wins official recognition for always having cookies ready like a true family hero.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🍪",
+"🏆",
+"🍪"
+]
+},
+{
+"amount": 0,
+"emoji": "🛋️",
+"title": "Five Minute Visit Bonus",
+"msg": "Betty wins a five minute visit that lovingly turns into three hours, as tradition requires.",
+"type": "laugh",
+"category": "universal",
+"weight": 11,
+"reels": [
+"🕔",
+"😂",
+"🛋️"
+]
+},
+{
+"amount": 0,
+"emoji": "💐",
+"title": "Birthday Hug Parade",
+"msg": "Betty wins a parade of hugs, smiles, and birthday love from the people who treasure her.",
+"type": "heartfelt",
+"category": "universal",
+"weight": 10,
+"reels": [
+"💐",
+"❤️",
+"💐"
+]
+},
+{
+"amount": 0,
+"emoji": "🥧",
+"title": "Homemade Apple Pie Jackpot Warmup",
+"msg": "Betty wins the aroma of homemade apple pie and the power to make everyone suddenly hungry.",
+"type": "laugh",
+"category": "personalized",
+"weight": 10,
+"reels": [
+"🥧",
+"🍎",
+"🥧"
+]
+},
+{
+"amount": 0,
+"emoji": "🧶",
+"title": "Knitting Victory Row",
+"msg": "Betty wins a cozy knitting streak with zero dropped stitches and maximum grandma magic.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"🧶",
+"🪡",
+"🧶"
+]
+},
+{
+"amount": 0,
+"emoji": "🧩",
+"title": "Crossword Queen Clue",
+"msg": "Betty wins the final crossword answer before anyone else even finds a pencil.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"🧩",
+"✏️",
+"🧩"
+]
+},
+{
+"amount": 0,
+"emoji": "🧾",
+"title": "Grandpa Frank Audit Slip",
+"msg": "Grandpa Frank reviews the spin and confirms Betty is still absolutely allowed to win.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"🧾",
+"😂",
+"🧾"
+]
+},
+{
+"amount": 0,
+"emoji": "📋",
+"title": "Official Frank Objection Overruled",
+"msg": "Grandpa Frank raises a playful objection, but Emma and Noah vote that Betty wins anyway.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"📋",
+"❤️",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "❤️",
+"title": "Grandkids Love Prize",
+"msg": "Betty wins a heartfelt reminder that her love, cookies, visits, and kindness mean more than she knows.",
+"type": "heartfelt",
+"category": "heartfelt",
+"weight": 7,
+"reels": [
+"❤️",
+"👵",
+"❤️"
+]
+},
+{
+"amount": 0,
+"emoji": "📺",
+"title": "Golden Girls Bonus Round",
+"msg": "Betty wins premium couch seating, extra laughs, and a Golden Girls level birthday celebration.",
+"type": "bonus",
+"category": "bonus",
+"weight": 5,
+"reels": [
+"📺",
+"🌴",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "7️⃣",
+"title": "777 Betty Birthday Jackpot",
+"msg": "Betty wins the top birthday celebration with love from Grandkids, Frank, Emma, and Noah.",
+"type": "bonus",
+"category": "special",
+"weight": 2,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+}
