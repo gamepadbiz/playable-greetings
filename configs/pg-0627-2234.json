@@ -1,0 +1,285 @@
+{
+"version": 3,
+"gameType": "universal",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Robert",
+"occasionText": "Birthday",
+"gameTitle": "Robert's Birthday Slots",
+"slotsTitle": "Birthday Slots",
+"fromName": "Your Family",
+"overridePerson": "Mom",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": true,
+"currency": "USD",
+"maximumPrize": 50,
+"allowedValues": [
+5,
+10,
+20,
+50
+],
+"paymentMethod": "Venmo",
+"paymentNote": "Show Dad the Official Results screen."
+},
+"cashMode": true,
+"minimumCashWin": 5,
+"payment": {
+"method": "Venmo",
+"note": "Show Dad the Official Results screen."
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A funny birthday slot machine for Robert from Your Family.",
+"bigline": "Spin for steak, fishing luck, duct tape glory, recliner naps, and birthday cash from Your Family.",
+"badges": [
+"Birthday Dad",
+"Family Approved",
+"Mom Audited"
+],
+"marqueeStart": "🎰 Robert's Birthday Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Robert's official birthday result.",
+"welcome": {
+"title": "Welcome to Robert's Birthday Casino",
+"paragraphs": [
+"Your Family built this birthday slot machine for Robert, the man who can fix almost anything with duct tape.",
+"Expect steak energy, fishing luck, Yellowstone drama, and one very powerful recliner nap.",
+"Mom is serving as the funny audit person, so all suspicious wins may be lovingly reviewed."
+],
+"overrideLine": "Mom may object, but Susan, Ethan, and Olivia already approved the birthday fun."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "Cash prizes are birthday gifts fulfilled by Your Family, not Playable Greetings."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Robert gets 5 official birthday spins.",
+"Cash prizes are birthday gifts from Your Family only.",
+"Playable Greetings does not pay cash prizes.",
+"Show Dad the Official Results screen to claim any cash prize by Venmo.",
+"Mom may audit the results, but she cannot cancel birthday fun."
+],
+"finale": {
+"title": "🎉 Official Birthday Result",
+"note": "Robert's official birthday result is certified by Your Family and subject to Mom's playful audit.",
+"shareButton": "Share Robert's Birthday Win",
+"copyButton": "Copy Birthday Result",
+"restartButton": "Play Again for Robert"
+},
+"footer": "Made with love for Robert from Your Family.",
+"customerInputs": {
+"relationship": "Wife and Kids",
+"interests": [
+"Steak",
+"Fishing",
+"Yellowstone",
+"Duct tape repairs",
+"Recliner naps"
+],
+"people": [
+"Susan",
+"Ethan",
+"Olivia"
+],
+"oneThingEveryoneKnows": "Can fix almost anything with duct tape."
+},
+"claim": {
+"template": "Cash prizes are birthday gifts fulfilled by Your Family through Venmo. Show Dad the Official Results screen to claim. Playable Greetings does not pay cash prizes."
+},
+"slots": {
+"marqueeStart": "🎰 Robert's Birthday Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Robert's official birthday result.",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {{spinNumber}} for Robert",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"prizes": [
+{
+"amount": 0,
+"emoji": "🎂",
+"title": "Birthday Dad Warmup",
+"msg": "Robert wins the official first round of birthday cheers from the family.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🎂",
+"👏",
+"🎂"
+]
+},
+{
+"amount": 5,
+"emoji": "🛋️",
+"title": "Recliner Power Nap Prize",
+"msg": "Robert wins five dollars and permission to fall asleep in the recliner like a champion.",
+"type": "cash",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🛋️",
+"💤",
+"💵"
+]
+},
+{
+"amount": 0,
+"emoji": "🧰",
+"title": "Duct Tape Repair Medal",
+"msg": "Robert wins recognition for fixing almost anything with duct tape and total confidence.",
+"type": "laugh",
+"category": "universal",
+"weight": 11,
+"reels": [
+"🧰",
+"🩹",
+"🔧"
+]
+},
+{
+"amount": 10,
+"emoji": "🎉",
+"title": "Family Celebration Cash",
+"msg": "Robert wins ten birthday dollars and a round of family applause.",
+"type": "cash",
+"category": "universal",
+"weight": 10,
+"reels": [
+"🎉",
+"💵",
+"🎉"
+]
+},
+{
+"amount": 0,
+"emoji": "🥩",
+"title": "Steak Dinner Spin",
+"msg": "Robert wins steak-level birthday respect with perfectly grilled dad energy.",
+"type": "laugh",
+"category": "personalized",
+"weight": 10,
+"reels": [
+"🥩",
+"🔥",
+"🥩"
+]
+},
+{
+"amount": 20,
+"emoji": "🎣",
+"title": "Fishing Luck Cash Catch",
+"msg": "Robert wins twenty dollars and the kind of fishing luck every dad claims he already had.",
+"type": "cash",
+"category": "personalized",
+"weight": 8,
+"reels": [
+"🎣",
+"🐟",
+"💵"
+]
+},
+{
+"amount": 0,
+"emoji": "🤠",
+"title": "Yellowstone Remote Control Roundup",
+"msg": "Robert wins control of the remote and enough Yellowstone drama to count as a birthday bonus.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"🤠",
+"📺",
+"🐎"
+]
+},
+{
+"amount": 0,
+"emoji": "🧾",
+"title": "Mom Audit Slip",
+"msg": "Mom reviews the spin and confirms Robert is probably allowed to enjoy this win.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"🧾",
+"😂",
+"🧾"
+]
+},
+{
+"amount": 10,
+"emoji": "📋",
+"title": "Mom Objection Overruled",
+"msg": "Mom raises a playful objection, but Susan, Ethan, and Olivia vote that Robert gets ten dollars.",
+"type": "cash",
+"category": "override",
+"weight": 7,
+"reels": [
+"📋",
+"💵",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "❤️",
+"title": "Family Love Prize",
+"msg": "Robert wins a heartfelt reminder that Susan, Ethan, and Olivia love him more than any jackpot.",
+"type": "heartfelt",
+"category": "heartfelt",
+"weight": 6,
+"reels": [
+"❤️",
+"👨",
+"❤️"
+]
+},
+{
+"amount": 20,
+"emoji": "🏆",
+"title": "Premium Dad Bonus",
+"msg": "Robert wins a premium twenty dollar birthday bonus for being the family fix-it legend.",
+"type": "bonus",
+"category": "bonus",
+"weight": 4,
+"reels": [
+"🏆",
+"🧰",
+"💵"
+]
+},
+{
+"amount": 50,
+"emoji": "7️⃣",
+"title": "777 Robert Birthday Jackpot",
+"msg": "Robert wins the top birthday jackpot of fifty dollars from Your Family by Venmo.",
+"type": "cash",
+"category": "special",
+"weight": 2,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+}
