@@ -1,0 +1,284 @@
+{
+"version": 3,
+"gameType": "universal",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Sarah",
+"occasionText": "Anniversary",
+"gameTitle": "Sarah's Anniversary Slots",
+"slotsTitle": "Anniversary Slots",
+"fromName": "David",
+"overridePerson": "The Marriage Committee",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": true,
+"currency": "USD",
+"maximumPrize": 100,
+"allowedValues": [
+10,
+20,
+50,
+100
+],
+"paymentMethod": "Zelle",
+"paymentNote": "Your anniversary jackpot is waiting."
+},
+"cashMode": true,
+"minimumCashWin": 10,
+"payment": {
+"method": "Zelle",
+"note": "Your anniversary jackpot is waiting."
+},
+"memoryBonus": {
+"enabled": true,
+"title": "❤️ A Moment to Remember",
+"from": "David",
+"style": "Proud",
+"message": "Every adventure has been better because you were beside me. I would choose you all over again.",
+"image": "assets/sarah-david-anniversary/memory.png"
+},
+"subtitle": "A romantic and funny anniversary slot machine for Sarah from David.",
+"bigline": "Spin for chocolate strawberries, travel dreams, Princess Bride romance, and cash gifts from David.",
+"badges": [
+"Romantic",
+"Funny",
+"Committee Audited"
+],
+"marqueeStart": "🎰 Sarah's Anniversary Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Sarah's official anniversary result.",
+"welcome": {
+"title": "Welcome to Sarah's Anniversary Casino",
+"paragraphs": [
+"David made this romantic and funny slot machine for Sarah, his favorite travel partner and best adventure.",
+"Expect chocolate covered strawberries, Princess Bride romance, early packing confidence, and a few dad joke laughs.",
+"The Marriage Committee is here as the official funny audit team, but love clearly has the winning hand."
+],
+"overrideLine": "The Marriage Committee may object, but David, Emma, and Jack already approve this celebration."
+},
+"scoreboard": {
+"title": "Anniversary Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "Cash prizes are gifts fulfilled by David, not Playable Greetings."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Sarah gets 5 official celebration spins.",
+"Cash prizes are gifts from David only.",
+"Playable Greetings does not pay cash prizes.",
+"Any cash prize is fulfilled by David through Zelle.",
+"The Marriage Committee may audit the results, but romance wins anyway."
+],
+"finale": {
+"title": "🎉 Official Anniversary Result",
+"note": "Sarah's official result is certified by David and lovingly reviewed by The Marriage Committee.",
+"shareButton": "Share Sarah's Win",
+"copyButton": "Copy Official Result",
+"restartButton": "Play Again for Sarah"
+},
+"footer": "Made with love for Sarah from David.",
+"customerInputs": {
+"relationship": "Husband",
+"interests": [
+"Chocolate covered strawberries",
+"Travel",
+"The Princess Bride",
+"Packing early",
+"Dad jokes"
+],
+"people": [
+"Emma",
+"Jack"
+],
+"oneThingEveryoneKnows": "She still laughs at Dad jokes."
+},
+"claim": {
+"template": "Cash prizes are gifts fulfilled by David through Zelle. Your anniversary jackpot is waiting. Playable Greetings does not pay cash prizes."
+},
+"slots": {
+"marqueeStart": "🎰 Sarah's Anniversary Slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Sarah's official anniversary result.",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {{spinNumber}} for Sarah",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Anniversary Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"prizes": [
+{
+"amount": 0,
+"emoji": "💐",
+"title": "Sweet Start",
+"msg": "Sarah wins the opening round of love, laughs, and celebration from David.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"💐",
+"✨",
+"💐"
+]
+},
+{
+"amount": 10,
+"emoji": "😂",
+"title": "Dad Joke Bonus",
+"msg": "Sarah wins ten dollars for still laughing at dad jokes like a true champion.",
+"type": "cash",
+"category": "universal",
+"weight": 12,
+"reels": [
+"😂",
+"💵",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "🎁",
+"title": "Love Ticket",
+"msg": "Sarah wins a sweet reminder that the best prize is being loved so well.",
+"type": "laugh",
+"category": "universal",
+"weight": 11,
+"reels": [
+"🎁",
+"❤️",
+"🎁"
+]
+},
+{
+"amount": 20,
+"emoji": "🏆",
+"title": "Victory Lap",
+"msg": "Sarah wins twenty dollars and a celebration lap approved by the whole family.",
+"type": "cash",
+"category": "universal",
+"weight": 10,
+"reels": [
+"🏆",
+"💵",
+"✨"
+]
+},
+{
+"amount": 0,
+"emoji": "🍓",
+"title": "Berry Sweet",
+"msg": "Sarah wins chocolate covered strawberry energy and first pick of the best one.",
+"type": "laugh",
+"category": "personalized",
+"weight": 10,
+"reels": [
+"🍓",
+"🍫",
+"🍓"
+]
+},
+{
+"amount": 20,
+"emoji": "✈️",
+"title": "Travel Fund",
+"msg": "Sarah wins twenty dollars toward the next adventure with David by her side.",
+"type": "cash",
+"category": "personalized",
+"weight": 8,
+"reels": [
+"✈️",
+"🧳",
+"💵"
+]
+},
+{
+"amount": 0,
+"emoji": "🧳",
+"title": "Early Packer",
+"msg": "Sarah wins official credit for packing three days early and still being right.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"🧳",
+"📅",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "🧾",
+"title": "Committee Audit",
+"msg": "The Marriage Committee reviews the spin and confirms Sarah is allowed to win.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"🧾",
+"😂",
+"🧾"
+]
+},
+{
+"amount": 10,
+"emoji": "📋",
+"title": "Audit Overruled",
+"msg": "The Marriage Committee raises a playful objection, but Emma and Jack vote for Sarah.",
+"type": "cash",
+"category": "override",
+"weight": 7,
+"reels": [
+"📋",
+"💵",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "❤️",
+"title": "Memory Treasure",
+"msg": "Sarah wins a special memory message from David.",
+"type": "heartfelt",
+"category": "memory",
+"weight": 6,
+"reels": [
+"❤️",
+"🕊️",
+"❤️"
+]
+},
+{
+"amount": 50,
+"emoji": "👑",
+"title": "True Love Bonus",
+"msg": "Sarah wins fifty dollars and a Princess Bride level celebration from David.",
+"type": "bonus",
+"category": "bonus",
+"weight": 4,
+"reels": [
+"👑",
+"❤️",
+"💵"
+]
+},
+{
+"amount": 100,
+"emoji": "7️⃣",
+"title": "Jackpot Winner",
+"msg": "Sarah wins the top one hundred dollar jackpot gift from David through Zelle.",
+"type": "cash",
+"category": "special",
+"weight": 2,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+}
