@@ -767,7 +767,7 @@ function playPrizeSound(p,profile){
  playTone(659,.12,'triangle',.028,.1);
 }
 function deepMerge(a,b){const o={...a};for(const k in b||{}){o[k]=(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k]))?deepMerge(o[k]||{},b[k]):b[k]}return o}
-function applyTokens(text,extra={}){if(text==null)return'';const d={recipientName:CONFIG.recipientName||'',recipientUpper:(CONFIG.recipientName||'').toUpperCase(),occasionText:CONFIG.occasionText||'',gameTitle:CONFIG.slotsTitle||CONFIG.gameTitle||'',fromName:CONFIG.fromName||'',overridePerson:CONFIG.overridePerson||'',spinCount:CONFIG.spinCount||CONFIG.ticketCount||5,ticketCount:CONFIG.ticketCount||CONFIG.spinCount||5,bestWin,lootSummary:lootTitles.join(', ')||'birthday laughter',paymentMethod:cashPaymentMethod(),paymentNote:cashPaymentNote(),maximumCashPrize:cashMaximumPrize(),...extra};return String(text).replace(/\\n/g,'\n').replace(/\{(\w+)\}/g,(_,k)=>d[k]??'')}
+function applyTokens(text,extra={}){if(text==null)return'';const d={recipientName:CONFIG.recipientName||'',recipientUpper:(CONFIG.recipientName||'').toUpperCase(),occasionText:CONFIG.occasionText||'',gameTitle:CONFIG.slotsTitle||CONFIG.gameTitle||'',fromName:CONFIG.fromName||'',overridePerson:CONFIG.overridePerson||'',spinCount:CONFIG.spinCount||CONFIG.ticketCount||5,ticketCount:CONFIG.ticketCount||CONFIG.spinCount||5,bestWin,lootSummary:lootTitles.join(', ')||'celebration laughter',paymentMethod:cashPaymentMethod(),paymentNote:cashPaymentNote(),maximumCashPrize:cashMaximumPrize(),...extra};return String(text).replace(/\\n/g,'\n').replace(/\{\{\s*(\w+)\s*\}\}/g,(_,k)=>d[k]??'').replace(/\{\s*(\w+)\s*\}/g,(_,k)=>d[k]??'')}
 function cleanOccasionSlotTitle(){
  const occasion=String(CONFIG.occasionText||'Birthday').trim()||'Birthday';
  let title=String(CONFIG.slotsTitle||'').trim();
@@ -991,6 +991,11 @@ function weightedPrize(){
    return selectPrize(pool.length?pool:nonCashOnly(pools.personalized.concat(pools.common).concat(prizes)),{best:true})||prizes[0];
  }
  if(spinNumber===4){
+   // If the JSON includes a memory/photo prize, make sure the player actually sees it.
+   const memorySeen=awardedPrizeKeys.some(k=>pools.memory.some(m=>prizeKey(m)===k));
+   if(CONFIG.memoryBonus && CONFIG.memoryBonus.enabled!==false && pools.memory.length && !memorySeen){
+     return selectPrize(pools.memory,{best:true})||pools.memory[0];
+   }
    if(pools.heartfelt.length&&!heartSeen)return selectPrize(pools.heartfelt,{best:true})||pools.heartfelt[0];
    const pool=nonCashOnly(pools.special).concat(nonCashOnly(pools.bonus)).concat(nonCashOnly(pools.personalized));
    return selectPrize(pool.length?pool:nonCashOnly(prizes),{best:true})||prizes[0];
