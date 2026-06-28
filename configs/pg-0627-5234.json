@@ -1,0 +1,288 @@
+{
+"version": 3,
+"gameType": "universal",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Christopher Alexander Montgomery",
+"occasionText": "40th Birthday Celebration",
+"gameTitle": "Christopher Alexander Montgomery's 40th Birthday Celebration Slots",
+"slotsTitle": "40th Birthday Celebration Slots",
+"fromName": "Your Wife, Kids, and Family",
+"overridePerson": "The International Birthday Review Committee",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": true,
+"currency": "USD",
+"maximumPrize": 250,
+"allowedValues": [
+25,
+50,
+100,
+150,
+250
+],
+"paymentMethod": "Venmo",
+"paymentNote": "Show your Official Results screen to Emily to redeem any cash prizes that were lovingly promised by your family."
+},
+"cashMode": true,
+"minimumCashWin": 25,
+"payment": {
+"method": "Venmo",
+"note": "Show your Official Results screen to Emily to redeem any cash prizes that were lovingly promised by your family."
+},
+"memoryBonus": {
+"enabled": true,
+"title": "❤️ A Moment to Remember",
+"from": "Your Family",
+"style": "Proud",
+"message": "Christopher, thank you for every project you finished, every lesson you taught, every laugh you shared, and every sacrifice you quietly made for us. We love you more than words can ever say and hope this little game reminds you how much you mean to all of us.",
+"image": "assets/christopher-40th/memory.png"
+},
+"subtitle": "A funny, heartfelt, and appreciative slot machine for Christopher from Your Wife, Kids, and Family.",
+"bigline": "Spin for brisket, garage missions, classic cars, coffee, duct tape, and cash gifts from the family.",
+"badges": [
+"Family Approved",
+"Garage Certified",
+"Committee Audited"
+],
+"marqueeStart": "🎰 Christopher Alexander Montgomery's celebration slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Christopher Alexander Montgomery's official result.",
+"welcome": {
+"title": "Welcome to Christopher's Celebration Casino",
+"paragraphs": [
+"Your Wife, Kids, and Family built this slot machine for Christopher, the husband and dad who can fix almost anything with enough coffee and duct tape.",
+"Expect smoked brisket, loaded baked potatoes, camping stories, woodworking confidence, classic car dreams, and one suspiciously long garage check.",
+"The International Birthday Review Committee is here to audit all results, but the family already knows Christopher deserves every win."
+],
+"overrideLine": "The International Birthday Review Committee may object, but Emily, Mason, Charlotte, and Grandpa Joe already approved the celebration."
+},
+"scoreboard": {
+"title": "Celebration Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "Cash prizes are gifts fulfilled by Your Wife, Kids, and Family, not Playable Greetings."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Christopher gets 5 official celebration spins.",
+"Cash prizes are gifts from Your Wife, Kids, and Family only.",
+"Playable Greetings does not pay cash prizes.",
+"Show your Official Results screen to Emily to redeem any cash prizes that were lovingly promised by your family.",
+"The International Birthday Review Committee may audit the results, but family appreciation wins."
+],
+"finale": {
+"title": "🎉 Official Celebration Result",
+"note": "Christopher's official result is certified by Your Wife, Kids, and Family and lovingly reviewed by The International Birthday Review Committee.",
+"shareButton": "Share Christopher's Win",
+"copyButton": "Copy Official Result",
+"restartButton": "Play Again for Christopher"
+},
+"footer": "Made with love for Christopher Alexander Montgomery from Your Wife, Kids, and Family.",
+"customerInputs": {
+"relationship": "Husband and Dad",
+"interests": [
+"Smoked Brisket with Loaded Baked Potatoes",
+"Camping",
+"Woodworking",
+"Restoring old classic cars",
+"Top Gear",
+"Coffee and duct tape"
+],
+"people": [
+"Emily",
+"Mason",
+"Charlotte",
+"Grandpa Joe"
+],
+"oneThingEveryoneKnows": "He can fix almost anything with enough coffee and duct tape."
+},
+"claim": {
+"template": "Cash prizes are gifts fulfilled by Your Wife, Kids, and Family through Venmo. Show your Official Results screen to Emily to redeem any cash prizes that were lovingly promised by your family. Playable Greetings does not pay cash prizes."
+},
+"slots": {
+"marqueeStart": "🎰 Christopher Alexander Montgomery's celebration slots are open.",
+"marqueeTemplate": "Spin {{spinNumber}} of {{spinCount}} for Christopher Alexander Montgomery's official result.",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {{spinNumber}} for Christopher",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Celebration Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"prizes": [
+{
+"amount": 0,
+"emoji": "🎉",
+"title": "Opening Win",
+"msg": "Christopher wins the official opening cheer from the family that loves him.",
+"type": "laugh",
+"category": "universal",
+"weight": 12,
+"reels": [
+"🎉",
+"👏",
+"🎉"
+]
+},
+{
+"amount": 25,
+"emoji": "☕",
+"title": "Coffee Fixer",
+"msg": "Christopher wins twenty five dollars for proving coffee and duct tape can solve nearly anything.",
+"type": "cash",
+"category": "universal",
+"weight": 12,
+"reels": [
+"☕",
+"🛠️",
+"💵"
+]
+},
+{
+"amount": 0,
+"emoji": "🧰",
+"title": "Duct Tape Medal",
+"msg": "Christopher wins official recognition for repair confidence that begins with duct tape and somehow works.",
+"type": "laugh",
+"category": "universal",
+"weight": 11,
+"reels": [
+"🧰",
+"🩹",
+"🔧"
+]
+},
+{
+"amount": 50,
+"emoji": "🏆",
+"title": "Family Champion",
+"msg": "Christopher wins fifty dollars and a family cheer from Emily, Mason, Charlotte, and Grandpa Joe.",
+"type": "cash",
+"category": "universal",
+"weight": 10,
+"reels": [
+"🏆",
+"💵",
+"❤️"
+]
+},
+{
+"amount": 0,
+"emoji": "🥩",
+"title": "Brisket Master",
+"msg": "Christopher wins smoked brisket glory with loaded baked potato energy on the side.",
+"type": "laugh",
+"category": "personalized",
+"weight": 10,
+"reels": [
+"🥩",
+"🔥",
+"🥔"
+]
+},
+{
+"amount": 100,
+"emoji": "🚗",
+"title": "Classic Car Fund",
+"msg": "Christopher wins one hundred dollars toward garage dreams and classic car restoration glory.",
+"type": "cash",
+"category": "personalized",
+"weight": 8,
+"reels": [
+"🚗",
+"🔧",
+"💵"
+]
+},
+{
+"amount": 0,
+"emoji": "🏕️",
+"title": "Garage Disappearing",
+"msg": "Christopher wins a five minute garage check that somehow becomes a two hour expedition.",
+"type": "laugh",
+"category": "personalized",
+"weight": 9,
+"reels": [
+"🏕️",
+"🕔",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "🧾",
+"title": "Committee Audit",
+"msg": "The International Birthday Review Committee reviews the spin and reluctantly approves the win.",
+"type": "laugh",
+"category": "override",
+"weight": 8,
+"reels": [
+"🧾",
+"😂",
+"🧾"
+]
+},
+{
+"amount": 50,
+"emoji": "📋",
+"title": "Audit Overruled",
+"msg": "The International Birthday Review Committee objects, but Emily, Mason, and Charlotte approve fifty dollars.",
+"type": "cash",
+"category": "override",
+"weight": 7,
+"reels": [
+"📋",
+"💵",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "❤️",
+"title": "Memory Treasure",
+"msg": "Christopher wins a special memory message from Your Family.",
+"type": "heartfelt",
+"category": "memory",
+"weight": 6,
+"reels": [
+"❤️",
+"🕊️",
+"❤️"
+]
+},
+{
+"amount": 150,
+"emoji": "🏁",
+"title": "Top Gear Bonus",
+"msg": "Christopher wins one hundred fifty dollars and a premium Top Gear level victory lap.",
+"type": "bonus",
+"category": "bonus",
+"weight": 4,
+"reels": [
+"🏁",
+"🚗",
+"💵"
+]
+},
+{
+"amount": 250,
+"emoji": "7️⃣",
+"title": "Jackpot Winner",
+"msg": "Christopher wins the top two hundred fifty dollar jackpot gift from Your Wife, Kids, and Family.",
+"type": "cash",
+"category": "special",
+"weight": 2,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+}
