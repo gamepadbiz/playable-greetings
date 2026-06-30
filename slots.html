@@ -745,6 +745,48 @@ button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.06)}
 }
 </style>
 
+
+<style id="mobile-inner-border-safe-final">
+/* Final mobile popup safety:
+   The decorative inner gold frame is pretty, but on small/mobile screens it can cross
+   tall picture prizes and the Official Results copy. Keep the outer gold border and bulbs;
+   remove only the inner overlay frame where space is tight. */
+@media (max-width: 820px), (max-height: 560px){
+  .prize-modal::before,
+  .prize-modal::after{
+    display:none!important;
+  }
+}
+
+/* Official Results can contain a prize list, so let it breathe like a tall content popup. */
+.prize-modal.official-results-prize{
+  width:min(96vw,660px)!important;
+  overflow-y:auto!important;
+}
+.prize-modal.official-results-prize #prizePopupBody{
+  width:min(100%,590px)!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+@media(max-width:620px){
+  .prize-modal.official-results-prize{
+    max-height:96dvh!important;
+    padding-bottom:34px!important;
+  }
+  .prize-modal.official-results-prize .prize-divider{
+    display:none!important;
+  }
+  .prize-modal.official-results-prize #prizePopupBody{
+    padding-left:26px!important;
+    padding-right:26px!important;
+  }
+  .prize-modal.official-results-prize #prizePopupBody p,
+  .prize-modal.official-results-prize #prizePopupBody li{
+    line-height:1.28!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -900,7 +942,7 @@ function openPrizePopupFromMessage(){
 bodyEl.innerHTML=clone.innerHTML;
 const prizeModal=document.querySelector('.prize-modal');
 const isPicturePrize=!!bodyEl.querySelector('.rosie-card,.rosie-photo,img');
-if(prizeModal){prizeModal.classList.toggle('picture-prize',isPicturePrize);}
+if(prizeModal){prizeModal.classList.toggle('picture-prize',isPicturePrize);prizeModal.classList.remove('official-results-prize');}
 const headerEl=document.getElementById('prizePopupHeader');
 const bodyText=(cleanTitle+' '+bodyEl.textContent).toLowerCase();
 if(headerEl){
@@ -935,6 +977,8 @@ window.addEventListener('resize',fitPrizePopupTitle);
 function closePrizePopup(){
  const overlay=document.getElementById('prizeOverlay');
  if(overlay){overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');}
+ const prizeModal=document.querySelector('.prize-modal');
+ if(prizeModal){prizeModal.classList.remove('official-results-prize');}
 }
 
 
@@ -1648,6 +1692,8 @@ function playFinaleSound(){
 function openFinalResultsPopup(){
  clearCelebrationLayers();
  const o=$('prizeOverlay'),body=$('prizePopupBody'),nextBtn=$('popupNextBtn');
+ const prizeModal=document.querySelector('.prize-modal');
+ if(prizeModal){prizeModal.classList.remove('picture-prize');prizeModal.classList.add('official-results-prize');}
  if(!o||!body)return;
  const name=shortRecipientName();
  const cashLine=cashEnabled()?`<p class="win">Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle:''}</p>`:`<p class="win">Official prizes collected: ${lootTitles.length}</p>`;
