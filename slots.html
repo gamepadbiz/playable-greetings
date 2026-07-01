@@ -1300,18 +1300,21 @@ function topTierPrize(prizes){
  const freshHeart=pools.heartfelt.filter(p=>!used(prizeKey(p)));
  const freshBonus=pools.bonus.filter(p=>!used(prizeKey(p)));
  const freshSpecial=pools.special.filter(p=>!used(prizeKey(p)));
- if(bonusSpinNumber===0){
-   const pool=freshBonus.concat(freshSpecial).concat(freshCash.slice(1));
-   const picked=selectPrize(pool.length?pool:freshCash,{best:true}); if(picked)return picked;
- }
- if(bonusSpinNumber===1){
-   const pool=freshSpecial.concat(freshBonus).concat(freshHeart).concat(freshCash.slice(1));
-   const picked=selectPrize(pool.length?pool:freshCash,{best:true}); if(picked)return picked;
- }
- if(bonusSpinNumber>=2){
-   const pool=freshCash.concat(freshHeart).concat(freshSpecial).concat(freshBonus);
-   const picked=selectPrize(pool,{best:true}); if(picked)return picked;
- }
+if(freshCash.length){
+  const cashLowToHigh = freshCash.slice().sort((a,b)=>Number(a.amount||0)-Number(b.amount||0));
+
+  if(bonusSpinNumber===0){
+    return cashLowToHigh[0];
+  }
+
+  if(bonusSpinNumber===1){
+    return cashLowToHigh[Math.min(1, cashLowToHigh.length - 1)];
+  }
+
+  if(bonusSpinNumber>=2){
+    return cashLowToHigh[cashLowToHigh.length - 1];
+  }
+}
  const fallback=pools.cash.concat(pools.heartfelt).concat(pools.special).concat(pools.bonus);
  return selectPrize(fallback.length?fallback:prizes,{best:true});
 }
