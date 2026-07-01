@@ -170,10 +170,10 @@
       ]
     },
     {
-      "amount": 100,
+      "amount": 77,
       "emoji": "7️⃣",
       "title": "7️⃣ Lucky Seven Jackpot",
-      "msg": "JACKPOT. Gloria wins $100. Ralph is advised to remain calm and not ask where this money came from.",
+      "msg": "JACKPOT. Gloria wins $77. Ralph is advised to remain calm and not ask where this money came from.",
       "type": "cash",
       "category": "special",
       "weight": 2,
@@ -270,14 +270,14 @@
   ],
   "cash": {
     "enabled": true,
-    "maximumPrize": 100,
+    "maximumPrize": 77,
     "allowedValues": [
       5,
       15,
       20,
       25,
       50,
-      100
+      77
     ],
     "paymentMethod": "Zelle",
     "paymentNote": "Text Mike the final result. Cash prizes are a birthday gift from Mike, not from Playable Greetings."
