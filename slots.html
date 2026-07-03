@@ -1700,10 +1700,13 @@ function openFinalResultsPopup(){
  if(!o||!body)return;
  const name=shortRecipientName();
  const cashLine=cashEnabled()?`<p class="win">Best official cash win: $${bestWin}${bestTitle?' — '+bestTitle:''}</p>`:`<p class="win">Official prizes collected: ${lootTitles.length}</p>`;
+ const prizeResponsibilityLine=cashEnabled()
+   ? `<p class="laugh" style="margin-top:14px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,211,107,.35);background:rgba(255,211,107,.10);">🎁 Cash prizes or gifts are provided by ${applyTokens(CONFIG.fromName||'the sender')}, not by Playable Greetings.</p>`
+   : `<p class="laugh" style="margin-top:14px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,211,107,.35);background:rgba(255,211,107,.10);">🎁 Any promised gifts are provided by ${applyTokens(CONFIG.fromName||'the sender')}, not by Playable Greetings.</p>`;
  $('prizePopupHeader').textContent='🏆 JACKPOT COMPLETE!';
  $('prizePopupEmoji').textContent='🏆';
  $('prizePopupTitle').textContent=`${name}'s Official Results`;
- body.innerHTML=`<p class="win">The final bonus spin is complete. ${name} beat the celebration casino.</p>${cashLine}<p class="laugh">Prize summary:</p>${prizeSummaryList()}<p class="ralph">${applyTokens(CONFIG.overridePerson||'The audit department')} has completed the audit and has been respectfully overruled.</p>`;
+ body.innerHTML=`<p class="win">The final bonus spin is complete. ${name} beat the celebration casino.</p>${cashLine}${prizeResponsibilityLine}<p class="laugh">Prize summary:</p>${prizeSummaryList()}<p class="ralph">${applyTokens(CONFIG.overridePerson||'The audit department')} has completed the audit and has been respectfully overruled.</p>`;
  if(nextBtn){nextBtn.dataset.action='final-results';nextBtn.textContent='📜 View Share / Claim Buttons';nextBtn.disabled=false}
  const finalePrize={amount:0,emoji:'🏆',title:'Official Results',msg:'jackpot complete',type:'finale',category:'officialResults',reels:['🏆','🎰','🎂']};
  const finaleProfile=celebrationLadderProfile('officialResults',finalePrize);
@@ -1764,7 +1767,22 @@ function claimText(){
  // Use a consistent, clear Scratch-Off-style share message for every Slots game.
  return generatedClaimText();
 }
-function finishGame(){done=true;$('spinBtn').disabled=true;$('spinBtn').classList.remove('is-spinning');$('spinBtn').innerHTML='<span class="spin-main">🏆 JACKPOT COMPLETE</span><span class="spin-small">See official results below</span>';$('finale').classList.add('show');$('finale').querySelector('h2').textContent=CONFIG.finale?.title||'🎉 Official Celebration Result';$('finalText').textContent=cashEnabled()?`Official Prize to Claim: best cash win $${bestWin}${bestTitle?' — '+bestTitle:''}. Other spin prizes are fun prize reveals.`:`Official Results: ${lootTitles.length} fun prize reveals collected. This screen is the final personalized prize summary.`;$('claimText').textContent=claimText();const note=$('finale').querySelector('.note');if(note)note.textContent=applyTokens(CONFIG.finale?.note||'Prize reveals are for fun during the game. The Official Results message above is the clear result to share or claim.')}
+function finishGame(){
+ done=true;
+ $('spinBtn').disabled=true;
+ $('spinBtn').classList.remove('is-spinning');
+ $('spinBtn').innerHTML='<span class="spin-main">🏆 JACKPOT COMPLETE</span><span class="spin-small">See official results below</span>';
+ $('finale').classList.add('show');
+ $('finale').querySelector('h2').textContent=CONFIG.finale?.title||'🎉 Official Celebration Result';
+ const prizeProvider=applyTokens(CONFIG.fromName||'the sender');
+ const providerNote=cashEnabled()
+   ? ` Cash prizes or gifts are provided by ${prizeProvider}, not by Playable Greetings.`
+   : ` Any promised gifts are provided by ${prizeProvider}, not by Playable Greetings.`;
+ $('finalText').textContent=(cashEnabled()?`Official Prize to Claim: best cash win $${bestWin}${bestTitle?' — '+bestTitle:''}. Other spin prizes are fun prize reveals.`:`Official Results: ${lootTitles.length} fun prize reveals collected. This screen is the final personalized prize summary.`)+providerNote;
+ $('claimText').textContent=claimText();
+ const note=$('finale').querySelector('.note');
+ if(note)note.textContent=applyTokens(CONFIG.finale?.note||'Prize reveals are for fun during the game. The Official Results message above is the clear result to share or claim.');
+}
 function shareClaim(){const text=claimText();if(navigator.share)navigator.share({text}).catch(()=>{});else copyText(text)}function copyText(text){navigator.clipboard?.writeText(text).then(()=>toast('Copied!')).catch(()=>toast('Copy unavailable'))}function copyClaim(){copyText(claimText())}function toast(msg){const t=$('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600)}
 function resetGame(){spinsLeft=CONFIG.spinCount||CONFIG.ticketCount||5;bestWin=0;bestTitle='';done=false;spinning=false;forcedCashUsed=false;logItems=[];lootTitles=[];awardedPrizeKeys=[];bonusMode=false;bonusTriggered=false;bonusSpinsLeft=0;bonusSpinNumber=0;document.querySelector('.machine')?.classList.remove('bonus-mode','bonus-tease-mode','bonus-soak-mode');$('log').innerHTML='';$('finale').classList.remove('show');$('spinBtn').disabled=false;$('spinBtn').classList.remove('is-spinning');$('r1').textContent='👑';$('r2').textContent='🎂';$('r3').textContent='💐';['r1','r2','r3'].forEach(id=>$(id)?.classList.remove('bonus-tease','bonus-locked','bonus-super-lock','bonus-soak'));renderStaticConfig()}
 async function loadConfig(){const params=new URLSearchParams(location.search),name=params.get('config')||params.get('id');if(!name)return DEFAULT_CONFIG;const safe=name.replace(/[^a-zA-Z0-9_-]/g,'');for(const path of [`configs/${safe}.json`,`${safe}.json`]){try{const res=await fetch(path,{cache:'no-store'});if(res.ok)return await res.json()}catch(e){}}console.warn('Could not load config',name);return DEFAULT_CONFIG}
