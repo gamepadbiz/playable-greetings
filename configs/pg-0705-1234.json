@@ -1,0 +1,281 @@
+{
+"version": 3,
+"gameType": "universal",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Faye",
+"occasionText": "Birthday",
+"gameTitle": "Faye Birthday Slots",
+"slotsTitle": "Birthday Slots",
+"fromName": "Norma Jean",
+"overridePerson": "the birthday committee",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": false,
+"currency": "USD",
+"maximumPrize": 0,
+"allowedValues": [],
+"paymentMethod": "",
+"paymentNote": ""
+},
+"cashMode": false,
+"minimumCashWin": 0,
+"payment": {
+"method": "",
+"note": ""
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A warm, funny slot celebration from Norma Jean",
+"bigline": "Spin for snacks, laughs, grandkids, pets, and cozy TV drama.",
+"badges": [
+"5 Official Spins",
+"Daughter Celebration",
+"Committee Approved",
+"Family Friendly"
+],
+"marqueeStart": "Faye is taking the spotlight",
+"marqueeTemplate": "Spin {{spin}} for Faye and see what the birthday reels reveal",
+"welcome": {
+"title": "Welcome to Faye's Birthday Slots",
+"paragraphs": [
+"Norma Jean made this just for Faye with love, laughs, and a few very official snack-based casino rules.",
+"Expect Little Debbie treats, YouTube time, pets, grandkids, and just enough reality TV drama to keep the reels interesting.",
+"No real gambling here, just birthday fun and family love."
+],
+"overrideLine": "The birthday committee will be auditing every spin with completely unnecessary confidence."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "Cash mode is off, so every prize is paid in laughs, love, and bragging rights."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Faye gets 5 official spins.",
+"Every prize is for fun, love, and celebration.",
+"The birthday committee may object, but the reels have final authority.",
+"Staying up late is allowed because this is a special occasion.",
+"Little Debbie snacks improve reel performance, according to unofficial research."
+],
+"finale": {
+"title": "🎉 Official Birthday Result",
+"note": "Faye wins the official family celebration, approved with love from Norma Jean.",
+"shareButton": "Share Faye's Result",
+"copyButton": "Copy Result",
+"restartButton": "Play Again"
+},
+"footer": "Made with love for Faye from Norma Jean",
+"customerInputs": {
+"relationship": "Daughter",
+"interests": [
+"Little Debbie's",
+"YouTube",
+"pets",
+"grandkids",
+"The Bachelor",
+"Sister Wives",
+"1000-lb Sisters"
+],
+"people": [
+"grandkids"
+],
+"oneThingEveryoneKnows": "Sleeps late and stays up at night"
+},
+"claim": {
+"template": "This prize is for birthday fun only and can be claimed with hugs, laughs, and full family bragging rights from Norma Jean."
+},
+"slots": {
+"marqueeStart": "Faye is taking the spotlight",
+"marqueeTemplate": "Spin {{spin}} for Faye and see what the birthday reels reveal",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "{{spinsLeft}} official spins left",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"prizes": [
+{
+"amount": 0,
+"emoji": "🎉",
+"title": "Party Starter",
+"msg": "The reels say the celebration has officially begun.",
+"type": "laugh",
+"category": "universal",
+"weight": 10,
+"reels": [
+"🎉",
+"🎰",
+"🎉"
+]
+},
+{
+"amount": 0,
+"emoji": "👑",
+"title": "Queen Treatment",
+"msg": "Faye wins royal treatment for the day, with extra kindness and no committee objections.",
+"type": "laugh",
+"category": "universal",
+"weight": 9,
+"reels": [
+"👑",
+"✨",
+"👑"
+]
+},
+{
+"amount": 0,
+"emoji": "🛋️",
+"title": "Cozy Pass",
+"msg": "This prize includes guilt-free relaxing, late-night scrolling, and sleeping in like a champion.",
+"type": "laugh",
+"category": "universal",
+"weight": 9,
+"reels": [
+"🛋️",
+"🌙",
+"😴"
+]
+},
+{
+"amount": 0,
+"emoji": "😂",
+"title": "Laugh Bonus",
+"msg": "A bonus laugh has been added to the official celebration total.",
+"type": "laugh",
+"category": "universal",
+"weight": 8,
+"reels": [
+"😂",
+"🎁",
+"😂"
+]
+},
+{
+"amount": 0,
+"emoji": "🧁",
+"title": "Snack Jackpot",
+"msg": "The reels strongly recommend Little Debbie's and no one should argue with snack science.",
+"type": "laugh",
+"category": "personalized",
+"weight": 8,
+"reels": [
+"🧁",
+"🍰",
+"🧁"
+]
+},
+{
+"amount": 0,
+"emoji": "📺",
+"title": "Drama Marathon",
+"msg": "The Bachelor, Sister Wives, and 1000-lb Sisters have entered the celebration lineup.",
+"type": "laugh",
+"category": "personalized",
+"weight": 7,
+"reels": [
+"📺",
+"🌹",
+"📺"
+]
+},
+{
+"amount": 0,
+"emoji": "🐾",
+"title": "Pet Parade",
+"msg": "Pets and grandkids bring the kind of joy no slot machine could ever beat.",
+"type": "heartfelt",
+"category": "personalized",
+"weight": 7,
+"reels": [
+"🐾",
+"👧",
+"🐾"
+]
+},
+{
+"amount": 0,
+"emoji": "🧾",
+"title": "Official Audit",
+"msg": "The birthday committee reviewed the spin and declared Faye suspiciously lovable.",
+"type": "laugh",
+"category": "override",
+"weight": 6,
+"reels": [
+"🧾",
+"😂",
+"🧾"
+]
+},
+{
+"amount": 0,
+"emoji": "📋",
+"title": "Committee Ruling",
+"msg": "The birthday committee tried to object, but Norma Jean's love overruled everything.",
+"type": "laugh",
+"category": "override",
+"weight": 6,
+"reels": [
+"📋",
+"💖",
+"📋"
+]
+},
+{
+"amount": 0,
+"emoji": "❤️",
+"title": "Love From Mom",
+"msg": "Norma Jean is celebrating her daughter with love, pride, and a heart full of joy.",
+"type": "heartfelt",
+"category": "heartfelt",
+"weight": 5,
+"reels": [
+"❤️",
+"🌟",
+"❤️"
+]
+},
+{
+"amount": 0,
+"emoji": "🎟️",
+"title": "Golden Ticket",
+"msg": "This premium prize unlocks extra birthday attention and a victory lap around the living room.",
+"type": "bonus",
+"category": "bonus",
+"weight": 4,
+"reels": [
+"🎟️",
+"✨",
+"🎟️"
+]
+},
+{
+"amount": 0,
+"emoji": "7️⃣",
+"title": "Jackpot Winner",
+"msg": "The final reels declare Faye the grand winner of love, laughs, snacks, and family celebration.",
+"type": "bonus",
+"category": "special",
+"weight": 3,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+}
