@@ -27,13 +27,13 @@
 "method": "",
 "note": ""
 },
-"memoryBonus": {
-"enabled": false,
-"title": "",
-"from": "",
-"style": "",
-"message": "",
-"image": ""
+memoryBonus": {
+"enabled": true,
+"title": "Be good to yourself",
+"from": "Me",
+"style": "Loving",
+"message": "You only live once, so enjoy this moment!",
+"image": "assets/pg-0705-1234/memory.png"
 },
 "subtitle": "A warm, funny slot celebration from Norma Jean",
 "bigline": "Spin for snacks, laughs, grandkids, pets, and cozy TV drama.",
