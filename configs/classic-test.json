@@ -1,0 +1,215 @@
+{
+  "version": 3,
+  "gameType": "universal",
+  "experienceType": "classic",
+  "supportedGames": ["slots"],
+  "theme": "premiumVegas",
+  "recipientName": "Ethan",
+  "occasionText": "Birthday",
+  "gameTitle": "Ethan Birthday Slots",
+  "slotsTitle": "Birthday Slots",
+  "fromName": "Grandma Mary",
+  "relationship": "Grandson",
+  "overridePerson": "Dad",
+  "spinCount": 5,
+  "ticketCount": 5,
+  "cash": {
+    "enabled": true,
+    "currency": "USD",
+    "maximumPrize": 20,
+    "allowedValues": [5, 10, 20],
+    "paymentMethod": "In person",
+    "paymentNote": "Grandma Mary will provide the prize."
+  },
+  "cashMode": true,
+  "minimumCashWin": 0,
+  "payment": {
+    "method": "In person",
+    "note": "Grandma Mary will provide the prize."
+  },
+  "memoryBonus": {
+    "enabled": false,
+    "title": "",
+    "from": "",
+    "style": "",
+    "message": "",
+    "image": ""
+  },
+  "subtitle": "A playful birthday celebration made especially for Ethan",
+  "bigline": "Five official spins. Three bonus spins. Every spin is a win.",
+  "badges": ["5 Official Spins", "3 Bonus Spins", "Made for Ethan"],
+  "marqueeStart": "Ethan, your birthday celebration is ready.",
+  "marqueeTemplate": "Spin {spin} of 5",
+  "welcome": {
+    "title": "Welcome to Ethan Birthday Slots",
+    "paragraphs": [
+      "Grandma Mary created this playable birthday greeting especially for Ethan.",
+      "There are 5 official spins. Spin 5 unlocks 3 bonus spins.",
+      "Cash prizes, if shown, are provided by Grandma Mary, not Playable Greetings."
+    ],
+    "overrideLine": "Dad has agreed to serve as the official auditor."
+  },
+  "scoreboard": {
+    "title": "Birthday Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "note": "The largest cash prize is saved for the final bonus spin."
+  },
+  "historyTitle": "Spin History",
+  "rulesTitle": "Casino Rules",
+  "rules": [
+    "Every official spin is a win.",
+    "Ethan gets 5 official spins and 3 bonus spins.",
+    "Cash appears only during the bonus round.",
+    "Grandma Mary supplies any promised cash or gifts.",
+    "The final result can be shared with Grandma Mary."
+  ],
+  "finale": {
+    "title": "🎉 Official Birthday Result",
+    "note": "Ethan completed all 5 official spins and all 3 bonus spins. The top cash prize is supplied by Grandma Mary, not Playable Greetings.",
+    "shareButton": "Share My Result",
+    "copyButton": "Copy Result",
+    "restartButton": "Play Again"
+  },
+  "footer": "Made especially for Ethan by Grandma Mary",
+  "claim": {
+    "template": "Ethan completed Birthday Slots and won up to $20. Grandma Mary will provide the prize in person."
+  },
+  "slots": {
+    "marqueeStart": "Ethan, your birthday celebration is ready.",
+    "marqueeTemplate": "Spin {spin} of 5",
+    "spinButtonMain": "🎰 PRESS TO SPIN",
+    "spinButtonSmallTemplate": "{remaining} official spins left",
+    "bonusSpinCount": 3,
+    "scoreboardTitle": "Birthday Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "historyTitle": "Spin History",
+    "rulesTitle": "Casino Rules"
+  },
+  "auditor": {
+    "enabled": true,
+    "name": "Dad",
+    "lines": [
+      "Dad has begun monitoring the situation.",
+      "Dad requested a recount. The reels declined.",
+      "Dad objected to three additional spins. All three were approved.",
+      "Dad has officially run out of appeals."
+    ]
+  },
+  "classic": {
+    "bonusMode": "cash",
+    "officialSpins": [
+      {
+        "spin": 1,
+        "job": "welcome",
+        "emoji": "🌟",
+        "title": "Right on Time",
+        "message": "The celebration was ready. It was only missing one person. Now that Ethan is here, we can begin.",
+        "auditorLine": "Dad has begun monitoring the situation.",
+        "reels": ["🌟", "🎉", "🌟"]
+      },
+      {
+        "spin": 2,
+        "job": "playful",
+        "emoji": "⬆️",
+        "title": "Immediate Upgrade",
+        "message": "Ethan's day has just received an unscheduled improvement. No forms were submitted. No permission was requested. The upgrade stands.",
+        "auditorLine": "",
+        "reels": ["⬆️", "✨", "⬆️"]
+      },
+      {
+        "spin": 3,
+        "job": "connection",
+        "emoji": "❤️",
+        "title": "Someone Pressed Start",
+        "message": "This celebration did not appear by accident. Grandma Mary thought of Ethan and hoped this would make him smile.",
+        "auditorLine": "Dad requested a recount. The reels declined.",
+        "reels": ["❤️", "🎁", "❤️"]
+      },
+      {
+        "spin": 4,
+        "job": "pause",
+        "emoji": "💙",
+        "title": "A Moment to Keep",
+        "message": "Celebrations move quickly. Good moments have a way of staying. We hope this becomes one of them.",
+        "auditorLine": "",
+        "reels": ["💙", "✨", "💙"]
+      },
+      {
+        "spin": 5,
+        "job": "bonusReveal",
+        "emoji": "🎰",
+        "title": "777 Bonus Unlocked",
+        "message": "The reels have made their final decision. This celebration needs more celebration. Three Bonus Spins have been awarded.",
+        "auditorLine": "Dad objected to three additional spins. All three were approved.",
+        "reels": ["7️⃣", "7️⃣", "7️⃣"]
+      }
+    ],
+    "bonusNoCash": [
+      {
+        "bonusSpin": 1,
+        "job": "unexpectedExtra",
+        "emoji": "🎁",
+        "title": "More Than Expected",
+        "message": "The five official spins were complete. This moment was not required. That makes it our favorite kind of surprise.",
+        "auditorLine": "",
+        "cashAmount": 0,
+        "reels": ["🎁", "✨", "🎁"]
+      },
+      {
+        "bonusSpin": 2,
+        "job": "escalation",
+        "emoji": "🎊",
+        "title": "Not Finished Yet",
+        "message": "Apparently, stopping now would be premature. There is still more room for a smile and one final Bonus Spin waiting.",
+        "auditorLine": "",
+        "cashAmount": 0,
+        "reels": ["🎊", "⭐", "🎊"]
+      },
+      {
+        "bonusSpin": 3,
+        "job": "lastingWin",
+        "emoji": "🏆",
+        "title": "The Real Jackpot",
+        "message": "The game is ending, but the best result may happen afterward: a laugh shared, a message sent, or a moment remembered. Maybe something wonderful happens next.",
+        "auditorLine": "",
+        "cashAmount": 0,
+        "reels": ["7️⃣", "7️⃣", "7️⃣"]
+      }
+    ],
+    "bonusCash": [
+      {
+        "bonusSpin": 1,
+        "job": "firstCash",
+        "emoji": "💵",
+        "title": "Cash Surprise",
+        "message": "The Bonus Round has produced its first official finding: Ethan won $5. A very respectable beginning.",
+        "auditorLine": "",
+        "cashAmount": 5,
+        "reels": ["💵", "🎁", "💵"]
+      },
+      {
+        "bonusSpin": 2,
+        "job": "largerCash",
+        "emoji": "💰",
+        "title": "Prize Increased",
+        "message": "The previous result was reviewed and found insufficiently exciting. Ethan now won $10. One Bonus Spin remains.",
+        "auditorLine": "",
+        "cashAmount": 10,
+        "reels": ["💰", "⭐", "💰"]
+      },
+      {
+        "bonusSpin": 3,
+        "job": "maximumCash",
+        "emoji": "👑",
+        "title": "777 Grand Prize",
+        "message": "The final result is official. The largest prize was saved for last: Ethan won $20, provided by Grandma Mary.",
+        "auditorLine": "Dad has officially run out of appeals.",
+        "cashAmount": 20,
+        "reels": ["7️⃣", "7️⃣", "7️⃣"]
+      }
+    ]
+  },
+  "prizes": []
+}
