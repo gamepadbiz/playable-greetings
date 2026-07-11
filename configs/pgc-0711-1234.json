@@ -1,0 +1,266 @@
+```json
+{
+  "version": 3,
+  "gameType": "universal",
+  "experienceType": "classic",
+  "supportedGames": [
+    "slots"
+  ],
+  "theme": "premiumVegas",
+  "recipientName": "Norma Jean",
+  "occasionText": "Anniversary",
+  "gameTitle": "Norma Jean Anniversary Slots",
+  "slotsTitle": "Anniversary Slots",
+  "fromName": "Mike",
+  "relationship": "Husband",
+  "overridePerson": "",
+  "spinCount": 5,
+  "ticketCount": 5,
+  "cash": {
+    "enabled": true,
+    "currency": "USD",
+    "maximumPrize": 50,
+    "allowedValues": [
+      10,
+      25,
+      50
+    ],
+    "paymentMethod": "In Person",
+    "paymentNote": ""
+  },
+  "cashMode": true,
+  "minimumCashWin": 10,
+  "payment": {
+    "method": "In Person",
+    "note": ""
+  },
+  "memoryBonus": {
+    "enabled": false,
+    "title": "",
+    "from": "",
+    "style": "",
+    "message": "",
+    "image": ""
+  },
+  "subtitle": "A personalized anniversary celebration",
+  "bigline": "Maybe something wonderful will happen here.",
+  "badges": [
+    "5 Official Spins",
+    "3 Bonus Spins",
+    "Made Just for You"
+  ],
+  "marqueeStart": "🎉 Anniversary Celebration",
+  "marqueeTemplate": "Celebrating {recipientName}",
+  "welcome": {
+    "title": "Welcome",
+    "paragraphs": [
+      "Welcome to your personalized Anniversary Slots celebration.",
+      "You have five official spins waiting for you, followed by three bonus spins where cash prizes from Mike may appear.",
+      "Mike created this celebration especially for you."
+    ],
+    "overrideLine": ""
+  },
+  "scoreboard": {
+    "title": "Anniversary Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "note": "Every official spin is a win."
+  },
+  "historyTitle": "Spin History",
+  "rulesTitle": "Casino Rules",
+  "rules": [
+    "Every official spin is a win.",
+    "You receive five official spins.",
+    "Cash prizes appear only during the bonus round.",
+    "Any cash prizes are provided by Mike, not Playable Greetings.",
+    "Share your final celebration with Mike."
+  ],
+  "finale": {
+    "title": "🎉 Official Anniversary Result",
+    "note": "Congratulations! Your top possible cash prize is $50, provided by Mike in person. Happy Anniversary!",
+    "shareButton": "Share Result",
+    "copyButton": "Copy Result",
+    "restartButton": "Play Again"
+  },
+  "footer": "Made with love by Mike for Norma Jean",
+  "claim": {
+    "template": "Any prizes or gifts are supplied by Mike."
+  },
+  "slots": {
+    "marqueeStart": "🎉 Anniversary Celebration",
+    "marqueeTemplate": "Celebrating {recipientName}",
+    "spinButtonMain": "🎰 PRESS TO SPIN",
+    "spinButtonSmallTemplate": "Spin {spin}",
+    "bonusSpinCount": 3,
+    "scoreboardTitle": "Anniversary Scoreboard",
+    "leftLabel": "Official Spins Left",
+    "rightLabel": "Best Cash Win",
+    "historyTitle": "Spin History",
+    "rulesTitle": "Casino Rules"
+  },
+  "auditor": {
+    "enabled": false,
+    "name": "",
+    "lines": []
+  },
+  "classic": {
+    "bonusMode": "cash",
+    "officialSpins": [
+      {
+        "spin": 1,
+        "job": "welcome",
+        "emoji": "🎉",
+        "title": "Welcome Aboard",
+        "message": "Your anniversary celebration starts now. Enjoy every spin.",
+        "auditorLine": "",
+        "reels": [
+          "🎉",
+          "❤️",
+          "🎰"
+        ]
+      },
+      {
+        "spin": 2,
+        "job": "playful",
+        "emoji": "✨",
+        "title": "Happy Win",
+        "message": "Every celebration deserves a little extra sparkle.",
+        "auditorLine": "",
+        "reels": [
+          "✨",
+          "🎁",
+          "✨"
+        ]
+      },
+      {
+        "spin": 3,
+        "job": "connection",
+        "emoji": "💙",
+        "title": "Made For You",
+        "message": "Mike chose this game because this moment mattered enough to create something just for you.",
+        "auditorLine": "",
+        "reels": [
+          "💙",
+          "🎰",
+          "💙"
+        ]
+      },
+      {
+        "spin": 4,
+        "job": "pause",
+        "emoji": "❤️",
+        "title": "Take It In",
+        "message": "Pause for a second and enjoy this reminder that someone wanted to celebrate you today.",
+        "auditorLine": "",
+        "reels": [
+          "❤️",
+          "⭐",
+          "❤️"
+        ]
+      },
+      {
+        "spin": 5,
+        "job": "bonusReveal",
+        "emoji": "🎰",
+        "title": "777 Bonus",
+        "message": "Congratulations! Three bonus spins have been unlocked.",
+        "auditorLine": "",
+        "reels": [
+          "7️⃣",
+          "7️⃣",
+          "7️⃣"
+        ]
+      }
+    ],
+    "bonusNoCash": [
+      {
+        "bonusSpin": 1,
+        "job": "unexpectedExtra",
+        "emoji": "🎁",
+        "title": "Extra Smile",
+        "message": "Sometimes the best bonus is another reason to smile.",
+        "auditorLine": "",
+        "cashAmount": 0,
+        "reels": [
+          "🎁",
+          "⭐",
+          "🎁"
+        ]
+      },
+      {
+        "bonusSpin": 2,
+        "job": "escalation",
+        "emoji": "🌟",
+        "title": "Celebration",
+        "message": "The celebration keeps getting better with every spin.",
+        "auditorLine": "",
+        "cashAmount": 0,
+        "reels": [
+          "🌟",
+          "❤️",
+          "🌟"
+        ]
+      },
+      {
+        "bonusSpin": 3,
+        "job": "lastingWin",
+        "emoji": "🏆",
+        "title": "Lasting Joy",
+        "message": "The best prize is sharing another anniversary together.",
+        "auditorLine": "",
+        "cashAmount": 0,
+        "reels": [
+          "🏆",
+          "❤️",
+          "🏆"
+        ]
+      }
+    ],
+    "bonusCash": [
+      {
+        "bonusSpin": 1,
+        "job": "firstCash",
+        "emoji": "💵",
+        "title": "Cash Bonus",
+        "message": "Mike is giving you $10 in person as your first bonus prize.",
+        "auditorLine": "",
+        "cashAmount": 10,
+        "reels": [
+          "💵",
+          "🎁",
+          "💵"
+        ]
+      },
+      {
+        "bonusSpin": 2,
+        "job": "largerCash",
+        "emoji": "💰",
+        "title": "Bigger Bonus",
+        "message": "Your celebration just grew to a $25 bonus from Mike.",
+        "auditorLine": "",
+        "cashAmount": 25,
+        "reels": [
+          "💰",
+          "⭐",
+          "💰"
+        ]
+      },
+      {
+        "bonusSpin": 3,
+        "job": "maximumCash",
+        "emoji": "👑",
+        "title": "Grand Prize",
+        "message": "Jackpot! Mike is giving you the top Anniversary prize of $50 in person.",
+        "auditorLine": "",
+        "cashAmount": 50,
+        "reels": [
+          "7️⃣",
+          "7️⃣",
+          "7️⃣"
+        ]
+      }
+    ]
+  },
+  "prizes": []
+}
+```
