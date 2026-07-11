@@ -1,0 +1,269 @@
+{
+"version": 3,
+"gameType": "universal",
+"experienceType": "classic",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Chris",
+"occasionText": "Birthday",
+"gameTitle": "Chris Birthday Slots",
+"slotsTitle": "Birthday Slots",
+"fromName": "Mike",
+"relationship": "Dad",
+"overridePerson": "Brett",
+"favoriteThing": "Playing the game Dead by Daylight",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": true,
+"currency": "USD",
+"maximumPrize": 100,
+"allowedValues": [
+20,
+50,
+100
+],
+"paymentMethod": "In Person",
+"paymentNote": ""
+},
+"cashMode": true,
+"minimumCashWin": 20,
+"payment": {
+"method": "In Person",
+"note": ""
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A personalized birthday celebration.",
+"bigline": "Maybe something wonderful will happen here.",
+"badges": [
+"5 Official Spins",
+"Every Spin Wins",
+"Made Just for You"
+],
+"marqueeStart": "🎉 Birthday Celebration",
+"marqueeTemplate": "Celebrating {recipientName}",
+"welcome": {
+"title": "Welcome",
+"paragraphs": [
+"Welcome to your personalized Birthday Slots celebration.",
+"You have five official spins waiting for you.",
+"Your dad Mike created this celebration especially for you."
+],
+"overrideLine": "Brett has opened the official celebration review."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "Every official spin is a win."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Every official spin is a win.",
+"You receive five official spins.",
+"Any prizes or cash gifts are supplied by Mike, not Playable Greetings.",
+"Share your final celebration with Mike."
+],
+"finale": {
+"title": "🎉 Official Birthday Result",
+"note": "Your top cash win is $100, provided by Mike in person. Brett has stamped the celebration APPROVED.",
+"shareButton": "Share Result",
+"copyButton": "Copy Result",
+"restartButton": "🔄 Play Again"
+},
+"footer": "Made with care by Mike for Chris",
+"claim": {
+"template": "Any prizes or cash gifts are supplied by Mike."
+},
+"slots": {
+"marqueeStart": "🎉 Birthday Celebration",
+"marqueeTemplate": "Celebrating {recipientName}",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {spin}",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"auditor": {
+"enabled": true,
+"name": "Brett",
+"lines": [
+"Brett is inspecting the celebration paperwork.",
+"Brett is checking subsection 14B of the Celebration Manual.",
+"Brett has filed a completely unnecessary appeal.",
+"Brett has stamped the celebration APPROVED."
+]
+},
+"classic": {
+"bonusMode": "cash",
+"officialSpins": [
+{
+"spin": 1,
+"job": "welcome",
+"emoji": "🎉",
+"title": "Welcome Aboard",
+"message": "Your birthday celebration begins now. Enjoy every official spin.",
+"auditorLine": "",
+"reels": [
+"🎉",
+"🎂",
+"🎰"
+]
+},
+{
+"spin": 2,
+"job": "playful",
+"emoji": "🎮",
+"title": "Game Time",
+"message": "Mike hopes today brings plenty of smiles and some time for Dead by Daylight.",
+"auditorLine": "Brett is inspecting the celebration paperwork.",
+"reels": [
+"🎮",
+"⭐",
+"🎮"
+]
+},
+{
+"spin": 3,
+"job": "connection",
+"emoji": "💙",
+"title": "Made For You",
+"message": "Your dad Mike chose to celebrate your birthday by creating something just for you.",
+"auditorLine": "",
+"reels": [
+"💙",
+"🎁",
+"💙"
+]
+},
+{
+"spin": 4,
+"job": "pause",
+"emoji": "❤️",
+"title": "A Quiet Moment",
+"message": "Take a moment to enjoy knowing someone cared enough to create this celebration for you.",
+"auditorLine": "Brett is checking subsection 14B of the Celebration Manual.",
+"reels": [
+"❤️",
+"⭐",
+"❤️"
+]
+},
+{
+"spin": 5,
+"job": "bonusReveal",
+"emoji": "🎰",
+"title": "777 Bonus Unlocked",
+"message": "Jackpot! Three bonus spins have just been unlocked.",
+"auditorLine": "",
+"reels": [
+"🎰",
+"🎰",
+"🎰"
+]
+}
+],
+"bonusNoCash": [
+{
+"bonusSpin": 1,
+"job": "unexpectedExtra",
+"emoji": "🎁",
+"title": "Extra Smile",
+"message": "An unexpected extra has arrived to keep the birthday celebration going.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"🎁",
+"⭐",
+"🎁"
+]
+},
+{
+"bonusSpin": 2,
+"job": "escalation",
+"emoji": "🌟",
+"title": "Celebration Grows",
+"message": "The celebration continues with another reason to smile.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"🌟",
+"❤️",
+"🌟"
+]
+},
+{
+"bonusSpin": 3,
+"job": "lastingWin",
+"emoji": "🏆",
+"title": "Lasting Joy",
+"message": "The final win is a birthday moment created with care and meant to be remembered.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"🏆",
+"❤️",
+"🏆"
+]
+}
+],
+"bonusCash": [
+{
+"bonusSpin": 1,
+"job": "firstCash",
+"emoji": "💵",
+"title": "Cash Bonus",
+"message": "You won $20 from Mike. Maybe it can go toward something connected with Dead by Daylight.",
+"auditorLine": "Brett has filed a completely unnecessary appeal.",
+"cashAmount": 20,
+"reels": [
+"💵",
+"🎁",
+"💵"
+]
+},
+{
+"bonusSpin": 2,
+"job": "largerCash",
+"emoji": "💰",
+"title": "Bigger Bonus",
+"message": "Your birthday celebration just grew to a $50 cash prize from Mike.",
+"auditorLine": "",
+"cashAmount": 50,
+"reels": [
+"💰",
+"⭐",
+"💰"
+]
+},
+{
+"bonusSpin": 3,
+"job": "maximumCash",
+"emoji": "👑",
+"title": "Grand Prize",
+"message": "Jackpot! Mike is giving you the top birthday prize of $100 in person.",
+"auditorLine": "Brett has stamped the celebration APPROVED.",
+"cashAmount": 100,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+},
+"prizes": []
+}
