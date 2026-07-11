@@ -44,7 +44,7 @@
     "title": "Welcome to Ethan Birthday Slots",
     "paragraphs": [
       "Grandma Mary created this playable birthday greeting especially for Ethan.",
-      "There are 5 official spins. Spin 5 unlocks 3 bonus spins.",
+      "There are 5 official spins.",
       "Cash prizes, if shown, are provided by Grandma Mary, not Playable Greetings."
     ],
     "overrideLine": "Dad has agreed to serve as the official auditor."
@@ -59,14 +59,14 @@
   "rulesTitle": "Casino Rules",
   "rules": [
     "Every official spin is a win.",
-    "Ethan gets 5 official spins and 3 bonus spins.",
+    "Ethan gets 5 official spins.",
     "Cash appears only during the bonus round.",
     "Grandma Mary supplies any promised cash or gifts.",
     "The final result can be shared with Grandma Mary."
   ],
   "finale": {
     "title": "🎉 Official Birthday Result",
-    "note": "Ethan completed all 5 official spins and all 3 bonus spins. The top cash prize is supplied by Grandma Mary, not Playable Greetings.",
+    "note": "Ethan completed all 3 bonus spins. The top cash prize is supplied by Grandma Mary, not Playable Greetings.",
     "shareButton": "Share My Result",
     "copyButton": "Copy Result",
     "restartButton": "Play Again"
