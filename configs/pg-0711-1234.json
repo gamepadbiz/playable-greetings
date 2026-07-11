@@ -37,7 +37,7 @@
   },
   "subtitle": "A playful birthday celebration made especially for Ethan",
   "bigline": "Five official spins. Three bonus spins. Every spin is a win.",
-  "badges": ["5 Official Spins", "3 Bonus Spins", "Made for Ethan"],
+  "badges": ["5 Official Spins", "Made for Ethan"],
   "marqueeStart": "Ethan, your birthday celebration is ready.",
   "marqueeTemplate": "Spin {spin} of 5",
   "welcome": {
