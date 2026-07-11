@@ -1,0 +1,265 @@
+{
+"version": 3,
+"gameType": "universal",
+"experienceType": "classic",
+"supportedGames": [
+"slots"
+],
+"theme": "premiumVegas",
+"recipientName": "Gloria",
+"occasionText": "Birthday",
+"gameTitle": "Gloria Birthday Slots",
+"slotsTitle": "Birthday Slots",
+"fromName": "Mike",
+"relationship": "Son",
+"overridePerson": "Ralph",
+"favoriteThing": "Her little dog named Baby Girl",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": false,
+"currency": "USD",
+"maximumPrize": 0,
+"allowedValues": [],
+"paymentMethod": "",
+"paymentNote": ""
+},
+"cashMode": false,
+"minimumCashWin": 0,
+"payment": {
+"method": "",
+"note": ""
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A personalized birthday celebration.",
+"bigline": "Maybe something wonderful will happen here.",
+"badges": [
+"5 Official Spins",
+"Every Spin Wins",
+"Made Just for You"
+],
+"marqueeStart": "🎉 Birthday Celebration",
+"marqueeTemplate": "Celebrating {recipientName}",
+"welcome": {
+"title": "Welcome",
+"paragraphs": [
+"Welcome to your personalized Birthday Slots celebration.",
+"You have five official spins waiting for you.",
+"Your son Mike created this celebration especially for you."
+],
+"overrideLine": "Ralph has arrived to inspect today's celebration."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Prize",
+"note": "Every official spin is a win."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Every official spin is a win.",
+"You receive five official spins.",
+"Any gifts are supplied by Mike, not Playable Greetings.",
+"Share your final celebration with Mike."
+],
+"finale": {
+"title": "🎉 Official Birthday Result",
+"note": "Your birthday celebration is complete, and Ralph has reluctantly approved the final results. Happy Birthday!",
+"shareButton": "Share Result",
+"copyButton": "Copy Result",
+"restartButton": "🔄 Play Again"
+},
+"footer": "Made with love by Mike for Gloria",
+"claim": {
+"template": "Any gifts are supplied by Mike."
+},
+"slots": {
+"marqueeStart": "🎉 Birthday Celebration",
+"marqueeTemplate": "Celebrating {recipientName}",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Spin {spin}",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Prize",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"auditor": {
+"enabled": true,
+"name": "Ralph",
+"lines": [
+"Ralph is reviewing this win carefully.",
+"Ralph has requested additional celebration paperwork.",
+"Ralph is considering a formal objection.",
+"Ralph reluctantly approves the final result."
+]
+},
+"classic": {
+"bonusMode": "noCash",
+"officialSpins": [
+{
+"spin": 1,
+"job": "welcome",
+"emoji": "🎉",
+"title": "Welcome Aboard",
+"message": "Your birthday celebration begins now. Enjoy every official spin.",
+"auditorLine": "",
+"reels": [
+"🎉",
+"🎂",
+"🎰"
+]
+},
+{
+"spin": 2,
+"job": "playful",
+"emoji": "🐶",
+"title": "Happy Surprise",
+"message": "Mike hopes today includes extra smiles and a little time with Baby Girl.",
+"auditorLine": "Ralph is reviewing this win carefully.",
+"reels": [
+"🐶",
+"🎁",
+"🐶"
+]
+},
+{
+"spin": 3,
+"job": "connection",
+"emoji": "💙",
+"title": "Made For You",
+"message": "Your son Mike chose to celebrate your birthday by creating something just for you.",
+"auditorLine": "",
+"reels": [
+"💙",
+"🎁",
+"💙"
+]
+},
+{
+"spin": 4,
+"job": "pause",
+"emoji": "❤️",
+"title": "A Quiet Moment",
+"message": "Take a moment to enjoy knowing someone cared enough to create this celebration for you.",
+"auditorLine": "Ralph has requested additional celebration paperwork.",
+"reels": [
+"❤️",
+"⭐",
+"❤️"
+]
+},
+{
+"spin": 5,
+"job": "bonusReveal",
+"emoji": "🎰",
+"title": "777 Bonus Unlocked",
+"message": "Jackpot! Three bonus spins have just been unlocked.",
+"auditorLine": "",
+"reels": [
+"🎰",
+"🎰",
+"🎰"
+]
+}
+],
+"bonusNoCash": [
+{
+"bonusSpin": 1,
+"job": "unexpectedExtra",
+"emoji": "🐾",
+"title": "One More Smile",
+"message": "Maybe one of today's happiest moments includes spending a little time with Baby Girl.",
+"auditorLine": "Ralph is considering a formal objection.",
+"cashAmount": 0,
+"reels": [
+"🐾",
+"🎁",
+"🐾"
+]
+},
+{
+"bonusSpin": 2,
+"job": "escalation",
+"emoji": "🌟",
+"title": "Celebration Grows",
+"message": "The celebration keeps going with another reason to smile.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"🌟",
+"❤️",
+"🌟"
+]
+},
+{
+"bonusSpin": 3,
+"job": "lastingWin",
+"emoji": "🏆",
+"title": "Lasting Joy",
+"message": "The best prize is a birthday memory created with love and shared with the people who care about you.",
+"auditorLine": "Ralph reluctantly approves the final result.",
+"cashAmount": 0,
+"reels": [
+"🏆",
+"❤️",
+"🏆"
+]
+}
+],
+"bonusCash": [
+{
+"bonusSpin": 1,
+"job": "firstCash",
+"emoji": "💵",
+"title": "Cash Bonus",
+"message": "",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"💵",
+"🎁",
+"💵"
+]
+},
+{
+"bonusSpin": 2,
+"job": "largerCash",
+"emoji": "💰",
+"title": "Bigger Bonus",
+"message": "",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"💰",
+"⭐",
+"💰"
+]
+},
+{
+"bonusSpin": 3,
+"job": "maximumCash",
+"emoji": "👑",
+"title": "Grand Prize",
+"message": "",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": [
+"7️⃣",
+"7️⃣",
+"7️⃣"
+]
+}
+]
+},
+"prizes": []
+}
