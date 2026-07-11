@@ -46,7 +46,6 @@
   "bigline": "Maybe something wonderful will happen here.",
   "badges": [
     "5 Official Spins",
-    "3 Bonus Spins",
     "Made Just for You"
   ],
   "marqueeStart": "🎉 Anniversary Celebration",
@@ -55,7 +54,7 @@
     "title": "Welcome",
     "paragraphs": [
       "Welcome to your personalized Anniversary Slots celebration.",
-      "You have five official spins waiting for you, followed by three bonus spins where cash prizes from Mike may appear.",
+      "You have five official spins waiting for you.",
       "Mike created this celebration especially for you."
     ],
     "overrideLine": ""
