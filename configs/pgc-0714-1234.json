@@ -1,0 +1,219 @@
+{
+"version": 3,
+"gameType": "universal",
+"experienceType": "classic",
+"supportedGames": ["slots"],
+"theme": "premiumVegas",
+"recipientName": "Faye",
+"occasionText": "Birthday",
+"gameTitle": "Faye Birthday Slots",
+"slotsTitle": "Birthday Slots",
+"fromName": "Norma",
+"relationship": "Daughter",
+"overridePerson": "Mike",
+"favoriteThing": "baby videos on YouTube",
+"spinCount": 5,
+"ticketCount": 5,
+"cash": {
+"enabled": true,
+"currency": "USD",
+"maximumPrize": 25,
+"allowedValues": [5, 10, 25],
+"paymentMethod": "In person",
+"paymentNote": "Norma will provide any cash prizes in person."
+},
+"cashMode": true,
+"minimumCashWin": 0,
+"payment": {
+"method": "In person",
+"note": "Norma will provide any cash prizes in person."
+},
+"memoryBonus": {
+"enabled": false,
+"title": "",
+"from": "",
+"style": "",
+"message": "",
+"image": ""
+},
+"subtitle": "A warm birthday surprise created by Norma",
+"bigline": "Five spins made especially for Faye",
+"badges": [
+"Personalized for Faye",
+"Created by Norma",
+"Every Spin Wins"
+],
+"marqueeStart": "Faye, your birthday celebration is ready",
+"marqueeTemplate": "Official Spin {spin} of 5",
+"welcome": {
+"title": "Welcome, Faye",
+"paragraphs": [
+"Norma created this personalized Birthday Slots greeting especially for you.",
+"You have five official spins, and every official spin is a win.",
+"Press the button when you are ready to begin your celebration."
+],
+"overrideLine": "Mike is reviewing this celebration carefully."
+},
+"scoreboard": {
+"title": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"note": "Every official spin adds another birthday moment."
+},
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules",
+"rules": [
+"Faye receives five official spins.",
+"Every official spin is a win.",
+"Any promised cash or gifts are supplied by Norma, not Playable Greetings.",
+"The final result can be shared with Norma."
+],
+"finale": {
+"title": "🎉 Official Birthday Result",
+"note": "Faye completed every spin and unlocked a top cash win of $25. Norma will provide all prizes in person. More importantly, this whole celebration was made to give you a happy birthday moment.",
+"shareButton": "Share With Norma",
+"copyButton": "Copy Birthday Result",
+"restartButton": "Play It Again"
+},
+"footer": "Made especially for Faye by Norma",
+"claim": {
+"template": "Faye won {amount} from Norma. Norma will provide the prize in person. Playable Greetings does not supply cash or gifts."
+},
+"slots": {
+"marqueeStart": "Faye, your birthday celebration is ready",
+"marqueeTemplate": "Official Spin {spin} of 5",
+"spinButtonMain": "🎰 PRESS TO SPIN",
+"spinButtonSmallTemplate": "Official Spin {spin} of 5",
+"bonusSpinCount": 3,
+"scoreboardTitle": "Birthday Scoreboard",
+"leftLabel": "Official Spins Left",
+"rightLabel": "Best Cash Win",
+"historyTitle": "Spin History",
+"rulesTitle": "Casino Rules"
+},
+"auditor": {
+"enabled": true,
+"name": "Mike",
+"lines": [
+"Mike is reviewing this celebration carefully.",
+"Mike is checking the Celebration Manual.",
+"Mike has misplaced the objection forms.",
+"Mike has stamped this celebration APPROVED."
+]
+},
+"classic": {
+"bonusMode": "cash",
+"officialSpins": [
+{
+"spin": 1,
+"job": "welcome",
+"emoji": "🎉",
+"title": "Celebration Started",
+"message": "Faye, you opened a birthday greeting made especially for you. Your first win is the simple fact that Norma wanted this moment to feel different.",
+"auditorLine": "Mike is reviewing this celebration carefully.",
+"reels": ["🎉", "🎂", "🎉"]
+},
+{
+"spin": 2,
+"job": "playful",
+"emoji": "😊",
+"title": "Instant Smile",
+"message": "This win carries the cheerful energy of baby videos on YouTube. May it bring an unexpected grin at exactly the right moment.",
+"auditorLine": "",
+"reels": ["😊", "📱", "😊"]
+},
+{
+"spin": 3,
+"job": "connection",
+"emoji": "💌",
+"title": "Chosen For You",
+"message": "Your daughter Norma chose to celebrate you this way. Every word, spin, and surprise began with her thinking about you.",
+"auditorLine": "Mike is checking the Celebration Manual.",
+"reels": ["💌", "🎁", "💌"]
+},
+{
+"spin": 4,
+"job": "pause",
+"emoji": "❤️",
+"title": "A Moment That Matters",
+"message": "Pause here for a moment, Faye. This little game exists because Norma cared enough to make your birthday feel personal and worth remembering.",
+"auditorLine": "",
+"reels": ["❤️", "✨", "❤️"]
+},
+{
+"spin": 5,
+"job": "bonusReveal",
+"emoji": "🎰",
+"title": "777 Bonus Unlocked",
+"message": "Three bonus spins have officially appeared. Mike has searched for a technical violation and found none. The birthday celebration continues.",
+"auditorLine": "Mike has misplaced the objection forms.",
+"reels": ["🎰", "🎰", "🎰"]
+}
+],
+"bonusNoCash": [
+{
+"bonusSpin": 1,
+"job": "unexpectedExtra",
+"emoji": "🎁",
+"title": "A Little Extra",
+"message": "An extra birthday moment has arrived simply because stopping now would have been far too ordinary.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": ["🎁", "✨", "🎁"]
+},
+{
+"bonusSpin": 2,
+"job": "escalation",
+"emoji": "🌟",
+"title": "More Good News",
+"message": "The celebration keeps growing. This win is permission to enjoy being celebrated without needing any further explanation.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": ["🌟", "🎉", "🌟"]
+},
+{
+"bonusSpin": 3,
+"job": "lastingWin",
+"emoji": "❤️",
+"title": "The Lasting Win",
+"message": "The final win is knowing that Norma wanted to create a moment you might smile about, share, or remember later.",
+"auditorLine": "",
+"cashAmount": 0,
+"reels": ["❤️", "👑", "❤️"]
+}
+],
+"bonusCash": [
+{
+"bonusSpin": 1,
+"job": "firstCash",
+"emoji": "💵",
+"title": "Five Dollar Surprise",
+"message": "You won $5 from Norma, perhaps toward something connected with baby videos on YouTube or anything else that makes you smile.",
+"auditorLine": "",
+"cashAmount": 5,
+"reels": ["💵", "🎁", "💵"]
+},
+{
+"bonusSpin": 2,
+"job": "largerCash",
+"emoji": "💰",
+"title": "Ten Dollar Win",
+"message": "The celebration just grew to $10 from Norma. The money is nice, but being intentionally celebrated is the real reason this spin exists.",
+"auditorLine": "",
+"cashAmount": 10,
+"reels": ["💰", "⭐", "💰"]
+},
+{
+"bonusSpin": 3,
+"job": "maximumCash",
+"emoji": "👑",
+"title": "Twenty Five Jackpot",
+"message": "Faye, you won the maximum $25 cash prize from Norma. Mike has stamped this celebration APPROVED, and your birthday victory is now official.",
+"auditorLine": "Mike has stamped this celebration APPROVED.",
+"cashAmount": 25,
+"reels": ["7️⃣", "7️⃣", "7️⃣"]
+}
+]
+},
+"prizes": []
+}
